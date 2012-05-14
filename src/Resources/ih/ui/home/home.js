@@ -27,13 +27,13 @@
 				
 				var company_logo = Ti.UI.createView({
 					backgroundImage: 'images/company_logo.png',
-					top:30,
+					top:10,
 					width:'640px',
 					height:'142px'
 				});
 				var app_name = Ti.UI.createView({
 					backgroundImage: 'images/app_name.png',
-					top:130,
+					top:110,
 					width:'440px',
 					height:'165px'
 				});
@@ -112,19 +112,39 @@
 									legacy_gold_dialog.addEventListener('click',function(e)
 									{
 										//Ti.API.log( 'You selected ' + e.index);
-										var legacy_gold_choice ={title: ''};
-										var legacy_gold_preneed_window = Ti.UI.createWindow({
-							  								backButtonTitle: 'Home',
-																title: legacy_gold_choice.title,
-																barColor: 'black',
-																navBarHidden:false,
-											          tabBarHidden: true,
-															  backgroundImage: 'images/bg.png',
-																orientationModes: [Ti.UI.PORTRAIT],
-							                  url:"ih/ui/final_expenseii/final_expense.js"
-							              });
-														//bloglabel.backgroundImage = 'transparent';
-														tabGroup.activeTab.open(legacy_gold_preneed_window,{animated:true});
+										if (e.index == 0){
+											 var legacy_gold_choice ={title: 'LG Single'};
+											 var legacy_gold_preneed_window = Ti.UI.createWindow({
+											 						backButtonTitle: 'Home',
+											 						title: legacy_gold_choice.title,
+											 						barColor: 'black',
+											 						navBarHidden:false,
+											 	          tabBarHidden: true,
+											 					  backgroundImage: 'images/bg.png',
+											 						orientationModes: [Ti.UI.PORTRAIT],
+											             url:"ih/ui/final_expenseii/final_expense.js"
+											         });
+											 	tabGroup.activeTab.open(legacy_gold_preneed_window,{animated:true});
+											
+										}
+										
+										if (e.index == 1){
+											 var legacy_gold_choice ={title: 'LG Modal'};
+											 var legacy_gold_preneed_window = Ti.UI.createWindow({
+											 						backButtonTitle: 'Home',
+											 						title: legacy_gold_choice.title,
+											 						barColor: 'black',
+											 						navBarHidden:false,
+											 	          tabBarHidden: true,
+											 					  backgroundImage: 'images/bg.png',
+											 						orientationModes: [Ti.UI.PORTRAIT],
+											             url:"ih/ui/final_expenseii/final_expense.js"
+											         });
+											 	tabGroup.activeTab.open(legacy_gold_preneed_window,{animated:true});
+
+										}
+		
+													
 									});
 												
 								
