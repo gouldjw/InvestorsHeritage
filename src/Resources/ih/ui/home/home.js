@@ -122,7 +122,7 @@
 											 	          tabBarHidden: true,
 											 					  backgroundImage: 'images/bg.png',
 											 						orientationModes: [Ti.UI.PORTRAIT],
-											             url:"ih/ui/final_expenseii/final_expense.js"
+											             url:"ih/ui/legacy_gold/single_premium/single_premium.js"
 											         });
 											 	tabGroup.activeTab.open(legacy_gold_preneed_window,{animated:true});
 											
