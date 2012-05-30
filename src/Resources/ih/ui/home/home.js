@@ -106,7 +106,7 @@
 												          tabBarHidden: true,
 																  
 																	orientationModes: [Ti.UI.PORTRAIT],
-								                  url:"ih/ui/notes/fe_notes.js"
+								                  url:"ih/ui/final_expenseii/fe_notes.js"
 																	 // url:"ih/ui/email/email.js",
 																	 // evalhtml:true
 								              });
@@ -157,7 +157,7 @@
 																						          tabBarHidden: true,
 
 																											orientationModes: [Ti.UI.PORTRAIT],
-																		                  url:"ih/ui/notes/single_notes.js"
+																		                  url:"ih/ui/legacy_gold/single_premium/single_notes.js"
 																											 // url:"ih/ui/email/email.js",
 																											 // evalhtml:true
 																		              });

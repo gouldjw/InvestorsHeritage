@@ -36,9 +36,8 @@ function getField(id) {
 */
 function createStandardRow(id, name, type_field, value) {
     type_field = type_field || TEXT_FIELD; // by default
-    var row = Ti.UI.createTableViewRow();
-    //row.selectedBackgroundColor = '#385292';
-    row.height = 48;
+    var row =  Ti.UI.createTableViewRow({hasChild:false,selectionStyle:Ti.UI.iPhone.TableViewCellSelectionStyle.NONE});
+		row.height = 48;
     var label_id = Titanium.UI.createLabel({ //store in order to get it later
         text:id,
         visible:false,
@@ -49,11 +48,11 @@ function createStandardRow(id, name, type_field, value) {
     
     var label = Titanium.UI.createLabel({
         text:name,
-        textAlign:'center',
+        textAlign:'left',
         font:{fontSize:16,fontWeight:'bold'},
-        left:2,
+        left:20,
         color:'black',
-        width:'100',
+        width:'200',
         height:'auto'
     });
     row.add(label);
@@ -63,12 +62,12 @@ function createStandardRow(id, name, type_field, value) {
 		    field = Titanium.UI.createTextField({
 		        color: '#000',
 		        height: 48,
-		        left: 120,
+		        left: 150,
 		        font: {
 		            fontSize: 16,
 		            fontWeight: 'bold'
 		        },
-		        width: 130,
+		        width: 150,
 		        value: value,
 		        id: id,
 		        keyboardType: Titanium.UI.KEYBOARD_DEFAULT,
@@ -162,7 +161,7 @@ function createStandardRow(id, name, type_field, value) {
    
     tableview = Titanium.UI.createTableView({
                     top:0, left:0, bottom:0, right:0,backgroundImage:'../../images/bg.png',
-										
+								
                 style: Titanium.UI.iPhone.TableViewStyle.GROUPED});                                      
 
     var row = createStandardRow('name', 'Name', TEXT_FIELD, "");
@@ -176,7 +175,7 @@ function createStandardRow(id, name, type_field, value) {
    // fieldNonValidated.push(row.children[2]);
     data.push(row);
 
-		 row = createStandardRow('sex', 'Sex', PICKER_FIELD, "wat");
+		 row = createStandardRow('sex', 'Sex', PICKER_FIELD, "");
 	   // row.children[2].borderColor = 'red';
 	   // fieldNonValidated.push(row.children[2]);
 	    data.push(row);
@@ -216,21 +215,21 @@ function createStandardRow(id, name, type_field, value) {
     });
 		
 		calculate.addEventListener('click',function(e) {
-			
-			var calculation ='this tfa is not doing the calculations, but it will soon on the next one';
-			alert(calculation);
-		});
-			
-			tableview.addEventListener('click',function(e) {
-				alert(e);
-			});
-			
-	  tableview.addEventListener('click',function(e) {
-	 
-	  });
+	 // 	var db = Ti.Database.open('ih.sqlite');
+	 // var calculation =	db.execute('SELECT * FROM ihcalc ;');
+	 // 	
+	 // 	
+	 // 	while (calculation.isValidRow())
+	 // 	{
+	 // 		Titanium.API.info('ID: ' + calculation.field(0) + ' NAME: ' + calculation.fieldByName('name'));
+	 // 		calculation.next();
+	 // 	}
+	 // });
+	 // 	 
 	  //Ti.UI.currentWindow.add(calculate);
 	  
-	
+		alert('This build will be updated again today by 6pm cst. If that build is not the complete one then the one there ');
+	});
     row = Ti.UI.createTableViewRow();
     row.add(calculate);
     data.push(row);
