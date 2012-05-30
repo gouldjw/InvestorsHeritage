@@ -186,21 +186,26 @@ function createStandardRow(id, name, type_field, value) {
    // row.add(choose_photo);
    // data.push(row);
     
-    var btn_send = Titanium.UI.createButton({
-        backgroundImage:'../../images/app_name.png',
-				title: '',
-        width:100,
-        height:30
-    });
-    btn_send.addEventListener('click',function(e) {
-           
-    });
+  	var calculate = Ti.UI.createButton({ 
+			//title: "Legacy Gold Preneed Rate Calculator",
+			width:280,
+			height:52,
+			backgroundImage: '/images/calculate.png',
+			//backgroundLeftCap: 10,
+   });
+		
+		calculate.addEventListener('click',function(e) {
+			
+			var calculation ='this tfa is not doing the calculations, but it will soon on the next one';
+			alert(calculation);
+		});
 
-    
-    row = Ti.UI.createTableViewRow();
-   // row.add(btn_close);
-    row.add(btn_send);
-    data.push(row);
+		//Ti.UI.currentWindow.add(calculate);
+		
+	
+   row = Ti.UI.createTableViewRow();
+   row.add(calculate);
+   data.push(row);
     tableview.setData(data);
     Ti.UI.currentWindow.add(tableview);
 

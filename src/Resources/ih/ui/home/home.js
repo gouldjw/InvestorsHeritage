@@ -107,6 +107,8 @@
 																  
 																	orientationModes: [Ti.UI.PORTRAIT],
 								                  url:"ih/ui/notes/fe_notes.js"
+																	 // url:"ih/ui/email/email.js",
+																	 // evalhtml:true
 								              });
 
 															tabGroup.activeTab.open(infoWindow,{animated:true});
@@ -146,6 +148,22 @@
 															});
 
 															legacy_gold_preneed_single_premium_window.setRightNavButton(infoButton);
+																			infoButton.addEventListener('click',function(e) {
+																					var infoWindow = Ti.UI.createWindow({
+																		  								backButtonTitle: 'back',
+																											title: 'Notes',
+																											barColor: 'black',
+																											navBarHidden:false,
+																						          tabBarHidden: true,
+
+																											orientationModes: [Ti.UI.PORTRAIT],
+																		                  url:"ih/ui/notes/single_notes.js"
+																											 // url:"ih/ui/email/email.js",
+																											 // evalhtml:true
+																		              });
+
+																									tabGroup.activeTab.open(infoWindow,{animated:true});
+																			});
 											 	tabGroup.activeTab.open(legacy_gold_preneed_single_premium_window,{animated:true});
 											
 										}
@@ -167,6 +185,22 @@
 																});
 
 																legacy_gold_preneed_modal_premium_window.setRightNavButton(infoButton);
+																				infoButton.addEventListener('click',function(e) {
+																						var infoWindow = Ti.UI.createWindow({
+																			  								backButtonTitle: 'back',
+																												title: 'Notes',
+																												barColor: 'black',
+																												navBarHidden:false,
+																							          tabBarHidden: true,
+
+																												orientationModes: [Ti.UI.PORTRAIT],
+																			                  url:"ih/ui/notes/modal_notes.js"
+																												 // url:"ih/ui/email/email.js",
+																												 // evalhtml:true
+																			              });
+
+																										tabGroup.activeTab.open(infoWindow,{animated:true});
+																				});
 											 	tabGroup.activeTab.open(legacy_gold_preneed_modal_premium_window,{animated:true});
 
 										}

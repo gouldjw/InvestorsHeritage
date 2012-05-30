@@ -173,9 +173,9 @@ function createStandardRow(id, name, type_field, value) {
 
    
     tableview = Titanium.UI.createTableView({
-                    top:0, left:0, bottom:0, right:0,backgroundImage:'../../images/bg.png',
-										
-                style: Titanium.UI.iPhone.TableViewStyle.GROUPED});                                      
+									
+                top:0, left:0, bottom:0, right:0,backgroundImage:'../../images/bg.png',
+								style: Titanium.UI.iPhone.TableViewStyle.GROUPED});                                      
 
     var row = createStandardRow('name', 'Name', TEXT_FIELD, "");
     //row.header="";
@@ -204,32 +204,32 @@ function createStandardRow(id, name, type_field, value) {
 	    data.push(row);
 
     
-    row = Ti.UI.createTableViewRow({height:210});
-
-   // row.add(imageView); 
-   // row.add(choose_photo);
-   // data.push(row);
+    row = Ti.UI.createTableViewRow({height:210}); 
     
-    var calculate = Titanium.UI.createButton({
-        	width:280,
-					height:62,
-					backgroundImage: '../images/calculate.png',
-					//backgroundLeftCap: 10,
-					
+   	var calculate = Ti.UI.createButton({ 
+			//title: "Legacy Gold Preneed Rate Calculator",
+			width:280,
+			height:52,
+			backgroundImage: '/images/calculate.png',
+			//backgroundLeftCap: 10,
     });
-    calculate.addEventListener('click',function(e) {
-           
-    });
+		
+		calculate.addEventListener('click',function(e) {
+			
+			var calculation ='this tfa is not doing the calculations, but it will soon on the next one';
+			alert(calculation);
+		});
 
-    Ti.UI.currentWindow.add(calculate);
-    
+		//Ti.UI.currentWindow.add(calculate);
+		
+	
     row = Ti.UI.createTableViewRow();
-   // row.add(btn_close);
-    Ti.UI.currentWindow.add(calculate);
+    row.add(calculate);
     data.push(row);
     tableview.setData(data);
     Ti.UI.currentWindow.add(tableview);
-
+		//Ti.UI.currentWindow.add(calculate);
+    
 
 /* SAVE
 * It saves the form.
