@@ -91,7 +91,27 @@
 											orientationModes: [Ti.UI.PORTRAIT],
 		                  url:"ih/ui/final_expenseii/final_expense.js"
 		              });
-					
+									var infoButton = Ti.UI.createButton({
+														    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT
+									});
+
+									finalExpenseWindow.setRightNavButton(infoButton);
+
+									infoButton.addEventListener('click',function(e) {
+											var infoWindow = Ti.UI.createWindow({
+								  								backButtonTitle: 'back',
+																	title: 'Notes',
+																	barColor: 'black',
+																	navBarHidden:false,
+												          tabBarHidden: true,
+																  
+																	orientationModes: [Ti.UI.PORTRAIT],
+								                  url:"ih/ui/notes/fe_notes.js"
+								              });
+
+															tabGroup.activeTab.open(infoWindow,{animated:true});
+									});
+								 
  									tabGroup.activeTab.open(finalExpenseWindow,{animated:true});		
 						});
 						

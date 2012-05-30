@@ -33,27 +33,6 @@
 
 //Ti.include('main_windows/database.js'); 
 
- var infoButton = Ti.UI.createButton({
-						    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT
-	});
-
-	Ti.UI.currentWindow.setRightNavButton(infoButton);
-	
-	infoButton.addEventListener('click',function(e) {
-			var infoWindow = Ti.UI.createWindow({
-  								backButtonTitle: 'back',
-									height:400,
-									title: 'Notes',
-									barColor: 'black',
-									navBarHidden:false,
-				          tabBarHidden: true,
-								  backgroundColor: 'white',
-									orientationModes: [Ti.UI.PORTRAIT],
-                  url:"../notes/notes.js"
-              });
-			
-							infoWindow.open({animated:true});
-	});
 
 
 var data = [];
