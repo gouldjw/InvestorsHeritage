@@ -7,7 +7,7 @@ Ti.UI.currentWindow.add(funkytown);
 
 // this will take one of three arguments for its out put
 
-	//Final Expense II Plan Description:
+	//Final Expense II Plan Description
 //<pre>
 //	Final Expense II Plan Description:
 //	Issue Ages: 0-80
