@@ -71,8 +71,8 @@ function createStandardRow(id, name, type_field, value) {
         textAlign:'center',
         font:{fontSize:16,fontWeight:'bold'},
         left:2,
-        color:'#336699',
-        width:'100',
+				color:'black',       
+				width:'100',
         height:'auto'
     });
     row.add(label);
@@ -210,19 +210,22 @@ function createStandardRow(id, name, type_field, value) {
    // row.add(choose_photo);
    // data.push(row);
     
-    var btn_send = Titanium.UI.createButton({
-        title:'Calculate',
-        width:100,
-        height:30
+    var calculate = Titanium.UI.createButton({
+        	width:280,
+					height:62,
+					backgroundImage: '../images/calculate.png',
+					//backgroundLeftCap: 10,
+					
     });
-    btn_send.addEventListener('click',function(e) {
+    calculate.addEventListener('click',function(e) {
            
     });
 
+    Ti.UI.currentWindow.add(calculate);
     
     row = Ti.UI.createTableViewRow();
    // row.add(btn_close);
-    row.add(btn_send);
+    Ti.UI.currentWindow.add(calculate);
     data.push(row);
     tableview.setData(data);
     Ti.UI.currentWindow.add(tableview);

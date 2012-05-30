@@ -52,7 +52,7 @@ function createStandardRow(id, name, type_field, value) {
         textAlign:'center',
         font:{fontSize:16,fontWeight:'bold'},
         left:2,
-        color:'#336699',
+        color:'black',
         width:'100',
         height:'auto'
     });
@@ -187,7 +187,8 @@ function createStandardRow(id, name, type_field, value) {
    // data.push(row);
     
     var btn_send = Titanium.UI.createButton({
-        title:'Calculate',
+        backgroundImage:'../../images/app_name.png',
+				title: '',
         width:100,
         height:30
     });

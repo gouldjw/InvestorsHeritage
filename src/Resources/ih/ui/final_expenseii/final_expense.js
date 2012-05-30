@@ -33,6 +33,27 @@
 
 //Ti.include('main_windows/database.js'); 
 
+ var infoButton = Ti.UI.createButton({
+						    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT
+	});
+
+	Ti.UI.currentWindow.setRightNavButton(infoButton);
+	
+	infoButton.addEventListener('click',function(e) {
+			var infoWindow = Ti.UI.createWindow({
+  								backButtonTitle: 'back',
+									height:400,
+									title: 'Notes',
+									barColor: 'black',
+									navBarHidden:false,
+				          tabBarHidden: true,
+								  backgroundColor: 'white',
+									orientationModes: [Ti.UI.PORTRAIT],
+                  url:"../notes/notes.js"
+              });
+			
+							infoWindow.open({animated:true});
+	});
 
 
 var data = [];
@@ -84,7 +105,7 @@ function createStandardRow(id, name, type_field, value) {
         textAlign:'center',
         font:{fontSize:16,fontWeight:'bold'},
         left:2,
-        color:'#336699',
+        color:'black',
         width:'100',
         height:'auto'
     });
@@ -226,25 +247,30 @@ function createStandardRow(id, name, type_field, value) {
 	   // fieldNonValidated.push(row.children[2]);
 	    data.push(row);
     
-    row = Ti.UI.createTableViewRow({height:210});
+    row = Ti.UI.createTableViewRow({height:50});
 
    // row.add(imageView); 
    // row.add(choose_photo);
    // data.push(row);
     
-    var btn_send = Titanium.UI.createButton({
-        title:'Calculate',
-        width:100,
-        height:30
-    });
-    btn_send.addEventListener('click',function(e) {
-           
-    });
+		var calculate = Titanium.UI.createButton({
+		    			width:280,
+							height:45,
+							bottom:33,
+						backgroundImage: '../../images/calculate.png'
+
+		});
+		calculate.addEventListener('click',function(e) {
+
+		});
+
+		Ti.UI.currentWindow.add(calculate);
+		
 
     
     row = Ti.UI.createTableViewRow();
-   // row.add(btn_close);
-    row.add(btn_send);
+  // row.add(calculate);
+  
     data.push(row);
     tableview.setData(data);
     Ti.UI.currentWindow.add(tableview);

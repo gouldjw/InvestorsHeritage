@@ -91,11 +91,7 @@
 											orientationModes: [Ti.UI.PORTRAIT],
 		                  url:"ih/ui/final_expenseii/final_expense.js"
 		              });
-					 var infoButton = Ti.UI.createButton({
-											    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT
-						});
-
-							finalExpenseWindow.setRightNavButton(infoButton);
+					
  									tabGroup.activeTab.open(finalExpenseWindow,{animated:true});		
 						});
 						
