@@ -1,35 +1,3 @@
-//        //   var a = Titanium.UI.createAlertDialog({
-//        //   	title:'Issue Age Not Available',
-//        //   	message:'This policy is only avaliable to customers between the age of \n 0 - 80. \n\r If you entered the wrong age by accident, please tap the Cancel button and reenter the correct age. \n\r If your customer is older than 80, please tap the LGSP button to go to the correct policy.',
-//        //   	buttonNames: ["Cancel", "LGSP"],
-//        //   	
-//        //   });
-//        //   
-//        //   a.show();
-//        
-// var data = [
-// 	{title: 'Name:', hasChild:false, color:'black'},
-// 	{title: 'Issue Age:', hasChild:false, color:'black'},
-// 	{title: 'Sex:', hasChild:false, color:'black'},
-// 	{title: 'Plan:', hasChild:false, color:'black'},
-// 	{title: 'Tobacco Status:', hasChild:false, color:'black'},
-// 	{title: 'Premium Period:', hasChild:false, color:'black'},
-// 	{title: 'Face Amount:', hasChild:false, color:'black'},
-// 	
-// 
-// ];
-//        
-//        // create table view
-
-
-		 // 	var calculate_btn = Ti.UI.createButton({ 
-		 // 		title: "Calculate",
-		 // 		width:280,
-		 // 		height:45,
-		 // 		bottom:33
-		 // 		});
-//        
-
 
 //Ti.include('main_windows/database.js'); 
 
@@ -108,7 +76,14 @@ function createStandardRow(id, name, type_field, value) {
 		        borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
 		    });
 
-		    //field.addEventListener('blur', checkFocus);
+		    field.addEventListener('blur', function(e){
+					if (e.source == '[object issue_age]'){
+						if( e.value > 81){
+							Ti.include('too_old_check.js');
+							}
+						}
+					
+		});
 		    break;
 		case NUMBER_FIELD:
 		    field = Titanium.UI.createTextField({
@@ -126,7 +101,7 @@ function createStandardRow(id, name, type_field, value) {
 		        returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
 		        borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
 		    });
-		    //field.addEventListener('blur', checkFocus);
+		    field.addEventListener('blur', checkFocus);
 		    break;
 		case PICKER_FIELD:
 		    field = Titanium.UI.createTextField({
@@ -201,7 +176,7 @@ function createStandardRow(id, name, type_field, value) {
    // fieldNonValidated.push(row.children[2]);
     data.push(row);
 
-		 row = createStandardRow('sex', 'Sex', PICKER_FIELD, "");
+		 row = createStandardRow('sex', 'Sex', PICKER_FIELD, "wat");
 	   // row.children[2].borderColor = 'red';
 	   // fieldNonValidated.push(row.children[2]);
 	    data.push(row);
@@ -245,9 +220,16 @@ function createStandardRow(id, name, type_field, value) {
 			var calculation ='this tfa is not doing the calculations, but it will soon on the next one';
 			alert(calculation);
 		});
-
-		//Ti.UI.currentWindow.add(calculate);
-		
+			
+			tableview.addEventListener('click',function(e) {
+				alert(e);
+			});
+			
+	  tableview.addEventListener('click',function(e) {
+	 
+	  });
+	  //Ti.UI.currentWindow.add(calculate);
+	  
 	
     row = Ti.UI.createTableViewRow();
     row.add(calculate);
