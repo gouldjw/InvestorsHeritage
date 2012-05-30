@@ -38,28 +38,25 @@
 					height:'165px'
 				});
 				
-				var final_expense_btn = Ti.UI.createButton({ 
-					title: "Final Expense II Premium Calculator",
-					width:'280px',
-					bottom:130,
-					backgroundImage: 'images/btncap.png',
-					backgroundLeftCap: 8
+				var final_expense_btn = Ti.UI.createButton({
+					title:'', 
+				//	title: 'Final Expense II\n Premium Calculator',
+					bottom:117,
+					width:280,
+					height:62,
+					backgroundImage: 'images/final_expense_ii_btn.png',
+					//backgroundLeftCap: 10
 					});
 					
 					
-			 //	Ti.UI.createButton({
-			 //	    height : 84,
-			 //	    width : 200,
-			 //	    bottom : 10,
-			 //	    backgroundImage : 'WKButton84.png',
-			 //	    backgroundLeftCap : 10
-			 //	})
-			 //	
+		
 				var legacy_gold_btn = Ti.UI.createButton({ 
-					title: "Legacy Gold Preneed Rate Calculator",
+					//title: "Legacy Gold Preneed Rate Calculator",
 					width:280,
-					height:55,
-					bottom:53
+					height:62,
+					backgroundImage: 'images/legacy_gold_preneed_btn.png',
+					//backgroundLeftCap: 10,
+					bottom:40
 					});
 
 				//createHeader();
@@ -94,8 +91,12 @@
 											orientationModes: [Ti.UI.PORTRAIT],
 		                  url:"ih/ui/final_expenseii/final_expense.js"
 		              });
-									//bloglabel.backgroundImage = 'transparent';
-									tabGroup.activeTab.open(finalExpenseWindow,{animated:true});		
+					 var infoButton = Ti.UI.createButton({
+											    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT
+						});
+
+							finalExpenseWindow.setRightNavButton(infoButton);
+ 									tabGroup.activeTab.open(finalExpenseWindow,{animated:true});		
 						});
 						
 						
@@ -114,7 +115,7 @@
 										//Ti.API.log( 'You selected ' + e.index);
 										if (e.index == 0){
 											 var legacy_gold_choice ={title: 'LG Single'};
-											 var legacy_gold_preneed_window = Ti.UI.createWindow({
+											 var legacy_gold_preneed_single_premium_window = Ti.UI.createWindow({
 											 						backButtonTitle: 'Home',
 											 						title: legacy_gold_choice.title,
 											 						barColor: 'black',
@@ -124,13 +125,18 @@
 											 						orientationModes: [Ti.UI.PORTRAIT],
 											             url:"ih/ui/legacy_gold/single_premium/single_premium.js"
 											         });
-											 	tabGroup.activeTab.open(legacy_gold_preneed_window,{animated:true});
+															var infoButton = Ti.UI.createButton({
+															    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT
+															});
+
+															legacy_gold_preneed_single_premium_window.setRightNavButton(infoButton);
+											 	tabGroup.activeTab.open(legacy_gold_preneed_single_premium_window,{animated:true});
 											
 										}
 										
 										if (e.index == 1){
 											 var legacy_gold_choice ={title: 'LG Modal'};
-											 var legacy_gold_preneed_window = Ti.UI.createWindow({
+											 var legacy_gold_preneed_modal_premium_window = Ti.UI.createWindow({
 											 						backButtonTitle: 'Home',
 											 						title: legacy_gold_choice.title,
 											 						barColor: 'black',
@@ -138,9 +144,14 @@
 											 	          tabBarHidden: true,
 											 					  backgroundImage: 'images/bg.png',
 											 						orientationModes: [Ti.UI.PORTRAIT],
-											             url:"ih/ui/final_expenseii/final_expense.js"
+											             url:"ih/ui/legacy_gold/modal_premium/modal_premium.js"
 											         });
-											 	tabGroup.activeTab.open(legacy_gold_preneed_window,{animated:true});
+																var infoButton = Ti.UI.createButton({
+																    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT
+																});
+
+																legacy_gold_preneed_modal_premium_window.setRightNavButton(infoButton);
+											 	tabGroup.activeTab.open(legacy_gold_preneed_modal_premium_window,{animated:true});
 
 										}
 		

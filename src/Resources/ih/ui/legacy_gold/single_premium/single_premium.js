@@ -7,117 +7,229 @@
 //        //   
 //        //   a.show();
 //        
- var data = [
- 	{title: 'Name:', hasChild:false, color:'black'},
- 	{title: 'Issue Age:', hasChild:false, color:'black'},
- 	{title: 'Funeral Amount:', hasChild:false, color:'black'},
- 	{title: 'Premium Amount:', hasChild:false, color:'black'},
- 	{title: 'Signed By Insured:', hasChild:false, color:'black'}
- 	
+// var data = [
+// 	{title: 'Name:', hasChild:false, color:'black'},
+// 	{title: 'Issue Age:', hasChild:false, color:'black'},
+// 	{title: 'Funeral Amount:', hasChild:false, color:'black'},
+// 	{title: 'Premium Amount:', hasChild:false, color:'black'},
+// 	{title: 'Signed By Insured:', hasChild:false, color:'black'}
+// 	
+// 
+// ];
+
+
+//Ti.include('main_windows/database.js'); 
+
+
+
+var data = [];
+/*
+* TYPES of field in the form
+*/    
+
+var TEXT_FIELD = 1;
+var LABEL_FIELD = 2;
+var TEXTAREA_FIELD = 3;
+var NUMBER_FIELD = 4;
+var PICKER_FIELD = 5;
+var tableview;
  
- ];
-//        
-//        // create table view
-   var tableview = Titanium.UI.createTableView({
-   	style: Titanium.UI.iPhone.TableViewStyle.GROUPED,
-		backgroundImage:'../../images/bg.png',
-   	data:data
-   });
+/* Fields, check validations.....
+* It gets the field where the value is from the id. 
+*/
+function getField(id) {
+    for (i = 0; i < data.length; i++) {
+        if (data[i].children[0].text == id) {
+            return data[i].children[2];
+        }
+    }
+}      
+ 
+/* Creates the fields of the row//{{{
+* IT creates a row as follows:
+*  label ----- textfield/label
+* 
+* name : Text of the label
+* type_filed : if the element in the second column it's a label or a textfield
+* value: for the element in the second column
+*/
+function createStandardRow(id, name, type_field, value) {
+    type_field = type_field || TEXT_FIELD; // by default
+    var row = Ti.UI.createTableViewRow();
+    //row.selectedBackgroundColor = '#385292';
+    row.height = 48;
+    var label_id = Titanium.UI.createLabel({ //store in order to get it later
+        text:id,
+        visible:false,
+        width:'1',
+        height:'1'
+    });
+    row.add(label_id);
+    
+    var label = Titanium.UI.createLabel({
+        text:name,
+        textAlign:'center',
+        font:{fontSize:16,fontWeight:'bold'},
+        left:2,
+        color:'#336699',
+        width:'100',
+        height:'auto'
+    });
+    row.add(label);
+    var field;	
+	switch (type_field) {
+		case TEXT_FIELD:
+		    field = Titanium.UI.createTextField({
+		        color: '#000',
+		        height: 48,
+		        left: 120,
+		        font: {
+		            fontSize: 16,
+		            fontWeight: 'bold'
+		        },
+		        width: 130,
+		        value: value,
+		        id: id,
+		        keyboardType: Titanium.UI.KEYBOARD_DEFAULT,
+		        returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
+		        borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
+		    });
+
+		    //field.addEventListener('blur', checkFocus);
+		    break;
+		case NUMBER_FIELD:
+		    field = Titanium.UI.createTextField({
+		        color: '#000',
+		        height: 48,
+		        left: 120,
+		        font: {
+		            fontSize: 16,
+		            fontWeight: 'bold'
+		        },
+		        width: 130,
+		        value: value,
+		        id: id,
+		        keyboardType: Titanium.UI.KEYBOARD_NUMBER_PAD,
+		        returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
+		        borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
+		    });
+		    //field.addEventListener('blur', checkFocus);
+		    break;
+		case PICKER_FIELD:
+		    field = Titanium.UI.createTextField({
+		        color: '#000',
+		        height: 48,
+		        left: 120,
+		        font: {
+		            fontSize: 16,
+		            fontWeight: 'bold'
+		        },
+		        width: 130,
+		        value: value,
+		        id: id,
+		        keyboardType: PICKER_TYPE_PLAIN,
+		        returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
+		        borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
+		    });
 
 
-				var calculate_btn = Ti.UI.createButton({ 
-					title: "Calculate",
-					width:280,
-					height:45,
-					bottom:33
-					});
-//        
-//        function showClickEventInfo(e, islongclick) {
-//        	// event data
-//        	var index = e.index;
-//        	var section = e.section;
-//        	var row = e.row;
-//        	var rowdata = e.rowData;
-//        	Ti.API.info('detail ' + e.detail);
-//        	var msg = 'row ' + row + ' index ' + index + ' section ' + section  + ' row data ' + rowdata;
-//        	if (islongclick) {
-//        		msg = "LONGCLICK " + msg;
-//        	}
-//        //	Titanium.UI.createAlertDialog({title:'Table View',message:msg}).show();
-//        }
-//        
-//        // create table view event listener
-//        tableview.addEventListener('click', function(e)
-//        {
-//        	showClickEventInfo(e);
-//        });
-//        tableview.addEventListener('longclick', function(e)
-//        {
-//        	showClickEventInfo(e, true);
-//        });
-//        
-//        // add table view to the window
-       Titanium.UI.currentWindow.add(tableview);
-			Titanium.UI.currentWindow.add(calculate_btn);
-//        
 
-//     
-  //   var win = Ti.UI.currentWindow;
-//     
-//     function addRow(addTextArea)
-//     {
-//     	var row = Ti.UI.createTableViewRow({height:50});
-//     	var tf1 = null;
-//     	if (addTextArea)
-//     	{
-//     		tf1 = Titanium.UI.createTextArea({
-//     			color:'#336699',
-//     			width:250
-//     		});
-//     
-//     	}
-//     	else
-//     	{
-//     		tf1 = Titanium.UI.createTextField({
-//     			color:'#336699',
-//     			height:35,
-//     			top:10,
-//     			left:10,
-//     			width:250,
-//     			hintText:'hint',
-//     			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_NONE
-//     		});
-//     
-//     	}
-//     	row.add(tf1);
-//     	row.selectionStyle = Ti.UI.iPhone.TableViewCellSelectionStyle.NONE;
-//     	row.className = 'control';
-//     	return row;
-//     }
-//     
-//     // create table view data object
-//     var data = [];
-//     
-//     for (var x=0;x<10;x++)
-//     {
-//     	if (x==9){
-//     		data[x] = addRow(true);
-//     	} else {
-//     		data[x] = addRow();
-//     	}
-//     
-//     }
-//     
-//     var tableView = Ti.UI.createTableView({
-//     	data:data,
-//     	style: Titanium.UI.iPhone.TableViewStyle.GROUPED
-//     });
-//     win.addEventListener('focus', function()
-//     {
-//     	Ti.API.info('window focus fired');
-//     });
-//     win.add(tableView);
+		    //field.addEventListener('blur', checkFocus);
+		    break;
+		case TEXTAREA_FIELD:
+		    field = Titanium.UI.createTextArea({
+		        color: '#000',
+		        height: 145,
+		        left: 110,
+		        width: 150,
+		        value: value,
+		        id: id,
+		        font: {
+		            fontSize: 16,
+		            fontWeight: 'bold'
+		        },
+		        textAlign: 'left',
+		        appearance: Titanium.UI.KEYBOARD_DEFAULT,
+		        keyboardType: Titanium.UI.KEYBOARD_DEFAULT,
+		        returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
+		        borderWidth: 2,
+		        borderColor: '#bbb',
+		        borderRadius: 5,
+		        suppressReturn: false
+		    });
+		    row.height = 155;
+		    //field.addEventListener('blur', checkFocus);
+		    break;
+               
+    };    
+    row.add(field);
+    return row;
+}
+//}}}
+/*
+* <!-- Creating rows -->
+*/
 
 
+   
+    tableview = Titanium.UI.createTableView({
+                    top:0, left:0, bottom:0, right:0,backgroundImage:'../../images/bg.png',
+										
+                style: Titanium.UI.iPhone.TableViewStyle.GROUPED});                                      
+
+    var row = createStandardRow('name', 'Name', TEXT_FIELD, "");
+    //row.header="";
+    //row.children[2].borderColor = 'red';
+   // fieldNonValidated.push(row.children[2]);
+    data.push(row);
+
+    row = createStandardRow('issue_age', 'Issue Age', TEXT_FIELD, "");
+   // row.children[2].borderColor = 'red';
+   // fieldNonValidated.push(row.children[2]);
+    data.push(row);
+
+		 row = createStandardRow('funeral_amount', 'Funeral Amount', NUMBER_FIELD, "");
+	   // row.children[2].borderColor = 'red';
+	   // fieldNonValidated.push(row.children[2]);
+	    data.push(row);
+			
+			row = createStandardRow('premium_amount', 'Premium Amount', TEXT_FIELD, "");
+	   // row.children[2].borderColor = 'red';
+	   // fieldNonValidated.push(row.children[2]);
+	    data.push(row);
+			
+			row = createStandardRow('signed_by_insured', 'Signed By Insured', TEXT_FIELD, "");
+	   // row.children[2].borderColor = 'red';
+	   // fieldNonValidated.push(row.children[2]);
+	    data.push(row);
+
+    
+    row = Ti.UI.createTableViewRow({height:210});
+
+   // row.add(imageView); 
+   // row.add(choose_photo);
+   // data.push(row);
+    
+    var btn_send = Titanium.UI.createButton({
+        title:'Calculate',
+        width:100,
+        height:30
+    });
+    btn_send.addEventListener('click',function(e) {
+           
+    });
+
+    
+    row = Ti.UI.createTableViewRow();
+   // row.add(btn_close);
+    row.add(btn_send);
+    data.push(row);
+    tableview.setData(data);
+    Ti.UI.currentWindow.add(tableview);
+
+
+/* SAVE
+* It saves the form.
+*/   
 
 
