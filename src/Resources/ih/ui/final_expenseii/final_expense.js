@@ -1,5 +1,5 @@
 //Ti.include('main_windows/database.js');
-
+var win = Titanium.UI.currentWindow;
 
 var data = [];
 /*
@@ -39,7 +39,7 @@ function createStandardRow(id, name, type_field, value) {
         hasChild: false,
         selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
     });
-    row.height = 48;
+    row.height = 40;
     var label_id = Titanium.UI.createLabel({
         //store in order to get it later
         text: id,
@@ -56,10 +56,10 @@ function createStandardRow(id, name, type_field, value) {
             fontSize: 16,
             fontWeight: 'bold'
         },
-        left: 20,
+        left: 10,
         color: 'black',
         width: '200',
-        height: 'auto'
+        height: 40
     });
     row.add(label);
     var field;
@@ -67,7 +67,7 @@ function createStandardRow(id, name, type_field, value) {
     case TEXT_FIELD:
         field = Titanium.UI.createTextField({
             color: '#000',
-            height: 48,
+            height: 40,
             left: 150,
             font: {
                 fontSize: 16,
@@ -214,7 +214,7 @@ function createStandardRow(id, name, type_field, value) {
 tableview = Titanium.UI.createTableView({
     top: 0,
     left: 0,
-    bottom: 0,
+    bottom: 100,
     right: 0,
     backgroundImage: '../../images/bg.png',
 
@@ -268,6 +268,7 @@ var calculate = Ti.UI.createButton({
     //title: "Legacy Gold Preneed Rate Calculator",
     width: 280,
     height: 52,
+		bottom: 30,
     backgroundImage: '/images/calculate.png',
     //backgroundLeftCap: 10,
 });
@@ -286,12 +287,23 @@ function(e) {
         orientationModes: [Ti.UI.PORTRAIT],
         url: "rates.js"
     });
+		var holder = Ti.UI.createView({
+		    width:67,
+		    height:'40px'
+		});
+		
+			var emailButton = Ti.UI.createButton({image:'/images/email_icon.png',left:0,width:'58px', height:'40px'});
+	    var infoButton = Ti.UI.createButton({image:'/images/info_icon.png',left:44,width:'40px', height:'40px'});
+	
+		holder.add(emailButton);
 
-    var infoButton = Ti.UI.createButton({
-        systemButton: Titanium.UI.iPhone.SystemButton.INFO_LIGHT
-    });
+		
+		holder.add(infoButton);
 
-    rates.setRightNavButton(infoButton);
+		rates.rightNavButton = holder;
+		
+	
+	
     infoButton.addEventListener('click',
     function(e) {
         var infoWindow = Ti.UI.createWindow({
@@ -312,16 +324,41 @@ function(e) {
         });
     });
 
-    var win = Titanium.UI.currentWindow;
+    emailButton.addEventListener('click',
+    function(e) {
+        var emailWindow = Ti.UI.createWindow({
+            backButtonTitle: 'Back',
+            title: 'Email',
+            barColor: 'black',
+            navBarHidden: false,
+            tabBarHidden: true,
+
+            orientationModes: [Ti.UI.PORTRAIT],
+            //l: "fe_notes.js"
+             url:"../email/email.js",
+             evalhtml:true
+        });
+				
+			//	send_email = Ti.UI.createButton({
+			//		title:'Send'
+			//	});
+			//	
+			//	emailWindow.rightNavButton = send_email;
+			//	
+        tabGroup.activeTab.open(emailWindow, {
+            animated: true
+        });
+    });
+    
     // get tab group object
     var tabGroup = win.tabGroup;
     tabGroup.activeTab.open(rates, {
         animated: true
     });
 });
-row = Ti.UI.createTableViewRow();
-row.add(calculate);
-data.push(row);
+//row = Ti.UI.createTableViewRow();
+win.add(calculate);
+//data.push(row);
 tableview.setData(data);
 Ti.UI.currentWindow.add(tableview);
 
