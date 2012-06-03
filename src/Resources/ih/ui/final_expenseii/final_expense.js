@@ -1,5 +1,4 @@
-//Ti.include('main_windows/database.js');
-var win = Titanium.UI.currentWindow;
+
 
 var data = [];
 /*
@@ -293,11 +292,9 @@ function(e) {
 		});
 		
 			var emailButton = Ti.UI.createButton({image:'/images/email_icon.png',left:0,width:'58px', height:'40px'});
-	    var infoButton = Ti.UI.createButton({image:'/images/info_icon.png',left:44,width:'40px', height:'40px'});
+	    var infoButton =  Ti.UI.createButton({image:'/images/info_icon.png',left:44,width:'40px', height:'40px'});
 	
 		holder.add(emailButton);
-
-		
 		holder.add(infoButton);
 
 		rates.rightNavButton = holder;
@@ -351,13 +348,13 @@ function(e) {
     });
     
     // get tab group object
-    var tabGroup = win.tabGroup;
+    var tabGroup = Ti.UI.currentWindow.tabGroup;
     tabGroup.activeTab.open(rates, {
         animated: true
     });
 });
 //row = Ti.UI.createTableViewRow();
-win.add(calculate);
+Ti.UI.currentWindow.add(calculate);
 //data.push(row);
 tableview.setData(data);
 Ti.UI.currentWindow.add(tableview);

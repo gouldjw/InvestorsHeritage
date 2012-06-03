@@ -55,8 +55,10 @@ function getField(id) {
 */
 function createStandardRow(id, name, type_field, value) {
     type_field = type_field || TEXT_FIELD; // by default
-    var row = Ti.UI.createTableViewRow();
-    //row.selectedBackgroundColor = '#385292';
+    var row = Ti.UI.createTableViewRow({
+        hasChild: false,
+        selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+    });
     row.height = 40;
     var label_id = Titanium.UI.createLabel({ //store in order to get it later
         text:id,

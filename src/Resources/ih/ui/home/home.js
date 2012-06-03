@@ -194,7 +194,7 @@
 																							          tabBarHidden: true,
 
 																												orientationModes: [Ti.UI.PORTRAIT],
-																			                  url:"ih/ui/notes/modal_notes.js"
+																			                  url:"ih/ui/legacy_gold/modal_premium/modal_notes.js"
 																												 // url:"ih/ui/email/email.js",
 																												 // evalhtml:true
 																			              });

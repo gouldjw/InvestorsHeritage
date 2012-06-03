@@ -36,9 +36,11 @@ function getField(id) {
 */
 function createStandardRow(id, name, type_field, value) {
     type_field = type_field || TEXT_FIELD; // by default
-    var row = Ti.UI.createTableViewRow();
-    //row.selectedBackgroundColor = '#385292';
-    row.height = 48;
+   var row = Ti.UI.createTableViewRow({
+        hasChild: false,
+        selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+    });
+    row.height = 40;
     var label_id = Titanium.UI.createLabel({ //store in order to get it later
         text:id,
         visible:false,
@@ -48,13 +50,16 @@ function createStandardRow(id, name, type_field, value) {
     row.add(label_id);
     
     var label = Titanium.UI.createLabel({
-        text:name,
-        textAlign:'center',
-        font:{fontSize:16,fontWeight:'bold'},
-        left:2,
-        color:'black',
-        width:'100',
-        height:'auto'
+        text: name,
+        textAlign: 'left',
+        font: {
+            fontSize: 16,
+            fontWeight: 'bold'
+        },
+        left: 10,
+        color: 'black',
+        width: '200',
+        height: 40
     });
     row.add(label);
     var field;	
@@ -182,34 +187,116 @@ function createStandardRow(id, name, type_field, value) {
     
     row = Ti.UI.createTableViewRow({height:210});
 
-   // row.add(imageView); 
-   // row.add(choose_photo);
-   // data.push(row);
     
-  	var calculate = Ti.UI.createButton({ 
-			//title: "Legacy Gold Preneed Rate Calculator",
-			width:280,
-			height:52,
-			backgroundImage: '/images/calculate.png',
-			//backgroundLeftCap: 10,
-   });
-		
-		calculate.addEventListener('click',function(e) {
-			
-			var calculation ='this tfa is not doing the calculations, but it will soon on the next one';
-			alert(calculation);
-		});
 
 		//Ti.UI.currentWindow.add(calculate);
 		
-	
-   row = Ti.UI.createTableViewRow();
-   row.add(calculate);
-   data.push(row);
-    tableview.setData(data);
-    Ti.UI.currentWindow.add(tableview);
+	//
+  // row = Ti.UI.createTableViewRow();
+  // row.add(calculate);
+  // data.push(row);
+  //  tableview.setData(data);
+  //  Ti.UI.currentWindow.add(tableview);
+  //
+
+		// row.add(imageView);
+		// row.add(choose_photo);
+		// data.push(row);
+		var calculate = Ti.UI.createButton({
+		    //title: "Legacy Gold Preneed Rate Calculator",
+		    width: 280,
+		    height: 52,
+				bottom: 30,
+		    backgroundImage: '/images/calculate.png',
+		    //backgroundLeftCap: 10,
+		});
+
+		calculate.addEventListener('click',
+		function(e) {
+
+		    //		alert('name: ' + Ti.App.Properties.getString('feii_name') + '\n issue age: ' + Ti.App.Properties.getString('feii_issue_age') + '\n sex: ' + Ti.App.Properties.getString('feii_sex') + '\n plan: ' + Ti.App.Properties.getString('feii_plan'));
+		    var rates = Ti.UI.createWindow({
+		        backButtonTitle: 'Back',
+		        title: 'Rates',
+		        barColor: 'black',
+		        navBarHidden: false,
+		        tabBarHidden: true,
+						backgroundImage:'/images/bg.png',
+		        orientationModes: [Ti.UI.PORTRAIT],
+		        url: "rates.js"
+		    });
+				var holder = Ti.UI.createView({
+				    width:67,
+				    height:'40px'
+				});
+
+					var emailButton = Ti.UI.createButton({image:'/images/email_icon.png',left:0,width:'58px', height:'40px'});
+			    var infoButton =  Ti.UI.createButton({image:'/images/info_icon.png',left:44,width:'40px', height:'40px'});
+
+				holder.add(emailButton);
+				holder.add(infoButton);
+
+				rates.rightNavButton = holder;
 
 
+
+		    infoButton.addEventListener('click',
+		    function(e) {
+		        var infoWindow = Ti.UI.createWindow({
+		            backButtonTitle: 'Back',
+		            title: 'Notes',
+		            barColor: 'black',
+		            navBarHidden: false,
+		            tabBarHidden: true,
+
+		            orientationModes: [Ti.UI.PORTRAIT],
+		            url: "fe_notes.js"
+		            // url:"ih/ui/email/email.js",
+		            // evalhtml:true
+		        });
+
+		        tabGroup.activeTab.open(infoWindow, {
+		            animated: true
+		        });
+		    });
+
+		    emailButton.addEventListener('click',
+		    function(e) {
+		        var emailWindow = Ti.UI.createWindow({
+		            backButtonTitle: 'Back',
+		            title: 'Email',
+		            barColor: 'black',
+		            navBarHidden: false,
+		            tabBarHidden: true,
+
+		            orientationModes: [Ti.UI.PORTRAIT],
+		            //l: "fe_notes.js"
+		             url:"../email/email.js",
+		             evalhtml:true
+		        });
+
+					//	send_email = Ti.UI.createButton({
+					//		title:'Send'
+					//	});
+					//	
+					//	emailWindow.rightNavButton = send_email;
+					//	
+		        tabGroup.activeTab.open(emailWindow, {
+		            animated: true
+		        });
+		    });
+
+		    // get tab group object
+		    var tabGroup = win.tabGroup;
+		    tabGroup.activeTab.open(rates, {
+		        animated: true
+		    });
+		});
+		//row = Ti.UI.createTableViewRow();
+		Ti.UI.currentWindow.add(calculate);
+		//data.push(row);
+		tableview.setData(data);
+		Ti.UI.currentWindow.add(tableview);
 /* SAVE
 * It saves the form.
 */   
