@@ -104,12 +104,13 @@ function createStandardRow(id, name, type_field, value, picker_array) {
         field = Titanium.UI.createTextField({
             color: '#000',
             height: 40,
-            left: 150,
+            left: 160,
+            textAlign: 'right',
             font: {
                 fontSize: 16,
                 fontWeight: 'bold'
             },
-            width: 150,
+            width: 130,
             value: value,
             id: id,
             keyboardType: Titanium.UI.KEYBOARD_DEFAULT,
@@ -155,7 +156,8 @@ function createStandardRow(id, name, type_field, value, picker_array) {
         field = Titanium.UI.createTextField({
             color: '#000',
             height: 48,
-            left: 120,
+            left: 160,
+            textAlign: 'right',
             font: {
                 fontSize: 16,
                 fontWeight: 'bold'
@@ -201,6 +203,7 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             color: '#000',
             height: 48,
             left: 160,
+            textAlign: 'right',
             font: {
                 fontSize: 16,
                 fontWeight: 'bold'
