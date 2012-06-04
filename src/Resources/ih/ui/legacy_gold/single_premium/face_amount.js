@@ -30,8 +30,8 @@ while (rows.isValidRow()){
 
 
 
-var policy_face_amount = Ti.UI.createImageView({
-    image: '/images/policy_face_amount.png',
+var single_premium_due = Ti.UI.createImageView({
+    image: '/images/policy_face_ammount.png',
     width: 240,
     top: 1
 });
@@ -44,7 +44,7 @@ var name_plate = Ti.UI.createImageView({
 });
 
 
-Ti.UI.currentWindow.add(policy_face_amount);
+Ti.UI.currentWindow.add(single_premium_due);
 Ti.UI.currentWindow.add(name_plate);
 
 var customer_name = Ti.UI.createLabel({
@@ -63,7 +63,7 @@ name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
 	top:52,
-	text: 'Premium: $'+ Ti.App.Properties.getString('lspr_face_amount') ,
+	text: 'Funeral Amt: $'+ Ti.App.Properties.getString('lspr_funeral_amount') ,
 	textAlign: 'left',
   font: {
      fontSize: 16,
@@ -114,55 +114,89 @@ var issue_age_label = Ti.UI.createLabel({
 
 name_plate.add(issue_age_label);
 
+ //Ti.App.Properties.setString('lspr_age', e.value);
+	//var real_age_tmp = e.value.split('-');
+	//var real_age = real_age_tmp[0];
 
-tableview = Titanium.UI.createTableView({
-    top: 135,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    backgroundColor: 'transparent',
-    style: Titanium.UI.iPhone.TableViewStyle.GROUPED
+var age = Ti.UI.createLabel({
+    left : 20,  
+    top: 150,
+    text:"Age:"+ Ti.App.Properties.getString('lspr_age') });
+
+Ti.UI.currentWindow.add(age);                
+
+
+var prem = Ti.UI.createLabel({
+    left : 20,   
+    top: 170,        
+    text:"prem/1000:" + rows.fieldByName('rate_per_1000')
 });
 
-var row = Ti.UI.createTableViewRow({
-    backgroundColor: 'white',
-    height: 30,
-    selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
+Ti.UI.currentWindow.add(prem);
+
+var faceamnt = Ti.UI.createLabel({
+    left : 20,  
+    top: 190,         
+    text:"Face Amt:" +Ti.App.Properties.getString('lspr_face_amount') 
 });
 
-var annual = Titanium.UI.createLabel({
-    text: "Annual",
-		textAlign: 'left',
-	  font: {
-	     fontSize: 16,
-	     fontWeight: 'bold'
-	  },
-	  left: 10,
-	  color: 'black',
-});
+Ti.UI.currentWindow.add(faceamnt);
 
+ 
 
-
-var row4 = Ti.UI.createTableViewRow({
-    backgroundColor: 'white',
-    height: 30,
-    selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
-});
-
-var monthly_direct = Titanium.UI.createLabel({
-    text: "Monthly Direct",
-		textAlign: 'left',
-	  font: {
-	     fontSize: 16,
-	     fontWeight: 'bold'
-	  },
-	  left: 10,
-	  color: 'black',
-});
-
-
-
-Ti.UI.currentWindow.add(tableview);
-
-
-tableview.setData(data);
+//r(i=0;i<10;i++);
+// {
+//     var row = Ti.UI.createTableViewRow();
+//     var row2 = Ti.UI.createTableViewRow();
+// 
+//     var view1 = Ti.UI.createLabel({
+//         left : 0,
+//         width : "33%",
+//         text:"Age"
+//     });
+//     var view2 = Ti.UI.createView({
+//         left : "33%",
+//         width : "33%",
+// 				height:'20px',
+//         backgroundColor : "red"
+//     });
+//     var view3 = Ti.UI.createView({
+//         left : "66%",
+//         width : "33%",
+//         backgroundColor : "green"
+//     });
+// 		 var view4 = Ti.UI.createView({
+// 	        left : 0,
+// 	        width : "33%",
+// 	        backgroundColor : "green"
+// 	    });
+// 	    var view5 = Ti.UI.createView({
+// 	        left : "33%",
+// 	        width : "33%",
+// 	        backgroundColor : "blue"
+// 	    });
+// 	    var view6 = Ti.UI.createView({
+// 	        left : "66%",
+// 	        width : "33%",
+// 	        backgroundColor : "red"
+// 	    });
+//     
+//     row.add(view1);
+//     row.add(view2);
+//     row.add(view3);
+//     rowData.push(row);
+// 
+//     row2.add(view4);
+//     row2.add(view5);
+//     row2.add(view6);
+//     rowData.push(row2);
+// }
+ 
+// var tblview = Ti.UI.createTableView({
+//     data : rowData,
+//     top : 170,
+// 		width:300,
+// 		bottom:180
+// });
+ 
+//Ti.UI.currentWindow.add(tblview);

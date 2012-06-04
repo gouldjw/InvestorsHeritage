@@ -12,7 +12,7 @@ var rows = db.execute('SELECT * FROM legacy_single_premium_rates limit 1');
 //	alert(rows.rate_per_1000);
 	//alert(real_pay[0]);
 while (rows.isValidRow()){
-		 	
+		 	var rate_per_1k =rows.fieldByName('rate_per_1000');
 		 		rows.next();
 			}
 	rows.close();
@@ -114,11 +114,35 @@ var issue_age_label = Ti.UI.createLabel({
 
 name_plate.add(issue_age_label);
 
-var view1 = Ti.UI.createLabel({
-    left : 20,           
-    text:"Age:"});
+ //Ti.App.Properties.setString('lspr_age', e.value);
+	//var real_age_tmp = e.value.split('-');
+	//var real_age = real_age_tmp[0];
 
-Ti.UI.currentWindow.add(view1);                
+var age = Ti.UI.createLabel({
+    left : 20,  
+    top: 150,
+    text:"Age:"+ Ti.App.Properties.getString('lspr_age') });
+
+Ti.UI.currentWindow.add(age);                
+
+
+var prem = Ti.UI.createLabel({
+    left : 20,   
+    top: 170,        
+    text:"prem/1000:" + rate_per_1k
+});
+
+Ti.UI.currentWindow.add(prem);
+
+var total_prem = Ti.UI.createLabel({
+    left : 20,  
+    top: 190,         
+    text:"Total Prem:" +Ti.App.Properties.getString('lspr_funeral_amount') 
+});
+
+Ti.UI.currentWindow.add(total_prem);
+
+ 
 
 //r(i=0;i<10;i++);
 // {
