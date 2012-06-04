@@ -111,52 +111,7 @@ function createStandardRow(id, name, type_field, value, picker_array) {
                 Ti.App.Properties.setString('feii_name', '');
                 Ti.App.Properties.setString('feii_name', e.value);
             }
-
-            if (e.source == '[object issue_age]') {
-                // lets blank them out before setting them
-                Ti.App.Properties.setString('feii_issue_age', '');
-                Ti.App.Properties.setString('feii_issue_age', e.value);
-                if (e.value > 81) {
-                    // lets blank them out before setting them
-                    Ti.App.Properties.setString('feii_issue_age', '');
-                    Ti.App.Properties.setString('feii_issue_age', e.value);
-                    // this needs to be discussed
-                    Ti.include('too_old_check.js');
-                }
-
-            }
-
-            if (e.source == '[object sex]') {
-                // lets blank them out before setting them
-                Ti.App.Properties.setString('feii_sex', '');
-                Ti.App.Properties.setString('feii_sex', e.value);
-            }
-
-            if (e.source == '[object plan]') {
-                // lets blank them out before setting them
-                Ti.App.Properties.setString('feii_plan', '');
-                Ti.App.Properties.setString('feii_plan', e.value);
-            }
-
-            if (e.source == '[object tobacco_status]') {
-                // lets blank them out before setting them
-                Ti.App.Properties.setString('feii_tobacco_status', '');
-                Ti.App.Properties.setString('feii_tobacco_status', e.value);
-
-            }
-            if (e.source == '[object premium_period]') {
-                // lets blank them out before setting them
-                Ti.App.Properties.setString('feii_premium_period', '');
-                Ti.App.Properties.setString('feii_premium_period', e.value);
-
-            }
-            if (e.source == '[object face_amount]') {
-                // lets blank them out before setting them
-                Ti.App.Properties.setString('feii_face_amount', '');
-                Ti.App.Properties.setString('feii_face_amount', e.value);
-
-            }
-
+ 
         });
         break;
     case NUMBER_FIELD:
@@ -197,8 +152,34 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             keyboardToolbarColor: '#999',
             keyboardToolbarHeight: 40
         });
-        // field.addEventListener('blur', checkFocus);
-        break;
+    		  field.addEventListener('blur',function(e) {
+
+	      
+
+	            if (e.source == '[object issue_age]') {
+	                // lets blank them out before setting them
+	                Ti.App.Properties.setString('feii_issue_age', '');
+	                Ti.App.Properties.setString('feii_issue_age', e.value);
+	                if (e.value > 81) {
+	                    // lets blank them out before setting them
+	                    Ti.App.Properties.setString('feii_issue_age', '');
+	                    Ti.App.Properties.setString('feii_issue_age', e.value);
+	                    // this needs to be discussed
+	                    Ti.include('too_old_check.js');
+	                }
+
+	            }
+
+	            
+	            if (e.source == '[object face_amount]') {
+	                // lets blank them out before setting them
+	                //Ti.App.Properties.setString('feii_face_amount', '');
+	                Ti.App.Properties.setString('feii_face_amount', e.value);
+
+	            }
+
+	        });
+	        break;
     case PICKER_FIELD:
         //	Ti.API.log(picker_array);
         field = Titanium.UI.createTextField({
@@ -246,7 +227,9 @@ function createStandardRow(id, name, type_field, value, picker_array) {
  
         var toolbar = Titanium.UI.iOS.createToolbar({
             top: 0,
-            items: [picker_previous, picker_next, picker_spacer, picker_done]
+            items: [picker_previous, picker_next, picker_spacer, picker_done],
+            barColor: '#999',
+
         });
 
         var picker = Titanium.UI.createPicker({
@@ -289,7 +272,7 @@ function createStandardRow(id, name, type_field, value, picker_array) {
         });
 
 				picker_done.addEventListener('click', function() {
-				    tableview.height = 300;
+				    tableview.height = 320;
 
 				    field.value = picker.getSelectedRow(0).title;
 				    picker_view.animate(slide_out);
@@ -298,7 +281,37 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 
         tableview.add(picker_view);
 
-        //field.addEventListener('blur', checkFocus);
+				field.addEventListener('blur',function(e) {
+
+
+
+            if (e.source == '[object sex]') {
+                // lets blank them out before setting them
+                //Ti.App.Properties.setString('feii_sex', '');
+                Ti.App.Properties.setString('feii_sex', e.value);
+            }
+
+            if (e.source == '[object plan]') {
+                // lets blank them out before setting them
+                //Ti.App.Properties.setString('feii_plan', '');
+                Ti.App.Properties.setString('feii_plan', e.value);
+            }
+
+            if (e.source == '[object tobacco_status]') {
+                // lets blank them out before setting them
+                //Ti.App.Properties.setString('feii_tobacco_status', '');
+                Ti.App.Properties.setString('feii_tobacco_status', e.value);
+
+            }
+            if (e.source == '[object premium_period]') {
+                // lets blank them out before setting them
+               // Ti.App.Properties.setString('feii_premium_period', '');
+                Ti.App.Properties.setString('feii_premium_period', e.value);
+
+            }
+           
+
+        });
         break;
 
     };

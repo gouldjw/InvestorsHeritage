@@ -1,9 +1,13 @@
 var data = [];
 
-var db = Titanium.Database.install('../../../ih.sqlite', 'ihcalc');
+var db = Titanium.Database.install('../../../ih.sqlite', 'final_expense_rate');
 
-var rows = db.execute('SELECT * FROM final_expense_rate where issue_age="'+ Ti.App.Properties.getString('feii_issue_age') + '" AND plan="'+ Ti.App.Properties.getString('feii_plan') +'" AND  sex="' + Ti.App.Properties.getString('feii_sex') + '" AND  tobacco_status="' + Ti.App.Properties.getString('feii_tobacco_status') +'" AND pay_period="' + Ti.App.Properties.getString('feii_pay_period') +'" limit 1');
-	alert(rows +'  ROW COUNT = ' + rows.getRowCount());
+//var real_pay = Ti.App.Properties.getString('feii_premium_period').split(' ');
+
+
+var rows = db.execute('SELECT * FROM final_expense_rate where issue_age="'+ Ti.App.Properties.getString('feii_issue_age') + '" AND plan="'+ Ti.App.Properties.getString('feii_plan') +'" AND  sex="' + Ti.App.Properties.getString('feii_sex') + '" AND  tobacco_status="' + Ti.App.Properties.getString('feii_tobacco_status')+'" limit 1'); // +'" AND pay_period="' + real_pay[0] 
+	alert(rows.rate_per_1000);
+	//alert(real_pay[0]);
 while (rows.isValidRow()){
 		 	
 		 		rows.next();
