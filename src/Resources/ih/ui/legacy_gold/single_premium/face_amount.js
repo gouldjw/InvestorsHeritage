@@ -12,7 +12,7 @@ var rows = db.execute('SELECT * FROM legacy_single_premium_rates limit 1');
 //	alert(rows.rate_per_1000);
 	//alert(real_pay[0]);
 while (rows.isValidRow()){
-		 	
+		 	var prem_1k =rows.fieldByName('rate_per_1000');
 		 		rows.next();
 			}
 	rows.close();
@@ -129,7 +129,7 @@ Ti.UI.currentWindow.add(age);
 var prem = Ti.UI.createLabel({
     left : 20,   
     top: 170,        
-    text:"prem/1000:" + rows.fieldByName('rate_per_1000')
+    text:"prem/1000:" + prem_1k
 });
 
 Ti.UI.currentWindow.add(prem);
