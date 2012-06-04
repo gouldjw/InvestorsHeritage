@@ -14,9 +14,9 @@ a.addEventListener('click',function(e) {
 		 						barColor: 'black',
 		 						navBarHidden:false,
 		 	          tabBarHidden: true,
-		 					  backgroundImage: 'images/bg.png',
+		 					  backgroundImage: '/images/bg.png',
 		 						orientationModes: [Ti.UI.PORTRAIT],
-		             url:"../single_premium/single_premium.js"
+		             url:"../legacy_gold/single_premium/single_premium.js"
 		         });
 						var infoButton = Ti.UI.createButton({
 						    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT

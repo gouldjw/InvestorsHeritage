@@ -143,8 +143,8 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 						check_show_calculate();
             if (e.source == '[object name]') {
                 // lets blank them out before setting them
-                Ti.App.Properties.setString('feii_name', '');
-                Ti.App.Properties.setString('feii_name', e.value);
+               // Ti.App.Properties.setString('lgm_name', '');
+                Ti.App.Properties.setString('lgm_name', e.value);
             }
  
         });
@@ -194,27 +194,12 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 					
     		  field.addEventListener('blur',function(e) {
 							check_show_calculate();
-	      
-
-	            if (e.source == '[object issue_age]') {
-	                // lets blank them out before setting them
-	                Ti.App.Properties.setString('feii_issue_age', '');
-	                Ti.App.Properties.setString('feii_issue_age', e.value);
-	                if (e.value > 81) {
-	                    // lets blank them out before setting them
-	                    Ti.App.Properties.setString('feii_issue_age', '');
-	                    Ti.App.Properties.setString('feii_issue_age', e.value);
-	                    // this needs to be discussed
-	                    Ti.include('too_old_check.js');
-	                }
-
-	            }
 
 	            
-	            if (e.source == '[object face_amount]') {
+	            if (e.source == '[object funeral_amount]') {
 	                // lets blank them out before setting them
 	                //Ti.App.Properties.setString('feii_face_amount', '');
-	                Ti.App.Properties.setString('feii_face_amount', e.value);
+	                Ti.App.Properties.setString('lgm_funeral_amount', e.value);
 
 	            }
 
@@ -325,30 +310,20 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 
 						check_show_calculate();
 
-            if (e.source == '[object sex]') {
-                // lets blank them out before setting them
-                //Ti.App.Properties.setString('feii_sex', '');
-                Ti.App.Properties.setString('feii_sex', e.value);
-            }
-
+        
             if (e.source == '[object plan]') {
                 // lets blank them out before setting them
                 //Ti.App.Properties.setString('feii_plan', '');
-                Ti.App.Properties.setString('feii_plan', e.value);
+                Ti.App.Properties.setString('lgm_plan', e.value);
             }
 
-            if (e.source == '[object tobacco_status]') {
+            if (e.source == '[object issue_age]') {
                 // lets blank them out before setting them
                 //Ti.App.Properties.setString('feii_tobacco_status', '');
-                Ti.App.Properties.setString('feii_tobacco_status', e.value);
+                Ti.App.Properties.setString('lgm_issue_age', e.value);
 
             }
-            if (e.source == '[object premium_period]') {
-                // lets blank them out before setting them
-               // Ti.App.Properties.setString('feii_premium_period', '');
-                Ti.App.Properties.setString('feii_premium_period', e.value);
-
-            }
+           
            
 
         });
@@ -404,7 +379,7 @@ var table_height = tableview.height;
 
 	function check_show_calculate(){
 	//	alert(Ti.App.Properties.getString('feii_name') +"\n\r "+ Ti.App.Properties.getString('feii_issue_age') +"\n\r "+  Ti.App.Properties.getString('feii_sex') +"\n\r "+  Ti.App.Properties.getString('feii_plan') +" \n\r"+  Ti.App.Properties.getString('feii_tobacco_status') +"\n\r "+  Ti.App.Properties.getString('feii_premium_period') +"\n\r "+ Ti.App.Properties.getString('feii_face_amount'));
-		if(Ti.App.Properties.getString('feii_name') && Ti.App.Properties.getString('feii_face_amount') != null){
+		if(Ti.App.Properties.getString('lgm_name') && Ti.App.Properties.getString('lgm_plan') != null){
 			Ti.App.Properties.setString('calculate_button_active', "true");
 											var calculate = Ti.UI.createButton({
 											    //title: "Legacy Gold Preneed Rate Calculator",

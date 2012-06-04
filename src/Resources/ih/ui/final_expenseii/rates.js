@@ -4,21 +4,23 @@ var db = Titanium.Database.install('../../../ih.sqlite', 'final_expense_rate');
 
 
 //var rows= db.execute('SELECT * FROM final_expense_rate where issue_age="26" AND plan="Full Benefit" AND  sex="Male" AND  tobacco_status="Tobacco" limit 1; ');
-var rows = db.execute('SELECT * FROM final_expense_rate where issue_age="'+Ti.App.Properties.getString('feii_issue_age')+'" AND plan="'+Ti.App.Properties.getString('feii_plan')+'" AND  sex="'+Ti.App.Properties.getString('feii_sex')+'" AND  tobacco_status="' + Ti.App.Properties.getString('feii_tobacco_status')+'" limit 1'); // +'" AND pay_period="' + real_pay[0] 
+var rows = db.execute('SELECT * FROM final_expense_rate where issue_age="'+Ti.App.Properties.getString('feii_issue_age')+'"  AND plan="'+Ti.App.Properties.getString('feii_plan')+'" AND  sex="'+Ti.App.Properties.getString('feii_sex')+'" AND  tobacco_status="'+Ti.App.Properties.getString('feii_tobacco_status')+'" AND pay_period="'+Ti.App.Properties.getString('feii_premium_period')+'" limit 1'); 
 //	alert(Ti.App.Properties.getString('feii_premium_period'));
 //	alert(real_pay[0]);
 	
-	
+			
 while (rows.isValidRow()){
-			//alert(rows.rate_per_1000);
+		var rate_per_1000 = rows.fieldByName('rate_per_1000');
+		//alert(rows.fieldByName('rate_per_1000'));
+	
 		 		rows.next();
 			}
 	rows.close();
 ///////////////// variables to calculate table //////////////////
 var annual_policy_fee =50.0;
 
-var rate_per_1000 = 63.36;
-
+//	var rate_per_1000='34.76';
+//alert(parseFloat('23.09'));
 
 
 var feii_modal_prem = Ti.UI.createImageView({
@@ -139,68 +141,68 @@ var monthly_direct= annual_rate * 0.095;
 var monthly_pac= annual_rate * 0.088;
 
 var annual_value = Titanium.UI.createLabel({
-    text: annual_rate,
+    text:  '$'+ annual_rate.toFixed(2),
 		textAlign: 'left',
 	  font: {
 	     fontSize: 16,
 	     fontWeight: 'bold'
 	  },
-	  left: 230,
+	  left: 210,
 	  color: 'black',
 });
 
 var semi_annual_value = Titanium.UI.createLabel({
-    text: semi_annual,
+    text: '$'+semi_annual.toFixed(2),
 		textAlign: 'left',
 	  font: {
 	     fontSize: 16,
 	     fontWeight: 'bold'
 	  },
-	  left: 230,
+	  left: 210,
 	  color: 'black',
 });
 
 var quarterly_value = Titanium.UI.createLabel({
-    text: quarter,
+    text: '$'+quarter.toFixed(2),
 		textAlign: 'left',
 	  font: {
 	     fontSize: 16,
 	     fontWeight: 'bold'
 	  },
-	  left: 230,
+	  left: 210,
 	  color: 'black',
 });
 
 var monthly_direct_value = Titanium.UI.createLabel({
-    text: monthly_direct,
+    text: '$'+monthly_direct.toFixed(2),
 		textAlign: 'left',
 	  font: {
 	     fontSize: 16,
 	     fontWeight: 'bold'
 	  },
-	  left: 230,
+	  left: 210,
 	  color: 'black',
 });
 
 var annual_value = Titanium.UI.createLabel({
-    text: annual_rate,
+    text: '$'+annual_rate.toFixed(2),
 		textAlign: 'left',
 	  font: {
 	     fontSize: 16,
 	     fontWeight: 'bold'
 	  },
-	  left: 230,
+	  left: 210,
 	  color: 'black',
 });
 
 var monthly_pac_value = Titanium.UI.createLabel({
-    text: monthly_pac,
+    text: '$'+monthly_pac.toFixed(2),
 		textAlign: 'left',
 	  font: {
 	     fontSize: 16,
 	     fontWeight: 'bold'
 	  },
-	  left: 230,
+	  left: 210,
 	  color: 'black',
 });
 

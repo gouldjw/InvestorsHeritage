@@ -126,8 +126,8 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 						check_show_calculate();
             if (e.source == '[object name]') {
                 // lets blank them out before setting them
-                Ti.App.Properties.setString('feii_name', '');
-                Ti.App.Properties.setString('feii_name', e.value);
+               // Ti.App.Properties.setString('lspr_name', '');
+                Ti.App.Properties.setString('lspr_name', e.value);
             }
  
         });
@@ -178,26 +178,18 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 						check_show_calculate();
 	      
 
-	            if (e.source == '[object issue_age]') {
+	            if (e.source == '[object funeral_amount]') {
 	                // lets blank them out before setting them
-	                Ti.App.Properties.setString('feii_issue_age', '');
-	                Ti.App.Properties.setString('feii_issue_age', e.value);
-								
-	                if (e.value > 81) {
-	                    // lets blank them out before setting them
-	                    Ti.App.Properties.setString('feii_issue_age', '');
-	                    Ti.App.Properties.setString('feii_issue_age', e.value);
-	                    // this needs to be discussed
-	                    Ti.include('too_old_check.js');
-	                }
+	                Ti.App.Properties.setString('lspr_face_amount', null);
+	                Ti.App.Properties.setString('lspr_funeral_amount', e.value);
 
 	            }
-
-	            
-	            if (e.source == '[object face_amount]') {
+	
+	            if (e.source == '[object premium_amount]') {
 	                // lets blank them out before setting them
-	                //Ti.App.Properties.setString('feii_face_amount', '');
-	                Ti.App.Properties.setString('feii_face_amount', e.value);
+	                Ti.App.Properties.setString('lspr_funeral_amount', null);
+	
+	                Ti.App.Properties.setString('lspr_face_amount', e.value);
 
 	            }
 
@@ -308,30 +300,22 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 						check_show_calculate();
 
 
-            if (e.source == '[object sex]') {
+            if (e.source == '[object issue_age]') {
                 // lets blank them out before setting them
                 //Ti.App.Properties.setString('feii_sex', '');
-                Ti.App.Properties.setString('feii_sex', e.value);
+                Ti.App.Properties.setString('lspr_age', e.value);
+								var real_age_tmp = e.value.split('-');
+								var real_age = real_age_tmp[0];
+								//var age_range = e.value;
+	               // Ti.App.Properties.setString('feii_premium_period', real_pay[0]);
             }
-
-            if (e.source == '[object plan]') {
-                // lets blank them out before setting them
-                //Ti.App.Properties.setString('feii_plan', '');
-                Ti.App.Properties.setString('feii_plan', e.value);
-            }
-
-            if (e.source == '[object tobacco_status]') {
-                // lets blank them out before setting them
-                //Ti.App.Properties.setString('feii_tobacco_status', '');
-                Ti.App.Properties.setString('feii_tobacco_status', e.value);
-
-            }
-            if (e.source == '[object premium_period]') {
-                // lets blank them out before setting them
-               // Ti.App.Properties.setString('feii_premium_period', '');
-                Ti.App.Properties.setString('feii_premium_period', e.value);
-
-            }
+						//signed
+						        if (e.source == '[object signed]') {
+				            
+											//	var signed = e.value;
+					                Ti.App.Properties.setString('lspr_signed', e.value);
+				            }
+           
            
 
         });
@@ -383,7 +367,7 @@ var table_height = tableview.height;
    // fieldNonValidated.push(row.children[2]);
     data.push(row);
 
-	 row = createStandardRow('signed_by_insured', 'Signed By Insured', PICKER_FIELD, "",["Yes","No"]);
+	 row = createStandardRow('signed', 'Signed By Insured', PICKER_FIELD, "",["Yes","No"]);
    // row.children[2].borderColor = 'red';
    // fieldNonValidated.push(row.children[2]);
     data.push(row);
@@ -395,7 +379,7 @@ var table_height = tableview.height;
 
 	function check_show_calculate(){
 	//	alert(Ti.App.Properties.getString('feii_name') +"\n\r "+ Ti.App.Properties.getString('feii_issue_age') +"\n\r "+  Ti.App.Properties.getString('feii_sex') +"\n\r "+  Ti.App.Properties.getString('feii_plan') +" \n\r"+  Ti.App.Properties.getString('feii_tobacco_status') +"\n\r "+  Ti.App.Properties.getString('feii_premium_period') +"\n\r "+ Ti.App.Properties.getString('feii_face_amount'));
-		if(Ti.App.Properties.getString('feii_name') && Ti.App.Properties.getString('feii_face_amount') != null){
+		if(Ti.App.Properties.getString('lspr_name') && Ti.App.Properties.getString('lspr_signed') != null){
 			Ti.App.Properties.setString('calculate_button_active', "true");
 											var calculate = Ti.UI.createButton({
 											    //title: "Legacy Gold Preneed Rate Calculator",
