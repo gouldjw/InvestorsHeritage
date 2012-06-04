@@ -114,60 +114,65 @@ var issue_age_label = Ti.UI.createLabel({
 
 name_plate.add(issue_age_label);
 
-var rowData = [];
- 
-for(i=0;i<10;i++);
-{
-    var row = Ti.UI.createTableViewRow();
-    var row2 = Ti.UI.createTableViewRow();
+var view1 = Ti.UI.createLabel({
+    left : 20,           
+    text:"Age:"});
 
-    var view1 = Ti.UI.createView({
-        left : 0,
-        width : "33%",
-        backgroundColor : "blue"
-    });
-    var view2 = Ti.UI.createView({
-        left : "33%",
-        width : "33%",
-        backgroundColor : "red"
-    });
-    var view3 = Ti.UI.createView({
-        left : "66%",
-        width : "33%",
-        backgroundColor : "green"
-    });
-		 var view4 = Ti.UI.createView({
-	        left : 0,
-	        width : "33%",
-	        backgroundColor : "green"
-	    });
-	    var view5 = Ti.UI.createView({
-	        left : "33%",
-	        width : "33%",
-	        backgroundColor : "blue"
-	    });
-	    var view6 = Ti.UI.createView({
-	        left : "66%",
-	        width : "33%",
-	        backgroundColor : "red"
-	    });
-    
-    row.add(view1);
-    row.add(view2);
-    row.add(view3);
-    rowData.push(row);
+Ti.UI.currentWindow.add(view1);                
 
-    row2.add(view4);
-    row2.add(view5);
-    row2.add(view6);
-    rowData.push(row2);
-}
+//r(i=0;i<10;i++);
+// {
+//     var row = Ti.UI.createTableViewRow();
+//     var row2 = Ti.UI.createTableViewRow();
+// 
+//     var view1 = Ti.UI.createLabel({
+//         left : 0,
+//         width : "33%",
+//         text:"Age"
+//     });
+//     var view2 = Ti.UI.createView({
+//         left : "33%",
+//         width : "33%",
+// 				height:'20px',
+//         backgroundColor : "red"
+//     });
+//     var view3 = Ti.UI.createView({
+//         left : "66%",
+//         width : "33%",
+//         backgroundColor : "green"
+//     });
+// 		 var view4 = Ti.UI.createView({
+// 	        left : 0,
+// 	        width : "33%",
+// 	        backgroundColor : "green"
+// 	    });
+// 	    var view5 = Ti.UI.createView({
+// 	        left : "33%",
+// 	        width : "33%",
+// 	        backgroundColor : "blue"
+// 	    });
+// 	    var view6 = Ti.UI.createView({
+// 	        left : "66%",
+// 	        width : "33%",
+// 	        backgroundColor : "red"
+// 	    });
+//     
+//     row.add(view1);
+//     row.add(view2);
+//     row.add(view3);
+//     rowData.push(row);
+// 
+//     row2.add(view4);
+//     row2.add(view5);
+//     row2.add(view6);
+//     rowData.push(row2);
+// }
  
-var tblview = Ti.UI.createTableView({
-    data : rowData,
-    top : 170,
-		width:300,
-		bottom:180
-});
+// var tblview = Ti.UI.createTableView({
+//     data : rowData,
+//     top : 170,
+// 		width:300,
+// 		bottom:180
+// });
  
-Ti.UI.currentWindow.add(tblview);
+//Ti.UI.currentWindow.add(tblview);
