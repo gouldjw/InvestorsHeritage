@@ -5,8 +5,8 @@
 
 });
 a.addEventListener('click',function(e) {
+	 var tabGroup = Ti.UI.currentWindow.tabGroup;
 	if (e.index ==1){
-		// TODO: comeback to this
 		 var legacy_gold_choice ={title: 'LG Single'};
 		 var legacy_gold_preneed_single_premium_window = Ti.UI.createWindow({
 		 						backButtonTitle: 'Home',
@@ -14,9 +14,9 @@ a.addEventListener('click',function(e) {
 		 						barColor: 'black',
 		 						navBarHidden:false,
 		 	          tabBarHidden: true,
-		 					  //backgroundImage: '../../../images/bg.png',
+		 					  backgroundImage: 'images/bg.png',
 		 						orientationModes: [Ti.UI.PORTRAIT],
-		             url:"/ih/ui/legacy_gold/single_premium/single_premium.js"
+		             url:"../single_premium/single_premium.js"
 		         });
 						var infoButton = Ti.UI.createButton({
 						    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT
@@ -32,14 +32,15 @@ a.addEventListener('click',function(e) {
 													          tabBarHidden: true,
 
 																		orientationModes: [Ti.UI.PORTRAIT],
-									                  url:"ih/ui/notes/single_notes.js"
+									                  url:"ih/ui/legacy_gold/single_premium/single_notes.js"
 																		 // url:"ih/ui/email/email.js",
 																		 // evalhtml:true
 									              });
-																//var bar = Ti.UI.getCurrentTab();
-																legacy_gold_preneed_single_premium_window.open(infoWindow,{animated:true});
+
+																	tabGroup.activeTab.open(infoWindow,{animated:true});
 										});
-		 legacy_gold_preneed_single_premium_window.open();
+		 	tabGroup.activeTab.open(legacy_gold_preneed_single_premium_window,{animated:true});
+
 	}
 
 });

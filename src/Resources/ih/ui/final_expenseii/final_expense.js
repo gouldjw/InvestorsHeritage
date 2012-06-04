@@ -323,7 +323,10 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             if (e.source == '[object premium_period]') {
                 // lets blank them out before setting them
                // Ti.App.Properties.setString('feii_premium_period', '');
-                Ti.App.Properties.setString('feii_premium_period', e.value);
+						
+							var real_pay = e.value.split(' ');
+							
+                Ti.App.Properties.setString('feii_premium_period', real_pay[0]);
 
             }
            
