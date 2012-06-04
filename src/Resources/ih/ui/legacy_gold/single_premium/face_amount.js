@@ -63,7 +63,7 @@ name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
 	top:52,
-	text: 'Funeral Amt: $'+ Ti.App.Properties.getString('lspr_funeral_amount') ,
+	text: 'Premium: $'+ Ti.App.Properties.getString('lspr_face_amount') +'42' ,
 	textAlign: 'left',
   font: {
      fontSize: 16,
@@ -102,7 +102,7 @@ name_plate.add(date_label);
 
 var issue_age_label = Ti.UI.createLabel({
 	top:52,
-	text: 'Issue Age: '+ Ti.App.Properties.getString('lspr_age') ,
+	text: 'Issue Age: '+ Ti.App.Properties.getString('lspr_age') || 'i forgot' ,
 	textAlign: 'left',
   font: {
      fontSize: 16,
@@ -137,7 +137,7 @@ Ti.UI.currentWindow.add(prem);
 var faceamnt = Ti.UI.createLabel({
     left : 20,  
     top: 190,         
-    text:"Face Amt:" +Ti.App.Properties.getString('lspr_face_amount') 
+    text:"Face Amt:" +Ti.App.Properties.getString('lspr_face_amount') + '17'
 });
 
 Ti.UI.currentWindow.add(faceamnt);
