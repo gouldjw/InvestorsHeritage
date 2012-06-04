@@ -8,13 +8,13 @@
         <target device="blackberry">false</target>
     </deployment-targets>
     <sdk-version>2.0.1.GA2</sdk-version>
-    <id>com.investorsheritage</id>
-    <name>InsuranceApp</name>
+    <id>com.investorsheritage.premiumcalc</id>
+    <name>Premium Calc</name>
     <version>1.0</version>
-    <publisher>andrewmcelroy</publisher>
-    <url>http://example.com</url>
-    <description>not specified</description>
-    <copyright>2012 by andrewmcelroy</copyright>
+    <publisher>Avatar Software, LLC</publisher>
+    <url>http://www.investorsheritage.com</url>
+    <description>Premium Calc</description>
+    <copyright>2012 by Investors Heritage</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
