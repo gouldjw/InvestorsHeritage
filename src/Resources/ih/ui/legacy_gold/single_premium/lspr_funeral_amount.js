@@ -114,55 +114,60 @@ var issue_age_label = Ti.UI.createLabel({
 
 name_plate.add(issue_age_label);
 
+var rowData = [];
+ 
+for(i=0;i<10;i++);
+{
+    var row = Ti.UI.createTableViewRow();
+    var row2 = Ti.UI.createTableViewRow();
 
-tableview = Titanium.UI.createTableView({
-    top: 135,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    backgroundColor: 'transparent',
-    style: Titanium.UI.iPhone.TableViewStyle.GROUPED
+    var view1 = Ti.UI.createView({
+        left : 0,
+        width : "33%",
+        backgroundColor : "blue"
+    });
+    var view2 = Ti.UI.createView({
+        left : "33%",
+        width : "33%",
+        backgroundColor : "red"
+    });
+    var view3 = Ti.UI.createView({
+        left : "66%",
+        width : "33%",
+        backgroundColor : "green"
+    });
+		 var view4 = Ti.UI.createView({
+	        left : 0,
+	        width : "33%",
+	        backgroundColor : "green"
+	    });
+	    var view5 = Ti.UI.createView({
+	        left : "33%",
+	        width : "33%",
+	        backgroundColor : "blue"
+	    });
+	    var view6 = Ti.UI.createView({
+	        left : "66%",
+	        width : "33%",
+	        backgroundColor : "red"
+	    });
+    
+    row.add(view1);
+    row.add(view2);
+    row.add(view3);
+    rowData.push(row);
+
+    row2.add(view4);
+    row2.add(view5);
+    row2.add(view6);
+    rowData.push(row2);
+}
+ 
+var tblview = Ti.UI.createTableView({
+    data : rowData,
+    top : 170,
+		width:300,
+		bottom:180
 });
-
-var row = Ti.UI.createTableViewRow({
-    backgroundColor: 'white',
-    height: 30,
-    selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
-});
-
-var annual = Titanium.UI.createLabel({
-    text: "Annual",
-		textAlign: 'left',
-	  font: {
-	     fontSize: 16,
-	     fontWeight: 'bold'
-	  },
-	  left: 10,
-	  color: 'black',
-});
-
-
-
-var row4 = Ti.UI.createTableViewRow({
-    backgroundColor: 'white',
-    height: 30,
-    selectionStyle: Ti.UI.iPhone.TableViewCellSelectionStyle.NONE
-});
-
-var monthly_direct = Titanium.UI.createLabel({
-    text: "Monthly Direct",
-		textAlign: 'left',
-	  font: {
-	     fontSize: 16,
-	     fontWeight: 'bold'
-	  },
-	  left: 10,
-	  color: 'black',
-});
-
-
-
-Ti.UI.currentWindow.add(tableview);
-
-
-tableview.setData(data);
+ 
+Ti.UI.currentWindow.add(tblview);
