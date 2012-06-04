@@ -392,122 +392,125 @@ var table_height = tableview.height;
   row = Ti.UI.createTableViewRow({height:210});
 
           
-					function check_show_calculate(){
-					//	alert(Ti.App.Properties.getString('feii_name') +"\n\r "+ Ti.App.Properties.getString('feii_issue_age') +"\n\r "+  Ti.App.Properties.getString('feii_sex') +"\n\r "+  Ti.App.Properties.getString('feii_plan') +" \n\r"+  Ti.App.Properties.getString('feii_tobacco_status') +"\n\r "+  Ti.App.Properties.getString('feii_premium_period') +"\n\r "+ Ti.App.Properties.getString('feii_face_amount'));
-						if(Ti.App.Properties.getString('feii_name') && Ti.App.Properties.getString('feii_face_amount') != null){
 
-															var calculate = Ti.UI.createButton({
-															    //title: "Legacy Gold Preneed Rate Calculator",
-															    width: 280,
-															    height: 52,
-															    bottom: 30,
-															    backgroundImage: '/images/calculate.png',
-															    //backgroundLeftCap: 10,
-															});
+	function check_show_calculate(){
+	//	alert(Ti.App.Properties.getString('feii_name') +"\n\r "+ Ti.App.Properties.getString('feii_issue_age') +"\n\r "+  Ti.App.Properties.getString('feii_sex') +"\n\r "+  Ti.App.Properties.getString('feii_plan') +" \n\r"+  Ti.App.Properties.getString('feii_tobacco_status') +"\n\r "+  Ti.App.Properties.getString('feii_premium_period') +"\n\r "+ Ti.App.Properties.getString('feii_face_amount'));
+		if(Ti.App.Properties.getString('feii_name') && Ti.App.Properties.getString('feii_face_amount') != null){
+			Ti.App.Properties.setString('calculate_button_active', "true");
+											var calculate = Ti.UI.createButton({
+											    //title: "Legacy Gold Preneed Rate Calculator",
+											    width: 280,
+											    height: 52,
+											    bottom: 0,
+											    backgroundImage: '/images/calculate.png',
+											    //backgroundLeftCap: 10,
+											});
 
-															//calculate button needs to be in a disabled state until all fields are present
+											//calculate button needs to be in a disabled state until all fields are present
 
-															// calculate button should change state once all fields are present
-
-
-															calculate.addEventListener('click',
-															function(e) {
-
-															    //		alert('name: ' + Ti.App.Properties.getString('feii_name') + '\n issue age: ' + Ti.App.Properties.getString('feii_issue_age') + '\n sex: ' + Ti.App.Properties.getString('feii_sex') + '\n plan: ' + Ti.App.Properties.getString('feii_plan'));
-															    var rates = Ti.UI.createWindow({
-															        backButtonTitle: 'Back',
-															        title: 'Rates',
-															        barColor: 'black',
-															        navBarHidden: false,
-															        tabBarHidden: true,
-															        backgroundImage: '/images/bg.png',
-															        orientationModes: [Ti.UI.PORTRAIT],
-															        url: "rates.js"
-															    });
-															    var holder = Ti.UI.createView({
-															        width: 67,
-															        height: '40px'
-															    });
-
-															    var emailButton = Ti.UI.createButton({
-															        image: '/images/email_icon.png',
-															        left: 0,
-															        width: '58px',
-															        height: '40px'
-															    });
-															    var infoButton = Ti.UI.createButton({
-															        image: '/images/info_icon.png',
-															        left: 44,
-															        width: '40px',
-															        height: '40px'
-															    });
-
-															    holder.add(emailButton);
-															    holder.add(infoButton);
-
-															    rates.rightNavButton = holder;
+											// calculate button should change state once all fields are present
 
 
+											calculate.addEventListener('click', function(e) {
 
-															    infoButton.addEventListener('click',
-															    function(e) {
-															        var infoWindow = Ti.UI.createWindow({
-															            backButtonTitle: 'Back',
-															            title: 'Notes',
-															            barColor: 'black',
-															            navBarHidden: false,
-															            tabBarHidden: true,
+											    //		alert('name: ' + Ti.App.Properties.getString('feii_name') + '\n issue age: ' + Ti.App.Properties.getString('feii_issue_age') + '\n sex: ' + Ti.App.Properties.getString('feii_sex') + '\n plan: ' + Ti.App.Properties.getString('feii_plan'));
+											    var rates = Ti.UI.createWindow({
+											        backButtonTitle: 'Back',
+											        title: 'Rates',
+											        barColor: 'black',
+											        navBarHidden: false,
+											        tabBarHidden: true,
+											        backgroundImage: '/images/bg.png',
+											        orientationModes: [Ti.UI.PORTRAIT],
+											        url: "rates.js"
+											    });
+											    var holder = Ti.UI.createView({
+											        width: 67,
+											        height: '40px'
+											    });
 
-															            orientationModes: [Ti.UI.PORTRAIT],
-															            url: "fe_notes.js"
-															            // url:"ih/ui/email/email.js",
-															            // evalhtml:true
-															        });
+											    var emailButton = Ti.UI.createButton({
+											        image: '/images/email_icon.png',
+											        left: 0,
+											        width: '58px',
+											        height: '40px'
+											    });
+											    var infoButton = Ti.UI.createButton({
+											        image: '/images/info_icon.png',
+											        left: 44,
+											        width: '40px',
+											        height: '40px'
+											    });
 
-															        tabGroup.activeTab.open(infoWindow, {
-															            animated: true
-															        });
-															    });
+											    holder.add(emailButton);
+											    holder.add(infoButton);
 
-															    emailButton.addEventListener('click',
-															    function(e) {
-															        var emailWindow = Ti.UI.createWindow({
-															            backButtonTitle: 'Back',
-															            title: 'Email',
-															            barColor: 'black',
-															            navBarHidden: false,
-															            tabBarHidden: true,
-
-															            orientationModes: [Ti.UI.PORTRAIT],
-															            //l: "fe_notes.js"
-															            url: "email.js",
-															            evalhtml: true
-															        });
-
-															        //	send_email = Ti.UI.createButton({
-															        //		title:'Send'
-															        //	});
-															        //	
-															        //	emailWindow.rightNavButton = send_email;
-															        //	
-															        tabGroup.activeTab.open(emailWindow, {
-															            animated: true
-															        });
-															    });
-
-															    // get tab group object
-															    var tabGroup = Ti.UI.currentWindow.tabGroup;
-															    tabGroup.activeTab.open(rates, {
-															        animated: true
-															    });
-															});
+											    rates.rightNavButton = holder;
 
 
-															//row = Ti.UI.createTableViewRow();
-															Ti.UI.currentWindow.remove(no_calculate);
-															Ti.UI.currentWindow.add(calculate);
-						}
-					}
+
+											    infoButton.addEventListener('click',
+											    function(e) {
+											        var infoWindow = Ti.UI.createWindow({
+											            backButtonTitle: 'Back',
+											            title: 'Notes',
+											            barColor: 'black',
+											            navBarHidden: false,
+											            tabBarHidden: true,
+
+											            orientationModes: [Ti.UI.PORTRAIT],
+											            url: "fe_notes.js"
+											            // url:"ih/ui/email/email.js",
+											            // evalhtml:true
+											        });
+
+											        tabGroup.activeTab.open(infoWindow, {
+											            animated: true
+											        });
+											    });
+
+											    emailButton.addEventListener('click',
+											    function(e) {
+											        var emailWindow = Ti.UI.createWindow({
+											            backButtonTitle: 'Back',
+											            title: 'Email',
+											            barColor: 'black',
+											            navBarHidden: false,
+											            tabBarHidden: true,
+
+											            orientationModes: [Ti.UI.PORTRAIT],
+											            //l: "fe_notes.js"
+											            url: "email.js",
+											            evalhtml: true
+											        });
+
+											        //	send_email = Ti.UI.createButton({
+											        //		title:'Send'
+											        //	});
+											        //	
+											        //	emailWindow.rightNavButton = send_email;
+											        //	
+											        tabGroup.activeTab.open(emailWindow, {
+											            animated: true
+											        });
+											    });
+
+											    // get tab group object
+											    var tabGroup = Ti.UI.currentWindow.tabGroup;
+											    tabGroup.activeTab.open(rates, {
+											        animated: true
+											    });
+											});
+
+
+											//row = Ti.UI.createTableViewRow();
+										//	Ti.UI.currentWindow.remove(no_calculate);
+
+											no_calculate.add(calculate);
+
+
+		}
+	}
 
 								var no_calculate = Ti.UI.createButton({
 								    //title: "Legacy Gold Preneed Rate Calculator",

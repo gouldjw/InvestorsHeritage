@@ -275,10 +275,9 @@ function createStandardRow(id, name, type_field, value, picker_array) {
         //		picker_view.animate(slide_out);
         //	});
         field.addEventListener('focus', function() {
-            tableview.height = 420;
-					 // if(calculate != null){
-					 // calculate.hide();
-					 // }
+            tableview.height = 430;
+					  
+		
             picker_view.animate(slide_in);
             field.blur();
         });
@@ -395,15 +394,16 @@ row = Ti.UI.createTableViewRow({
     height: 50
 });
 
+
 function check_show_calculate(){
 //	alert(Ti.App.Properties.getString('feii_name') +"\n\r "+ Ti.App.Properties.getString('feii_issue_age') +"\n\r "+  Ti.App.Properties.getString('feii_sex') +"\n\r "+  Ti.App.Properties.getString('feii_plan') +" \n\r"+  Ti.App.Properties.getString('feii_tobacco_status') +"\n\r "+  Ti.App.Properties.getString('feii_premium_period') +"\n\r "+ Ti.App.Properties.getString('feii_face_amount'));
 	if(Ti.App.Properties.getString('feii_name') && Ti.App.Properties.getString('feii_face_amount') != null){
-		
+		Ti.App.Properties.setString('calculate_button_active', "true");
 										var calculate = Ti.UI.createButton({
 										    //title: "Legacy Gold Preneed Rate Calculator",
 										    width: 280,
 										    height: 52,
-										    bottom: 30,
+										    bottom: 0,
 										    backgroundImage: '/images/calculate.png',
 										    //backgroundLeftCap: 10,
 										});
@@ -413,8 +413,7 @@ function check_show_calculate(){
 										// calculate button should change state once all fields are present
 
 
-										calculate.addEventListener('click',
-										function(e) {
+										calculate.addEventListener('click', function(e) {
 
 										    //		alert('name: ' + Ti.App.Properties.getString('feii_name') + '\n issue age: ' + Ti.App.Properties.getString('feii_issue_age') + '\n sex: ' + Ti.App.Properties.getString('feii_sex') + '\n plan: ' + Ti.App.Properties.getString('feii_plan'));
 										    var rates = Ti.UI.createWindow({
@@ -507,8 +506,11 @@ function check_show_calculate(){
 
 
 										//row = Ti.UI.createTableViewRow();
-										Ti.UI.currentWindow.remove(no_calculate);
-										Ti.UI.currentWindow.add(calculate);
+									//	Ti.UI.currentWindow.remove(no_calculate);
+										
+										no_calculate.add(calculate);
+								
+									
 	}
 }
  
