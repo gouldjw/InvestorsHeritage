@@ -23,6 +23,35 @@ function getField(id) {
     }
 }
 
+		var cancel =  Titanium.UI.createButton({
+			title:'Cancel',
+			style:Titanium.UI.iPhone.SystemButtonStyle.BORDERED
+		});
+
+		var done =  Titanium.UI.createButton({
+			title:'Done',
+			style:Titanium.UI.iPhone.SystemButtonStyle.DONE
+		});
+
+		var spacer =  Titanium.UI.createButton({
+			systemButton:Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+		});
+
+var flexSpace = Titanium.UI.createButton({
+	systemButton:Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+});
+
+var previous = Titanium.UI.createButton({
+	title:'Previous',
+	style:Titanium.UI.iPhone.SystemButtonStyle.BORDERED		
+});
+
+var next = Titanium.UI.createButton({
+	title:'Next',
+	style:Titanium.UI.iPhone.SystemButtonStyle.BORDERED		
+});
+
+
 /* Creates the fields of the row//{{{
 * IT creates a row as follows:
 *  label ----- textfield/label
@@ -31,7 +60,7 @@ function getField(id) {
 * type_filed : if the element in the second column it's a label or a textfield
 * value: for the element in the second column
 */
-function createStandardRow(id, name, type_field, value) {
+function createStandardRow(id, name, type_field, value, picker_array) {
     type_field = type_field || TEXT_FIELD;
     // by default
     var row = Ti.UI.createTableViewRow({
@@ -77,11 +106,16 @@ function createStandardRow(id, name, type_field, value) {
             id: id,
             keyboardType: Titanium.UI.KEYBOARD_DEFAULT,
             returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
-            borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
+            borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE,
+						keyboardToolbar:[cancel,spacer,done],
+						keyboardToolbarColor: '#999',	
+						keyboardToolbarHeight: 40
         });
+
 
         field.addEventListener('blur',
         function(e) {
+				
             if (e.source == '[object name]') {
                 // lets blank them out before setting them
                 Ti.App.Properties.setString('feii_name', '');
@@ -147,17 +181,21 @@ function createStandardRow(id, name, type_field, value) {
             width: 130,
             value: value,
             id: id,
-            keyboardType: Titanium.UI.KEYBOARD_NUMBER_PAD,
+            keyboardType: Titanium.UI.KEYBOARD_PHONE_PAD,
             returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
-            borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
+            borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE,
+						keyboardToolbar:[cancel,spacer,done],
+						keyboardToolbarColor: '#999',	
+						keyboardToolbarHeight: 40
         });
-        field.addEventListener('blur', checkFocus);
+       // field.addEventListener('blur', checkFocus);
         break;
     case PICKER_FIELD:
+	//	Ti.API.log(picker_array);
         field = Titanium.UI.createTextField({
             color: '#000',
             height: 48,
-            left: 120,
+            left: 160,
             font: {
                 fontSize: 16,
                 fontWeight: 'bold'
@@ -169,35 +207,60 @@ function createStandardRow(id, name, type_field, value) {
             returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
             borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
         });
+				
+
+				var picker_view = Titanium.UI.createView({
+					height:251,
+					bottom:-251
+				});
+
+		
+				var toolbar =  Titanium.UI.iOS.createToolbar({
+					top:0,
+					items:[cancel,spacer,done]
+				});
+
+				var picker = Titanium.UI.createPicker({
+						top:43
+				});
+				picker.selectionIndicator=true;
+
+				var picker_data = [];
+					
+					
+					    for (i = 0; i < picker_array.length; i++) {
+					       picker_data.push(Titanium.UI.createPickerRow({title:picker_array[i]}));
+								
+					    }
+					
+				picker.add(picker_data);
+
+				picker_view.add(toolbar);
+				picker_view.add(picker);
 
 
+			
+				var slide_in =  Titanium.UI.createAnimation({bottom:0});
+				var slide_out =  Titanium.UI.createAnimation({bottom:-251});
+
+			//	field.addEventListener('blur',function() {
+			//		tableview.height = 300;
+			//		picker_view.animate(slide_out);
+			//	});
+				
+				field.addEventListener('focus',function() {
+					tableview.height =420;
+					picker_view.animate(slide_in);
+					field.blur();
+				});
+
+			
+
+				
+				tableview.add(picker_view);
 
         //field.addEventListener('blur', checkFocus);
-        break;
-    case TEXTAREA_FIELD:
-        field = Titanium.UI.createTextArea({
-            color: '#000',
-            height: 145,
-            left: 110,
-            width: 150,
-            value: value,
-            id: id,
-            font: {
-                fontSize: 16,
-                fontWeight: 'bold'
-            },
-            textAlign: 'left',
-            appearance: Titanium.UI.KEYBOARD_DEFAULT,
-            keyboardType: Titanium.UI.KEYBOARD_DEFAULT,
-            returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
-            borderWidth: 2,
-            borderColor: '#bbb',
-            borderRadius: 5,
-            suppressReturn: false
-        });
-        row.height = 155;
-        //field.addEventListener('blur', checkFocus);
-        break;
+       break;
 
     };
     row.add(field);
@@ -207,7 +270,6 @@ function createStandardRow(id, name, type_field, value) {
 /*
 * <!-- Creating rows -->
 */
-
 
 
 tableview = Titanium.UI.createTableView({
@@ -220,38 +282,41 @@ tableview = Titanium.UI.createTableView({
     style: Titanium.UI.iPhone.TableViewStyle.GROUPED
 });
 
+var table_height = tableview.height;
+
+
 var row = createStandardRow('name', 'Name', TEXT_FIELD, "");
 //row.header="";
 //row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
 
-row = createStandardRow('issue_age', 'Issue Age', TEXT_FIELD, "");
+row = createStandardRow('issue_age', 'Issue Age', NUMBER_FIELD, "");
 // row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
 
-row = createStandardRow('sex', 'Sex', TEXT_FIELD, "");
+row = createStandardRow('sex', 'Sex', PICKER_FIELD, "",["Male", "Female"]);
 // row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
 
-row = createStandardRow('plan', 'Plan', TEXT_FIELD, "");
+row = createStandardRow('plan', 'Plan', PICKER_FIELD, "",["Full Benefit","Reduced Benefit"]);
 // row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
 
-row = createStandardRow('tobacco_status', 'Tobacco Status', TEXT_FIELD, "");
+row = createStandardRow('tobacco_status', 'Tobacco Status', PICKER_FIELD, "",["Tobacco","Non-Tobacco"]);
 // row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
 
-row = createStandardRow('premium_period', 'Premium Period', TEXT_FIELD, "");
+row = createStandardRow('premium_period', 'Premium Period', PICKER_FIELD, "",["5 Years","10 Years","20 Years","To Age 100"]);
 // row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
 
-row = createStandardRow('face_amount', 'Face Amount', TEXT_FIELD, "");
+row = createStandardRow('face_amount', 'Face Amount', NUMBER_FIELD, "");
 // row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
@@ -353,11 +418,26 @@ function(e) {
         animated: true
     });
 });
+
+
 //row = Ti.UI.createTableViewRow();
 Ti.UI.currentWindow.add(calculate);
 //data.push(row);
 tableview.setData(data);
 Ti.UI.currentWindow.add(tableview);
+
+
+	cancel.addEventListener('click',function() {
+		tableview.height = 300;
+		picker_view.animate(slide_out);
+	});
+
+	done.addEventListener('click',function() {
+		tableview.height = 300;
+		
+		field.value =  picker.getSelectedRow(0).title;
+		picker_view.animate(slide_out);
+	});
 
 
 /* SAVE
