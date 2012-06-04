@@ -119,7 +119,9 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             keyboardToolbarColor: '#999',
             keyboardToolbarHeight: 40 });
 
-
+						done.addEventListener('click',function(e) {
+							field.blur();
+						});
         field.addEventListener('blur',function(e) {
 
             if (e.source == '[object name]') {
@@ -168,6 +170,10 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             keyboardToolbarColor: '#999',
             keyboardToolbarHeight: 40
         });
+
+				num_done.addEventListener('click',function(e) {
+					field.blur();
+				});
     		  field.addEventListener('blur',function(e) {
 
 	      

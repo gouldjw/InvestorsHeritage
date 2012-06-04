@@ -102,8 +102,12 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             keyboardToolbar: [previous, next, spacer, done],
             keyboardToolbarColor: '#999',
             keyboardToolbarHeight: 40 });
-
-
+						
+		
+				done.addEventListener('click', function() {
+						    field.blur();
+						});
+						
         field.addEventListener('blur',function(e) {
 
             if (e.source == '[object name]') {
@@ -152,6 +156,9 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             keyboardToolbarColor: '#999',
             keyboardToolbarHeight: 40
         });
+					num_done.addEventListener('click', function() {
+					    field.blur();
+					});
     		  field.addEventListener('blur',function(e) {
 
 	      
@@ -389,8 +396,7 @@ var calculate = Ti.UI.createButton({
     //backgroundLeftCap: 10,
 });
 
-calculate.addEventListener('click',
-function(e) {
+calculate.addEventListener('click', function(e) {
 
     //		alert('name: ' + Ti.App.Properties.getString('feii_name') + '\n issue age: ' + Ti.App.Properties.getString('feii_issue_age') + '\n sex: ' + Ti.App.Properties.getString('feii_sex') + '\n plan: ' + Ti.App.Properties.getString('feii_plan'));
     var rates = Ti.UI.createWindow({
@@ -482,6 +488,7 @@ function(e) {
 });
 
 
+				
 //row = Ti.UI.createTableViewRow();
 Ti.UI.currentWindow.add(calculate);
 //data.push(row);
@@ -489,13 +496,6 @@ tableview.setData(data);
 Ti.UI.currentWindow.add(tableview);
 
 
-done.addEventListener('click', function() {
-
-    field.blur();
-	//	picker_view.animate(slide_out);
-
-    
-});
 
 
 
