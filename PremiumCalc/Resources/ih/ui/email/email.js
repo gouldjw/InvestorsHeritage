@@ -9,7 +9,7 @@ var win = Ti.UI.currentWindow;
 		emailDialog.setSubject('Your Insurance Quote From IHLIC!');
 		emailDialog.setToRecipients(['']);
 		//emailDialog.setCcRecipients(['bar@yahoo.com']);
-		emailDialog.setBccRecipients(['compliance@IHLIC.example.com']);
+		emailDialog.setBccRecipients(['']);
 		
 		if (Ti.Platform.name == 'iPhone OS') {
 			//emailDialog.setMessageBody('<b>Thank You for your business!</b>å');

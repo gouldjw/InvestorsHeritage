@@ -18,7 +18,6 @@ var ih = {};
 
 Ti.include(
 	'/ih/config/config.js',
-	'/ih/util/util.js',
 	'/ih/ui/ui.js',
 	'/test/enabled.js',
 	'/test/tests.js'
