@@ -1,3 +1,11 @@
+//  1.	If Funeral Amount:
+//  a.	Then, divide the entered Funeral Amount by 1000 and store the answer in memory as “SP_fAmDiv1000”
+//  b.	Then, multiply “SP_fAmDiv1000” by the “ratePer1000” to find the Single Premium Due.
+
+//  b.	VARIATIONS to the RULES:
+//  i.	If Signed By Insured is equal to Yes, then proceed with the above explanation.
+//  ii.	If Signed By Insured is equal to No, then do not query the database and automatically use 999 as the “Rate per 1000.”
+
 var data = [];
 
 var db = Titanium.Database.install('../../../../ih.sqlite', 'legacy_single_premium_rates');
@@ -114,35 +122,12 @@ var issue_age_label = Ti.UI.createLabel({
 
 name_plate.add(issue_age_label);
 
- //Ti.App.Properties.setString('lspr_age', e.value);
-	//var real_age_tmp = e.value.split('-');
-	//var real_age = real_age_tmp[0];
-
-var age = Ti.UI.createLabel({
-    left : 20,  
-    top: 150,
-    text:"Age:"+ Ti.App.Properties.getString('lspr_age') });
-
-Ti.UI.currentWindow.add(age);                
-
-
-var prem = Ti.UI.createLabel({
-    left : 20,   
-    top: 170,        
-    text:"prem/1000:" + rate_per_1k
+ single_premium_due_results =  Ti.UI.createImageView({
+    image: '/images/single_premium_due_values.png',
+    top: 120,
+    width: '95%'
 });
-
-Ti.UI.currentWindow.add(prem);
-
-var total_prem = Ti.UI.createLabel({
-    left : 20,  
-    top: 190,         
-    text:"Total Prem:" +Ti.App.Properties.getString('lspr_funeral_amount') 
-});
-
-Ti.UI.currentWindow.add(total_prem);
-
- 
+Ti.UI.currentWindow.add(single_premium_due_results);
 
 //r(i=0;i<10;i++);
 // {

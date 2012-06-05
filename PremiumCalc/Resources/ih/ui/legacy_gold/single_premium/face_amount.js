@@ -1,3 +1,13 @@
+
+//  2.	If Premium Amount:
+//  a.	Then, divide the “ratePer1000” by 1000 to receive a decimal.  Store this answer in memory as “ratePer1000Div1000.”
+//  b.	Then, divide the previously entered Premium Amount by the “ratePer1000Div1000” to find the Policy Face Amount.
+//  3.	These two equations are the same thing, one just shows the client how much they owe the Insurance company (Funeral Amount), and the other shows how big their policy will be/how much coverage they will have (Premium Amount).
+//  
+//  b.	VARIATIONS to the RULES:
+//  i.	If Signed By Insured is equal to Yes, then proceed with the above explanation.
+//  ii.	If Signed By Insured is equal to No, then do not query the database and automatically use 999 as the “Rate per 1000.”
+
 var data = [];
 
 var db = Titanium.Database.install('../../../../ih.sqlite', 'legacy_single_premium_rates');
@@ -31,7 +41,7 @@ while (rows.isValidRow()){
 
 
 var single_premium_due = Ti.UI.createImageView({
-    image: '/images/policy_face_ammount.png',
+    image: '/images/policy_face_amount.png',
     width: 240,
     top: 1
 });
@@ -106,7 +116,7 @@ var issue_age_label = Ti.UI.createLabel({
 	textAlign: 'left',
   font: {
      fontSize: 16,
-     fontWeight: 'bold'
+     fontWeight: 'bold',
   },
   left: 183,
   color: 'black',
@@ -114,34 +124,42 @@ var issue_age_label = Ti.UI.createLabel({
 
 name_plate.add(issue_age_label);
 
+face_amount_results =  Ti.UI.createImageView({
+    image: '/images/policy_face_results.png',
+    top: 120,
+    width: '95%'
+});
+Ti.UI.currentWindow.add(face_amount_results);
+
+
  //Ti.App.Properties.setString('lspr_age', e.value);
 	//var real_age_tmp = e.value.split('-');
 	//var real_age = real_age_tmp[0];
-
-var age = Ti.UI.createLabel({
-    left : 20,  
-    top: 150,
-    text:"Age:"+ Ti.App.Properties.getString('lspr_age') });
-
-Ti.UI.currentWindow.add(age);                
-
-
-var prem = Ti.UI.createLabel({
-    left : 20,   
-    top: 170,        
-    text:"prem/1000:" + prem_1k
-});
-
-Ti.UI.currentWindow.add(prem);
-
-var faceamnt = Ti.UI.createLabel({
-    left : 20,  
-    top: 190,         
-    text:"Face Amt:" +Ti.App.Properties.getString('lspr_face_amount') + '17'
-});
-
-Ti.UI.currentWindow.add(faceamnt);
-
+//  
+//  var age = Ti.UI.createLabel({
+//      left : 20,  
+//      top: 150,
+//      text:"Age:"+ Ti.App.Properties.getString('lspr_age') });
+//  
+//  Ti.UI.currentWindow.add(age);                
+//  
+//  
+//  var prem = Ti.UI.createLabel({
+//      left : 20,   
+//      top: 170,        
+//      text:"prem/1000:" + prem_1k
+//  });
+//  
+//  Ti.UI.currentWindow.add(prem);
+//  
+//  var faceamnt = Ti.UI.createLabel({
+//      left : 20,  
+//      top: 190,         
+//      text:"Face Amt:" +Ti.App.Properties.getString('lspr_face_amount') + '17'
+//  });
+//  
+//  Ti.UI.currentWindow.add(faceamnt);
+//  
  
 
 //r(i=0;i<10;i++);
