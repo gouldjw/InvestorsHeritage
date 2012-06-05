@@ -1,0 +1,1 @@
+/Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/Resources/ih/ui/legacy_gold/single_premium/name.js

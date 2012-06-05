@@ -1,50 +1,48 @@
-export PROJECT_ROOT=$(shell pwd)
-export TMP_DIR=$(PROJECT_ROOT)/tmp/
+# Makefile to start Titanium Mobile project from the command line.
+# More info at http://github.com/guilhermechapiewski/titanium-jasmine
+
+PROJECT_NAME="PremiumCalc"
+ PROJECT_ROOT=$(shell "pwd")
+
+# iOS 
+run-iphone:
+	@DEVICE_TYPE=iphone make run
+test-iphone:
+	@DEVICE_TYPE=iphone make test
+run-ipad:
+	@DEVICE_TYPE=ipad make run
+test-ipad:
+	@DEVICE_TYPE=iphone make run
+run-android:
+	@DEVICE_TYPE=android make run
+test-android:	
+	@DEVICE_TYPE=android make test
+
 
 run:
-	@mkdir -p ${PROJECT_ROOT}/src/Resources/test/
-	@mkdir -p ${PROJECT_ROOT}/src/build/iphone/
-	@echo "" > ${PROJECT_ROOT}/src/Resources/test/enabled.js
+	@if [ "${DEVICE_TYPE}" == "" ]; then\
+		echo "Please run \"make run-[iphone|ipad]\" instead.";\
+		exit 1;\
+	fi
+	@mkdir -p ${PROJECT_ROOT}/${PROJECT_NAME}/Resources/spec/
+	@echo "" > ${PROJECT_ROOT}/${PROJECT_NAME}/Resources/spec/enabled.js
 	@make launch-titanium
 
 test:
-	@mkdir -p ${PROJECT_ROOT}/src/Resources/test/
-	@mkdir -p ${PROJECT_ROOT}/src/build/iphone/
-	@echo "ih.config.tests_enabled = true;" > ${PROJECT_ROOT}/src/Resources/test/enabled.js
+	@if [ "${DEVICE_TYPE}" == "" ]; then\
+		echo "Please run \"make test-[iphone|ipad]\" instead.";\
+		exit 1;\
+	fi
+	@mkdir -p ${PROJECT_ROOT}/${PROJECT_NAME}/Resources/spec/
+	@echo "var tests_enabled = true;" > ${PROJECT_ROOT}/${PROJECT_NAME}/Resources/spec/enabled.js
 	@make launch-titanium
 
-clean: 
-	@rm -rf ${PROJECT_ROOT}/src/build/iphone/*
-	@mkdir -p ${PROJECT_ROOT}/src/build/iphone/
-	@echo "Deleted: ${PROJECT_ROOT}/src/build/iphone/*"
-
-# clean-languages:
-# 	@PROJECT_ROOT=${PROJECT_ROOT} bash ${PROJECT_ROOT}/bin/i18n.sh clean
-# 
-# languages:
-# 	@PROJECT_ROOT=${PROJECT_ROOT} bash ${PROJECT_ROOT}/bin/i18n.sh
+clean:
+	@rm -rf ${PROJECT_ROOT}/${PROJECT_NAME}/build/iphone/*
+	@mkdir -p ${PROJECT_ROOT}/${PROJECT_NAME}/build/iphone/
+	@echo "Deleted: ${PROJECT_ROOT}/${PROJECT_NAME}/build/iphone/*"
 
 launch-titanium:
-	@echo "Building with Titanium..."
-	@mkdir -p ${PROJECT_ROOT}/src/build/iphone/
-	@PROJECT_ROOT=${PROJECT_ROOT} bash ${PROJECT_ROOT}/bin/titanium.sh
-
-build-verification:
-	@if [ "`find ${PROJECT_ROOT}/src/build/iphone/ -type f | wc -l | sed 's/ //g'`" == "0" ]; then\
-		echo "[ERROR] Please execute \"make run\" and run the application on simulator before publishing, so the compiled files can be generated.";\
-		exit 1;\
-	fi
-
-
-project-name-verification:
-	@if [ "${PROJECT_NAME}" != "InvestorsRelations" ] && [ "${PROJECT_NAME}" != "InvestorsRelations" ]; then\
-		echo "[ERROR] PROJECT_NAME env variable is required for this make target";\
-		echo "Please use one of the following:";\
-		echo "- \"PROJECT_NAME=InvestorsRelations ... make [target]\"";\
-		echo "- \"PROJECT_NAME=InvestorsRelations... make [target]\"";\
-		exit 1;\
-	fi
-
-
-log:
-	@tail -n100 -f ${PROJECT_ROOT}/src/build/iphone/build/build.log
+	@echo "Building with Titanium... (DEVICE_TYPE:${DEVICE_TYPE})"
+	@mkdir -p ${PROJECT_ROOT}/${PROJECT_NAME}/build/iphone/
+	@PROJECT_NAME=${PROJECT_NAME} PROJECT_ROOT=${PROJECT_ROOT} DEVICE_TYPE=${DEVICE_TYPE} bash ${PROJECT_ROOT}/bin/titanium.sh
