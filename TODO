@@ -1,9 +1,1 @@
-display rates screen
-hook up pdf generation
-modal premium pay simplified issue reminder popup
-
-
-BUGS:
-fix lgsp from fi calc code path
-May 30 13:38:58 MBP.local InsuranceApp[30517] <Error>: CGContextConcatCTM: invalid context 0x0
-
+flatten git

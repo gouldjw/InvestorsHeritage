@@ -19,12 +19,8 @@ var win = Ti.UI.currentWindow;
 			//emailDialog.setMessageBody('Thank You for your business!');
 		}
 
-		// attach a blob
-		//emailDialog.addAttachment(event.media);
 		
-		// attach a file
-		var f = Ti.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, 'IHLIC_Modal_Premium.pdf');
-		emailDialog.addAttachment(f);
+	
 		
 		emailDialog.addEventListener('complete',function(e)
 		{

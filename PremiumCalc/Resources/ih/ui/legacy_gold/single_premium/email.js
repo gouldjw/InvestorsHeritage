@@ -23,8 +23,7 @@ var win = Ti.UI.currentWindow;
 		//emailDialog.addAttachment(event.media);
 		
 		// attach a file
-		var f = Ti.Filesystem.getFile(Titanium.Filesystem.resourcesDirectory, 'IHLIC_Single_Premium.pdf');
-		emailDialog.addAttachment(f);
+	
 		
 		emailDialog.addEventListener('complete',function(e)
 		{
