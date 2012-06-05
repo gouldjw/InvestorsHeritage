@@ -213,13 +213,13 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 			        field = Titanium.UI.createTextField({
 			            color: '#000',
 			            height: 48,
-			            left: 160,
+			            left: 130,
 			            textAlign: 'right',
 			            font: {
 			                fontSize: 16,
 			                fontWeight: 'bold'
 			            },
-			            width: 130,
+			            width: 160,
 			            value: value,
 			            id: id,
 			            // keyboardType: PICKER_TYPE_PLAIN,

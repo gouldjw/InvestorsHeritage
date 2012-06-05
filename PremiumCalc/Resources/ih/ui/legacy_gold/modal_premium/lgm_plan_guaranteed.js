@@ -8,25 +8,36 @@ var db = Titanium.Database.install('../../../../ih.sqlite', 'legacy_modal_premiu
 //	alert(Ti.App.Properties.getString('feii_premium_period'));
 //	alert(real_pay[0]);
 
-var rows = db.execute('SELECT * FROM legacy_modal_premium_rates limit 1');
-//	alert(rows.rate_per_1000);
-	//alert(real_pay[0]);
-while (rows.isValidRow()){
-		 	var rate_per_1k =rows.fieldByName('rate_per_1000');
-		 		rows.next();
-			}
+var  age_raw=    Ti.App.Properties.getString('issue_age');
+var age_prepare = age_raw.split('-');
+var safe_age = age_prepare[0];
+
+if(Ti.App.Properties.getString('signed') =="Yes"){
+	var isSigned ='Signed';
+} else{
+	var isSigned='Unsigned';
+}
+
+// for pay period 1
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="1" limit 1');
+var rate_per_1k_1 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="2" limit 1');
+var rate_per_1k_2 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="3" limit 1');
+var rate_per_1k_3 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="4" limit 1');
+var rate_per_1k_4 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="5" limit 1');
+var rate_per_1k_5 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="7" limit 1');
+var rate_per_1k_7 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="10" limit 1');
+var rate_per_1k_10 =rows.fieldByName('rate_per_1000');
 	rows.close();
+//alert(rate_per_1k_1)
+var funeral_amount_div_1k = Ti.App.Properties.getString('lgm_funeral_amount') /1000;
 
-//alert('funeral amount');
-
-// policy face amount
-
-
-//name plate
-
-//2d matrix
-//age prem/1000 total prem
-
+//funeral_amount_div_1k * rate_per_1k_1
 
 
 
@@ -120,66 +131,18 @@ var date_label = Ti.UI.createLabel({
 
 name_plate.add(date_label);
 
-
-
-var total_pre0 = Ti.UI.createLabel({
+               
+var one_year_pay_value    = funeral_amount_div_1k * rate_per_1k_1  ;
+var two_year_pay_value    = funeral_amount_div_1k * rate_per_1k_2;
+var three_year_pay_value  = funeral_amount_div_1k * rate_per_1k_3;
+var four_year_pay_value   = funeral_amount_div_1k * rate_per_1k_4;
+var five_year_pay_value   = funeral_amount_div_1k * rate_per_1k_5;
+var seven_year_pay_value  = funeral_amount_div_1k * rate_per_1k_7;
+var ten_year_pay_value    = funeral_amount_div_1k * rate_per_1k_10;
+                  
+var one_year_pay_label = Ti.UI.createLabel({
 	top:145,
-	text: Math.floor(Math.random()*10000) , //comeback to this
-	textAlign: 'left',
-  font: {
-     fontSize: 16,
-     fontWeight: 'bold'
-  },
-  left: 250,
-  color: 'black',
-});
-var total_pre1 = Ti.UI.createLabel({
-	top:174,
-	text: Math.floor(Math.random()*10000) , //comeback to this
-	textAlign: 'left',
-  font: {
-     fontSize: 16,
-     fontWeight: 'bold'
-  },
-  left: 250,
-  color: 'black',
-});
-var total_pre2 = Ti.UI.createLabel({
-	top:203,
-	text: Math.floor(Math.random()*10000) , //comeback to this
-	textAlign: 'left',
-  font: {
-     fontSize: 16,
-     fontWeight: 'bold'
-  },
-  left: 250,
-  color: 'black',
-});
-var total_pre3 = Ti.UI.createLabel({
-	top:230,
-	text: Math.floor(Math.random()*10000), //comeback to this
-	textAlign: 'left',
-  font: {
-     fontSize: 16,
-     fontWeight: 'bold'
-  },
-  left: 250,
-  color: 'black',
-});
-var total_pre4 = Ti.UI.createLabel({
-	top:260,
-	text: Math.floor(Math.random()*10000) , //comeback to this
-	textAlign: 'left',
-  font: {
-     fontSize: 16,
-     fontWeight: 'bold'
-  },
-  left: 250,
-  color: 'black',
-});
-var total_pre5 = Ti.UI.createLabel({
-	top:288,
-	text: Math.floor(Math.random()*10000), //comeback to this
+	text: one_year_pay_value.toFixed(2) , 
 	textAlign: 'left',
   font: {
      fontSize: 16,
@@ -189,9 +152,9 @@ var total_pre5 = Ti.UI.createLabel({
   color: 'black',
 });
 
-var total_pre7 = Ti.UI.createLabel({
-	top:317,
-	text: Math.floor(Math.random()*10000) , //comeback to this
+var two_year_pay_label = Ti.UI.createLabel({
+	top:174,
+	text: two_year_pay_value.toFixed(2) ,
 	textAlign: 'left',
   font: {
      fontSize: 16,
@@ -200,13 +163,70 @@ var total_pre7 = Ti.UI.createLabel({
   left: 250,
   color: 'black',
 });
-tableview.add(total_pre0);
-tableview.add(total_pre1);
-tableview.add(total_pre2);
-tableview.add(total_pre3);
-tableview.add(total_pre4);
-tableview.add(total_pre5);
-tableview.add(total_pre7);
+var three_year_pay_label = Ti.UI.createLabel({
+	top:203,
+	text: three_year_pay_value.toFixed(2) ,
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+var four_year_pay_label = Ti.UI.createLabel({
+	top:230,
+	text: four_year_pay_value.toFixed(2) ,
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+var five_year_pay_label = Ti.UI.createLabel({
+	top:260,
+	text: five_year_pay_value.toFixed(2) ,
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+var seven_year_pay_label = Ti.UI.createLabel({
+	top:288,
+	text: seven_year_pay_value.toFixed(2) ,
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+
+var ten_year_pay_label = Ti.UI.createLabel({
+	top:317,
+	text: ten_year_pay_value.toFixed(2) ,
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+
+tableview.add(one_year_pay_label);
+tableview.add(two_year_pay_label);
+tableview.add(three_year_pay_label);
+tableview.add(four_year_pay_label);
+tableview.add(five_year_pay_label);
+tableview.add(seven_year_pay_label);
+tableview.add(ten_year_pay_label);
 // 
 // var issue_age_label = Ti.UI.createLabel({
 // 	top:52,

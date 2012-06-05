@@ -1,16 +1,12 @@
-//  1.	If Funeral Amount:
-//  a.	Then, divide the entered Funeral Amount by 1000 and store the answer in memory as “SP_fAmDiv1000”
-//  b.	Then, multiply “SP_fAmDiv1000” by the “ratePer1000” to find the Single Premium Due.
-
-//  b.	VARIATIONS to the RULES:
-//  i.	If Signed By Insured is equal to Yes, then proceed with the above explanation.
-//  ii.	If Signed By Insured is equal to No, then do not query the database and automatically use 999 as the “Rate per 1000.”
-
-
 var data = [];
 
-var db = Titanium.Database.install('../../../../ih.sqlite', 'legacy_single_premium_rates');
+var db = Titanium.Database.install('../../../../ih.sqlite', 'legacy_modal_premium_rates');
 
+
+//var rows= db.execute('SELECT * FROM final_expense_rate where issue_age="26" AND plan="Full Benefit" AND  sex="Male" AND  tobacco_status="Tobacco" limit 1; ');
+//var rows = db.execute('SELECT * FROM final_expense_rate where issue_age="'+Ti.App.Properties.getString('feii_issue_age')+'"  AND plan="'+Ti.App.Properties.getString('feii_plan')+'" AND  sex="'+Ti.App.Properties.getString('feii_sex')+'" AND  tobacco_status="'+Ti.App.Properties.getString('feii_tobacco_status')+'" AND pay_period="'+Ti.App.Properties.getString('feii_premium_period')+'" limit 1'); 
+//	alert(Ti.App.Properties.getString('feii_premium_period'));
+//	alert(real_pay[0]);
 
 var  age_raw=    Ti.App.Properties.getString('issue_age');
 var age_prepare = age_raw.split('-');
@@ -21,19 +17,26 @@ if(Ti.App.Properties.getString('signed') =="Yes"){
 } else{
 	var isSigned='Unsigned';
 }
-//var rows= db.execute('SELECT * FROM final_expense_rate where issue_age="26" AND plan="Full Benefit" AND  sex="Male" AND  tobacco_status="Tobacco" limit 1; ');
-//var rows = db.execute('SELECT * FROM final_expense_rate where issue_age="'+Ti.App.Properties.getString('feii_issue_age')+'"  AND plan="'+Ti.App.Properties.getString('feii_plan')+'" AND  sex="'+Ti.App.Properties.getString('feii_sex')+'" AND  tobacco_status="'+Ti.App.Properties.getString('feii_tobacco_status')+'" AND pay_period="'+Ti.App.Properties.getString('feii_premium_period')+'" limit 1'); 
-//	alert(Ti.App.Properties.getString('feii_premium_period'));
-//	alert(real_pay[0]);
 
-var rows = db.execute('SELECT * FROM legacy_single_premium_rates where signed_unsigned="'+isSigned+'" AND issue_age="'+safe_age+'" limit 1');
-//	alert(rows.rate_per_1000);
-	//alert(real_pay[0]);
-while (rows.isValidRow()){
-		 	var prem_1k =rows.fieldByName('rate_per_1000');
-		 		rows.next();
-			}
+// for pay period 1
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="1" limit 1');
+var rate_per_1k_1 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="2" limit 1');
+var rate_per_1k_2 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="3" limit 1');
+var rate_per_1k_3 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="4" limit 1');
+var rate_per_1k_4 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="5" limit 1');
+var rate_per_1k_5 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="7" limit 1');
+var rate_per_1k_7 =rows.fieldByName('rate_per_1000');
+var rows = db.execute('SELECT * FROM legacy_modal_premium_rates where issue_age="'+safe_age+'" AND simplified_issue_guaranteed_issue ="MIB Guaranteed Issue" AND pay_period="10" limit 1');
+var rate_per_1k_10 =rows.fieldByName('rate_per_1000');
 	rows.close();
+//alert(rate_per_1k_1)
+var funeral_amount_div_1k = Ti.App.Properties.getString('lgm_funeral_amount') /1000;
+
 
 //alert('funeral amount');
 
