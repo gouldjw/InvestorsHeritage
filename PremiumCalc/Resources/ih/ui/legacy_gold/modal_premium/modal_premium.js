@@ -102,7 +102,7 @@ function createStandardRow(id, name, type_field, value, picker_array) {
     row.add(label_id);
 
     var label = Titanium.UI.createLabel({
-        text: name,
+        text: name+':',
         textAlign: 'left',
         font: {
             fontSize: 16,
