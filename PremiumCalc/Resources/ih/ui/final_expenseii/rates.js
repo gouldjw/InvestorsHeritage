@@ -4,18 +4,20 @@ var db = Titanium.Database.install('../../../ih.sqlite', 'final_expense_rate');
 
 //		var real_pay = e.value.split(' ');
 		
-var  premium_period_raw=     Ti.App.Properties.getString('premium_period');
+var  premium_period_raw=    Ti.App.Properties.getString('premium_period');
 var prem_prd = premium_period_raw.split(' ');
 var safe_premium_period = prem_prd[0];
+alert(safe_premium_period);
 //			alert('debugger value for \n\r' +  Ti.App.Properties.getString('feii_premium_period') );
 
 //var rows= db.execute('SELECT * FROM final_expense_rate where issue_age="26" AND plan="Full Benefit" AND  sex="Male" AND  tobacco_status="Tobacco" limit 1; ');
-var rows = db.execute('SELECT * FROM final_expense_rate where issue_age="'+Ti.App.Properties.getString('issue_age')+'"  AND plan="'+Ti.App.Properties.getString('plan')+'" AND  sex="'+Ti.App.Properties.getString('sex')+'" AND  tobacco_status="'+Ti.App.Properties.getString('tobacco_status')+'" AND pay_period="'+safe_premium_period+'" limit 1'); 
+var rows = db.execute('SELECT * FROM final_expense_rate where issue_age="'+Ti.App.Properties.getString('issue_age')+'"  AND plan="'+Ti.App.Properties.getString('plan')+'" AND  sex="'+Ti.App.Properties.getString('sex')+'" AND  tobacco_status="'+Ti.App.Properties.getString('tobacco_status')+'"OR tobacco_status="NA" AND pay_period="'+safe_premium_period+'" limit 1'); 
 //	alert(Ti.App.Properties.getString('feii_premium_period'));
 //	alert(real_pay[0]);
-	//alert('Debugger to correct slider focus issue\n\r' +Ti.App.Properties.getString('issue_age')+'"  AND plan="'+Ti.App.Properties.getString('plan')+'" AND  sex="'+Ti.App.Properties.getString('sex')+'" AND  tobacco_status="'+Ti.App.Properties.getString('tobacco_status')+'" AND pay_period="'+Ti.App.Properties.getString('premium_period'));
+	alert('Debugger to correct slider focus issue\n\r' +Ti.App.Properties.getString('issue_age')+'"  AND plan="'+Ti.App.Properties.getString('plan')+'" AND  sex="'+Ti.App.Properties.getString('sex')+'" AND  tobacco_status="'+Ti.App.Properties.getString('tobacco_status')+'" AND pay_period="'+safe_premium_period);
 			
 while (rows.isValidRow()){
+	
 		var rate_per_1000 = rows.fieldByName('rate_per_1000');
 		//alert(rows.fieldByName('rate_per_1000'));
 	
