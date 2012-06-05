@@ -71,7 +71,7 @@ function createStandardRow(id, name, type_field, value, picker_array) {
     row.add(label_id);
 
     var label = Titanium.UI.createLabel({
-        text: name,
+        text: name+':',
         textAlign: 'left',
         font: {
             fontSize: 16,
@@ -83,6 +83,23 @@ function createStandardRow(id, name, type_field, value, picker_array) {
         height: 40
     });
     row.add(label);
+if(id == 'plan'|| id == 'premium_period'){
+		hint_text = Titanium.UI.createLabel({
+        text: '* see info icon',
+        textAlign: 'left',
+        font: {
+            fontSize: 12,
+            fontStyle: 'italic'
+        },
+        left: -1,
+        color: 'black',
+        width: '200',
+        height: 20,
+				bottom:-3
+    });
+    label.add(hint_text);
+}
+
     var field;
     switch (type_field) {
     case TEXT_FIELD:
