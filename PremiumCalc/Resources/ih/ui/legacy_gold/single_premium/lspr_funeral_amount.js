@@ -110,7 +110,7 @@ name_plate.add(date_label);
 
 var issue_age_label = Ti.UI.createLabel({
 	top:52,
-	text: 'Issue Age: '+ Ti.App.Properties.getString('lspr_age') ,
+	text: 'Issue Age: '+ Ti.App.Properties.getString('issue_age') ,
 	textAlign: 'left',
   font: {
      fontSize: 16,
@@ -128,6 +128,47 @@ name_plate.add(issue_age_label);
     width: '95%'
 });
 Ti.UI.currentWindow.add(single_premium_due_results);
+
+
+var issue_age_results = Ti.UI.createLabel({
+	top:70,
+	text: Ti.App.Properties.getString('issue_age') ,
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 18,
+  color: 'black',
+});
+single_premium_due_results.add(issue_age_results);
+
+var prem_per_1k = Ti.UI.createLabel({
+	top:70,
+	text: '$955' , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 118,
+  color: 'black',
+});
+single_premium_due_results.add(prem_per_1k );
+
+
+var total_prem = Ti.UI.createLabel({
+	top:70,
+	text: '$6000' , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+single_premium_due_results.add(total_prem);
 
 //r(i=0;i<10;i++);
 // {

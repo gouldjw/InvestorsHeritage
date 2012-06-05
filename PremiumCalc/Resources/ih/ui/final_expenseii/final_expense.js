@@ -517,7 +517,7 @@ row = Ti.UI.createTableViewRow({
 
 function check_show_calculate() {
     //	alert(Ti.App.Properties.getString('feii_name') +"\n\r "+ Ti.App.Properties.getString('feii_issue_age') +"\n\r "+  Ti.App.Properties.getString('feii_sex') +"\n\r "+  Ti.App.Properties.getString('feii_plan') +" \n\r"+  Ti.App.Properties.getString('feii_tobacco_status') +"\n\r "+  Ti.App.Properties.getString('feii_premium_period') +"\n\r "+ Ti.App.Properties.getString('feii_face_amount'));
-    if ((Ti.App.Properties.getString('feii_name') != null && Ti.App.Properties.getString('feii_face_amount') != null)) {
+    if ((Ti.App.Properties.getString('feii_name') != null && Ti.App.Properties.getString('premium_period') != null)) {
         Ti.App.Properties.setString('calculate_button_active', "true");
         var calculate = Ti.UI.createButton({
             //title: "Legacy Gold Preneed Rate Calculator",
