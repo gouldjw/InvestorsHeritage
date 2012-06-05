@@ -23,6 +23,7 @@ function getField(id) {
 
 
 
+
 var done = Titanium.UI.createButton({
     title: 'Done',
     style: Titanium.UI.iPhone.SystemButtonStyle.DONE
@@ -111,7 +112,7 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 						
         field.addEventListener('blur',function(e) {
 							check_show_calculate();
-					
+						
             if (e.source == '[object name]') {
                 // lets blank them out before setting them
                 //Ti.App.Properties.setString('feii_name', '');
@@ -160,7 +161,11 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             keyboardToolbarColor: '#999',
             keyboardToolbarHeight: 40
         });
+					//ield.addEventListener('click',function(){
+					// Ti.UI.currentWindow.title = name;
+					//);
 					num_done.addEventListener('click', function() {
+						
 					    field.blur();
 					});
     		  field.addEventListener('blur',function(e) {

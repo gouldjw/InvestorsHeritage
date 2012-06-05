@@ -446,7 +446,7 @@ var table_height = tableview.height;
 											            tabBarHidden: true,
 
 											            orientationModes: [Ti.UI.PORTRAIT],
-											            url: "fe_notes.js"
+											            url: "single_notes.js"
 											            // url:"ih/ui/email/email.js",
 											            // evalhtml:true
 											        });
