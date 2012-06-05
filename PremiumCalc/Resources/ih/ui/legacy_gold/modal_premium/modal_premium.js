@@ -207,127 +207,155 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 
 	        });
 	        break;
-    case PICKER_FIELD:
-        //	Ti.API.log(picker_array);
-        field = Titanium.UI.createTextField({
-            color: '#000',
-            height: 48,
-            left: 140,
-            textAlign: 'right',
-            font: {
-                fontSize: 16,
-                fontWeight: 'bold'
-            },
-            width: 150,
-            value: value,
-            id: id,
-            // keyboardType: PICKER_TYPE_PLAIN,
-            returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
-            borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
-        });
+    			
+   		    case PICKER_FIELD:
+			        //	Ti.API.log(picker_array);
+			        field = Titanium.UI.createTextField({
+			            color: '#000',
+			            height: 48,
+			            left: 160,
+			            textAlign: 'right',
+			            font: {
+			                fontSize: 16,
+			                fontWeight: 'bold'
+			            },
+			            width: 130,
+			            value: value,
+			            id: id,
+			            // keyboardType: PICKER_TYPE_PLAIN,
+			            returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
+			            borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
+			        });
 
 
-        var picker_view = Titanium.UI.createView({
-            height: 251,
-            bottom: -251
-        });
-
-         
-				var picker_done = Titanium.UI.createButton({
-				    title: 'Done',
-				    style: Titanium.UI.iPhone.SystemButtonStyle.DONE
-				});
-
-				var picker_spacer = Titanium.UI.createButton({
-				    systemButton: Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
-				});
+			        var picker_view = Titanium.UI.createView({
+			            height: 251,
+			            bottom: -251
+			        });
 
 
-				var picker_previous = Titanium.UI.createButton({
-				    title: 'Previous',
-				    style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
-				});
+			        var picker_done = Titanium.UI.createButton({
+			            title: 'Done',
+			            style: Titanium.UI.iPhone.SystemButtonStyle.DONE
+			        });
 
-				var picker_next = Titanium.UI.createButton({
-				    title: 'Next',
-				    style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
-				});
- 
-        var toolbar = Titanium.UI.iOS.createToolbar({
-            top: 0,
-            items: [picker_previous, picker_next, picker_spacer, picker_done],
-            barColor: '#999',
-
-        });
-
-        var picker = Titanium.UI.createPicker({
-            top: 43
-        });
-        picker.selectionIndicator = true;
-
-        var picker_data = [];
+			        var picker_spacer = Titanium.UI.createButton({
+			            systemButton: Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+			        });
 
 
-        for (i = 0; i < picker_array.length; i++) {
-            picker_data.push(Titanium.UI.createPickerRow({
-                title: picker_array[i]
-            }));
+			        var picker_previous = Titanium.UI.createButton({
+			            title: 'Previous',
+			            style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
+			        });
 
-        }
+			        var picker_next = Titanium.UI.createButton({
+			            title: 'Next',
+			            style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
+			        });
 
-        picker.add(picker_data);
+								 picker_previous.addEventListener('click',
+					        function() {
+					            alert('previous clicked');
+					        });
 
-        picker_view.add(toolbar);
-        picker_view.add(picker);
-
-
-
-        var slide_in = Titanium.UI.createAnimation({
-            bottom: 0
-        });
-        var slide_out = Titanium.UI.createAnimation({
-            bottom: -251
-        });
-
-        //	field.addEventListener('blur',function() {
-        //		tableview.height = 300;
-        //		picker_view.animate(slide_out);
-        //	});
-        field.addEventListener('focus', function() {
-            tableview.height = 420;
-            picker_view.animate(slide_in);
-            field.blur();
-        });
-
-				picker_done.addEventListener('click', function() {
-				    tableview.height = 320;
-
-				    field.value = picker.getSelectedRow(0).title;
-				    picker_view.animate(slide_out);
-				});
+					        picker_next.addEventListener('click',
+					        function() {
+					            alert('next clicked');
+					        });
 
 
-        tableview.add(picker_view);
+			        var toolbar = Titanium.UI.iOS.createToolbar({
+			            top: 0,
+			            items: [picker_previous, picker_next, picker_spacer, picker_done],
+			            barColor: '#999',
 
-				field.addEventListener('blur',function(e) {
+			        });
 
-						check_show_calculate();
+			        var picker = Titanium.UI.createPicker({
+			            top: 43
+			        });
+			        picker.selectionIndicator = true;
 
-        
-            if (e.source == '[object plan]') {
-                // lets blank them out before setting them
-                //Ti.App.Properties.setString('feii_plan', '');
-                Ti.App.Properties.setString('lgm_plan', e.value);
-            }
+			        var picker_data = [];
 
-            if (e.source == '[object issue_age]') {
-                // lets blank them out before setting them
-                //Ti.App.Properties.setString('feii_tobacco_status', '');
-                Ti.App.Properties.setString('lgm_issue_age', e.value);
 
-            }
-           
-           
+			        for (i = 0; i < picker_array.length; i++) {
+			            picker_data.push(Titanium.UI.createPickerRow({
+			                title: picker_array[i]
+			            }));
+
+			        }
+
+			        picker.add(picker_data);
+
+			        picker_view.add(toolbar);
+			        picker_view.add(picker);
+
+
+
+			        var slide_in = Titanium.UI.createAnimation({
+			            bottom: 0
+			        });
+			        var slide_out = Titanium.UI.createAnimation({
+			            bottom: -251
+			        });
+
+			        //	field.addEventListener('blur',function() {
+			        //		tableview.height = 300;
+			        //		picker_view.animate(slide_out);
+			        //	});
+			        field.addEventListener('focus',
+			        function() {
+			            tableview.height = 430;
+
+
+			            picker_view.animate(slide_in);
+			            field.blur();
+			        });
+
+			        picker_done.addEventListener('click',
+			        function(e) {
+			            tableview.height = 320;
+
+			            field.value = picker.getSelectedRow(0).title;
+			            //	if(calculate != null){
+			            //	calculate.show();
+			            //	}
+			            picker_view.animate(slide_out);
+			            Ti.App.Properties.setString(id, field.value);
+
+			            //alert(Ti.App.Properties.getString(id));
+			        });
+
+
+			        tableview.add(picker_view);
+
+			        field.addEventListener('blur',function(e) {
+
+			            check_show_calculate(); 
+			
+
+
+          if (e.source == '[object plan]') {
+						 Ti.include('reminder.js');
+					}
+     //         // lets blank them out before setting them
+     //         //Ti.App.Properties.setString('feii_sex', '');
+     //         Ti.App.Properties.setString('lspr_age', e.value);
+		 // 				var real_age_tmp = e.value.split('-');
+		 // 				var real_age = real_age_tmp[0];
+		 // 				//var age_range = e.value;
+	   //          // Ti.App.Properties.setString('feii_premium_period', real_pay[0]);
+     //     }
+		 // 		//signed
+		 // 		        if (e.source == '[object signed]') {
+		 //             
+		 // 							//	var signed = e.value;
+		 // 	                Ti.App.Properties.setString('lspr_signed', e.value);
+		 //             }
+     //    
+     //    
 
         });
         break;
