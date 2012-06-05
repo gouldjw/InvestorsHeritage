@@ -444,12 +444,12 @@ var table_height = tableview.height;
 											        height: '40px'
 											    });
 
-											    var emailButton = Ti.UI.createButton({
-											        image: '/images/email_icon.png',
-											        left: 0,
-											        width: '58px',
-											        height: '40px'
-											    });
+											  //  var emailButton = Ti.UI.createButton({
+											  //      image: '/images/email_icon.png',
+											  //      left: 0,
+											  //      width: '58px',
+											  //      height: '40px'
+											  //  });
 											    var infoButton = Ti.UI.createButton({
 											        image: '/images/info_icon.png',
 											        left: 44,
@@ -457,7 +457,7 @@ var table_height = tableview.height;
 											        height: '40px'
 											    });
 
-											    holder.add(emailButton);
+											  //  holder.add(emailButton);
 											    holder.add(infoButton);
 
 											    rates.rightNavButton = holder;
@@ -484,32 +484,32 @@ var table_height = tableview.height;
 											        });
 											    });
 
-											    emailButton.addEventListener('click',
-											    function(e) {
-											        var emailWindow = Ti.UI.createWindow({
-											            backButtonTitle: 'Back',
-											            title: 'Email',
-											            barColor: 'black',
-											            navBarHidden: false,
-											            tabBarHidden: true,
-
-											            orientationModes: [Ti.UI.PORTRAIT],
-											            //l: "fe_notes.js"
-											            url: "email.js",
-											            evalhtml: true
-											        });
-
-											        //	send_email = Ti.UI.createButton({
-											        //		title:'Send'
-											        //	});
-											        //	
-											        //	emailWindow.rightNavButton = send_email;
-											        //	
-											        tabGroup.activeTab.open(emailWindow, {
-											            animated: true
-											        });
-											    });
-
+											//   emailButton.addEventListener('click',
+											//   function(e) {
+											//       var emailWindow = Ti.UI.createWindow({
+											//           backButtonTitle: 'Back',
+											//           title: 'Email',
+											//           barColor: 'black',
+											//           navBarHidden: false,
+											//           tabBarHidden: true,
+                      //
+											//           orientationModes: [Ti.UI.PORTRAIT],
+											//           //l: "fe_notes.js"
+											//           url: "email.js",
+											//           evalhtml: true
+											//       });
+                      //
+											//       //	send_email = Ti.UI.createButton({
+											//       //		title:'Send'
+											//       //	});
+											//       //	
+											//       //	emailWindow.rightNavButton = send_email;
+											//       //	
+											//       tabGroup.activeTab.open(emailWindow, {
+											//           animated: true
+											//       });
+											//   });
+                      //
 											    // get tab group object
 											    var tabGroup = Ti.UI.currentWindow.tabGroup;
 											    tabGroup.activeTab.open(rates, {

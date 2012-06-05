@@ -73,7 +73,27 @@ var volume = Ti.UI.createLabel({
   color: 'black',
 });
 
+var issue_age = Ti.UI.createLabel({
+	top:52,
+	text: 'Issue Age:'+ Ti.App.Properties.getString('issue_age') ,
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 170,
+  color: 'black',
+});
 name_plate.add(volume);
+name_plate.add(issue_age);
+
+var tableview = Ti.UI.createImageView({
+    image: '/images/modal_guarnateemib.png',
+    //width: 240,
+   	bottom:-60
+});
+
+Ti.UI.currentWindow.add(tableview);
 
 function getDate(){
     var currentTime = new Date();
@@ -99,6 +119,94 @@ var date_label = Ti.UI.createLabel({
 });
 
 name_plate.add(date_label);
+
+
+
+var total_pre0 = Ti.UI.createLabel({
+	top:145,
+	text: Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+var total_pre1 = Ti.UI.createLabel({
+	top:174,
+	text: Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+var total_pre2 = Ti.UI.createLabel({
+	top:203,
+	text: Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+var total_pre3 = Ti.UI.createLabel({
+	top:230,
+	text: Math.floor(Math.random()*10000), //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+var total_pre4 = Ti.UI.createLabel({
+	top:260,
+	text: Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+var total_pre5 = Ti.UI.createLabel({
+	top:288,
+	text: Math.floor(Math.random()*10000), //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+
+var total_pre7 = Ti.UI.createLabel({
+	top:317,
+	text: Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 250,
+  color: 'black',
+});
+tableview.add(total_pre0);
+tableview.add(total_pre1);
+tableview.add(total_pre2);
+tableview.add(total_pre3);
+tableview.add(total_pre4);
+tableview.add(total_pre5);
+tableview.add(total_pre7);
 // 
 // var issue_age_label = Ti.UI.createLabel({
 // 	top:52,

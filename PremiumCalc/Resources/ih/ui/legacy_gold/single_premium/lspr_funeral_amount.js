@@ -6,21 +6,31 @@
 //  i.	If Signed By Insured is equal to Yes, then proceed with the above explanation.
 //  ii.	If Signed By Insured is equal to No, then do not query the database and automatically use 999 as the “Rate per 1000.”
 
+
 var data = [];
 
 var db = Titanium.Database.install('../../../../ih.sqlite', 'legacy_single_premium_rates');
 
 
+var  age_raw=    Ti.App.Properties.getString('issue_age');
+var age_prepare = age_raw.split('-');
+var safe_age = age_prepare[0];
+
+if(Ti.App.Properties.getString('signed') =="Yes"){
+	var isSigned ='Signed';
+} else{
+	var isSigned='Unsigned';
+}
 //var rows= db.execute('SELECT * FROM final_expense_rate where issue_age="26" AND plan="Full Benefit" AND  sex="Male" AND  tobacco_status="Tobacco" limit 1; ');
 //var rows = db.execute('SELECT * FROM final_expense_rate where issue_age="'+Ti.App.Properties.getString('feii_issue_age')+'"  AND plan="'+Ti.App.Properties.getString('feii_plan')+'" AND  sex="'+Ti.App.Properties.getString('feii_sex')+'" AND  tobacco_status="'+Ti.App.Properties.getString('feii_tobacco_status')+'" AND pay_period="'+Ti.App.Properties.getString('feii_premium_period')+'" limit 1'); 
 //	alert(Ti.App.Properties.getString('feii_premium_period'));
 //	alert(real_pay[0]);
 
-var rows = db.execute('SELECT * FROM legacy_single_premium_rates limit 1');
+var rows = db.execute('SELECT * FROM legacy_single_premium_rates where signed_unsigned="'+isSigned+'" AND issue_age="'+safe_age+'" limit 1');
 //	alert(rows.rate_per_1000);
 	//alert(real_pay[0]);
 while (rows.isValidRow()){
-		 	var rate_per_1k =rows.fieldByName('rate_per_1000');
+		 	var prem_1k =rows.fieldByName('rate_per_1000');
 		 		rows.next();
 			}
 	rows.close();
@@ -36,7 +46,7 @@ while (rows.isValidRow()){
 //age prem/1000 total prem
 
 
-
+//alert(Ti.App.Properties.getString('lspr_name') +' '+ Ti.App.Properties.getString('issue_age')+' '+Ti.App.Properties.getString('lspr_funeral_amount')+' '+Ti.App.Properties.getString('signed'));
 
 var single_premium_due = Ti.UI.createImageView({
     image: '/images/single_premium_due.png',
@@ -102,7 +112,7 @@ var date_label = Ti.UI.createLabel({
      fontSize: 16,
      fontWeight: 'bold'
   },
-  left: 200,
+  left: 215,
   color: 'black',
 });
 
@@ -116,7 +126,7 @@ var issue_age_label = Ti.UI.createLabel({
      fontSize: 16,
      fontWeight: 'bold'
   },
-  left: 183,
+  left: 167,
   color: 'black',
 });
 
@@ -145,7 +155,7 @@ single_premium_due_results.add(issue_age_results);
 
 var prem_per_1k = Ti.UI.createLabel({
 	top:70,
-	text: '$955' , //comeback to this
+	text: prem_1k, 
 	textAlign: 'left',
   font: {
      fontSize: 16,
@@ -156,10 +166,10 @@ var prem_per_1k = Ti.UI.createLabel({
 });
 single_premium_due_results.add(prem_per_1k );
 
-
+var total_prem_val = (Ti.App.Properties.getString('lspr_funeral_amount') / 1000) * prem_1k;
 var total_prem = Ti.UI.createLabel({
 	top:70,
-	text: '$6000' , //comeback to this
+	text: total_prem_val.toFixed(2),
 	textAlign: 'left',
   font: {
      fontSize: 16,
@@ -169,60 +179,3 @@ var total_prem = Ti.UI.createLabel({
   color: 'black',
 });
 single_premium_due_results.add(total_prem);
-
-//r(i=0;i<10;i++);
-// {
-//     var row = Ti.UI.createTableViewRow();
-//     var row2 = Ti.UI.createTableViewRow();
-// 
-//     var view1 = Ti.UI.createLabel({
-//         left : 0,
-//         width : "33%",
-//         text:"Age"
-//     });
-//     var view2 = Ti.UI.createView({
-//         left : "33%",
-//         width : "33%",
-// 				height:'20px',
-//         backgroundColor : "red"
-//     });
-//     var view3 = Ti.UI.createView({
-//         left : "66%",
-//         width : "33%",
-//         backgroundColor : "green"
-//     });
-// 		 var view4 = Ti.UI.createView({
-// 	        left : 0,
-// 	        width : "33%",
-// 	        backgroundColor : "green"
-// 	    });
-// 	    var view5 = Ti.UI.createView({
-// 	        left : "33%",
-// 	        width : "33%",
-// 	        backgroundColor : "blue"
-// 	    });
-// 	    var view6 = Ti.UI.createView({
-// 	        left : "66%",
-// 	        width : "33%",
-// 	        backgroundColor : "red"
-// 	    });
-//     
-//     row.add(view1);
-//     row.add(view2);
-//     row.add(view3);
-//     rowData.push(row);
-// 
-//     row2.add(view4);
-//     row2.add(view5);
-//     row2.add(view6);
-//     rowData.push(row2);
-// }
- 
-// var tblview = Ti.UI.createTableView({
-//     data : rowData,
-//     top : 170,
-// 		width:300,
-// 		bottom:180
-// });
- 
-//Ti.UI.currentWindow.add(tblview);

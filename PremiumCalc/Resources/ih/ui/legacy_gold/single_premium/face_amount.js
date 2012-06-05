@@ -13,12 +13,21 @@ var data = [];
 var db = Titanium.Database.install('../../../../ih.sqlite', 'legacy_single_premium_rates');
 
 
+var  age_raw=    Ti.App.Properties.getString('issue_age');
+var age_prepare = age_raw.split('-');
+var safe_age = age_prepare[0];
+
+if(Ti.App.Properties.getString('signed') =="Yes"){
+	var isSigned ='Signed';
+} else{
+	var isSigned='Unsigned';
+}
 //var rows= db.execute('SELECT * FROM final_expense_rate where issue_age="26" AND plan="Full Benefit" AND  sex="Male" AND  tobacco_status="Tobacco" limit 1; ');
 //var rows = db.execute('SELECT * FROM final_expense_rate where issue_age="'+Ti.App.Properties.getString('feii_issue_age')+'"  AND plan="'+Ti.App.Properties.getString('feii_plan')+'" AND  sex="'+Ti.App.Properties.getString('feii_sex')+'" AND  tobacco_status="'+Ti.App.Properties.getString('feii_tobacco_status')+'" AND pay_period="'+Ti.App.Properties.getString('feii_premium_period')+'" limit 1'); 
 //	alert(Ti.App.Properties.getString('feii_premium_period'));
 //	alert(real_pay[0]);
 
-var rows = db.execute('SELECT * FROM legacy_single_premium_rates limit 1');
+var rows = db.execute('SELECT * FROM legacy_single_premium_rates where signed_unsigned="'+isSigned+'" AND issue_age="'+safe_age+'" limit 1');
 //	alert(rows.rate_per_1000);
 	//alert(real_pay[0]);
 while (rows.isValidRow()){
@@ -73,7 +82,7 @@ name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
 	top:52,
-	text: 'Premium: $'+ Ti.App.Properties.getString('lspr_face_amount') +'42' ,
+	text: 'Premium: $'+ Ti.App.Properties.getString('lspr_face_amount') ,
 	textAlign: 'left',
   font: {
      fontSize: 16,
@@ -112,13 +121,13 @@ name_plate.add(date_label);
 
 var issue_age_label = Ti.UI.createLabel({
 	top:52,
-	text: 'Issue Age: '+ Ti.App.Properties.getString('lspr_age') || 'i forgot' ,
+	text: 'Issue Age: '+ Ti.App.Properties.getString('issue_age') ,
 	textAlign: 'left',
   font: {
      fontSize: 16,
      fontWeight: 'bold',
   },
-  left: 183,
+  left: 167,
   color: 'black',
 });
 
@@ -132,6 +141,47 @@ face_amount_results =  Ti.UI.createImageView({
 Ti.UI.currentWindow.add(face_amount_results);
 
 
+
+var issue_age_results = Ti.UI.createLabel({
+	top:70,
+	text: Ti.App.Properties.getString('issue_age'),
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 18,
+  color: 'black',
+});
+face_amount_results.add(issue_age_results);
+
+var prem_per_1k = Ti.UI.createLabel({
+	top:70,
+	text: prem_1k , 
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 118,
+  color: 'black',
+});
+face_amount_results.add(prem_per_1k );
+
+var face_amt_val = prem_1k/1000;
+var face_amount_result = Ti.App.Properties.getString('lspr_face_amount')/face_amt_val;
+var total_prem = Ti.UI.createLabel({
+	top:70,
+	text: face_amount_result.toFixed(2),
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+face_amount_results.add(total_prem);
  //Ti.App.Properties.setString('lspr_age', e.value);
 	//var real_age_tmp = e.value.split('-');
 	//var real_age = real_age_tmp[0];

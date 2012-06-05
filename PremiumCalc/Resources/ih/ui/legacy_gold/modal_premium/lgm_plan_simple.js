@@ -73,7 +73,20 @@ var volume = Ti.UI.createLabel({
   color: 'black',
 });
 
+var issue_age = Ti.UI.createLabel({
+	top:52,
+	text: 'Age:'+ Ti.App.Properties.getString('issue_age') ,
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 200,
+  color: 'black',
+});
+
 name_plate.add(volume);
+name_plate.add(issue_age);
 
 function getDate(){
     var currentTime = new Date();
@@ -129,6 +142,186 @@ monthly_pat.add(monthly_pat_goods);
 //scrollable views here
 // v1 = monthly_direct
 // v2 = monthly_pat
+
+
+
+var total_prem0 = Ti.UI.createLabel({
+	top:45,
+	text: '$'+Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+var total_prem1 = Ti.UI.createLabel({
+	top:75,
+	text: '$'+Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+var total_prem2 = Ti.UI.createLabel({
+	top:105,
+	text: '$'+Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+var total_prem3 = Ti.UI.createLabel({
+	top:135,
+	text: '$'+Math.floor(Math.random()*10000), //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+var total_prem4 = Ti.UI.createLabel({
+	top:160,
+	text: '$'+Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+var total_prem5 = Ti.UI.createLabel({
+	top:189,
+	text: '$'+Math.floor(Math.random()*10000), //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+
+var total_prem7 = Ti.UI.createLabel({
+	bottom:10,
+	text: '$'+Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+monthly_direct.add(total_prem0);
+monthly_direct.add(total_prem1);
+monthly_direct.add(total_prem2);
+monthly_direct.add(total_prem3);
+monthly_direct.add(total_prem4);
+monthly_direct.add(total_prem5);
+monthly_direct.add(total_prem7);
+
+
+
+var total_prem0a = Ti.UI.createLabel({
+	top:45,
+	text: '$'+Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+var total_prem1a = Ti.UI.createLabel({
+	top:75,
+	text: '$'+Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+var total_prem2a = Ti.UI.createLabel({
+	top:105,
+	text: '$'+Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+var total_prem3a = Ti.UI.createLabel({
+	top:135,
+	text: '$'+Math.floor(Math.random()*10000), //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+var total_prem4a = Ti.UI.createLabel({
+	top:160,
+	text: '$'+Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+var total_prem5a = Ti.UI.createLabel({
+	top:189,
+	text: '$'+Math.floor(Math.random()*10000), //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+
+var total_prem7a = Ti.UI.createLabel({
+	bottom:10,
+	text: '$'+Math.floor(Math.random()*10000) , //comeback to this
+	textAlign: 'left',
+  font: {
+     fontSize: 16,
+     fontWeight: 'bold'
+  },
+  left: 218,
+  color: 'black',
+});
+
+monthly_pat.add(total_prem0a);
+monthly_pat.add(total_prem1a);
+monthly_pat.add(total_prem2a);
+monthly_pat.add(total_prem3a);
+monthly_pat.add(total_prem4a);
+monthly_pat.add(total_prem5a);
+monthly_pat.add(total_prem7a);
+
+
+
 
 // var issue_age_label = Ti.UI.createLabel({
 // 	top:52,
