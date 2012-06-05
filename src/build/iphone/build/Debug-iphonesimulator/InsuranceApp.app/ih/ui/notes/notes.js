@@ -1,1 +1,0 @@
-/Users/andrewmcelroy/Desktop/insuranceapp/src/Resources/ih/ui/notes/notes.js

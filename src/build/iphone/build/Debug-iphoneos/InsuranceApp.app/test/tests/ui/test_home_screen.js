@@ -1,1 +1,0 @@
-/Users/andrewmcelroy/Desktop/insuranceapp/src/Resources/test/tests/ui/test_home_screen.js
