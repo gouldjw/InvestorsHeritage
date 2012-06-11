@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/ApplicationMods.m \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/ApplicationMods.h
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/ApplicationMods.m \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/ApplicationMods.h

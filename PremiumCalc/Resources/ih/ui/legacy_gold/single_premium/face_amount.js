@@ -82,7 +82,7 @@ name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
 	top:52,
-	text: 'Premium: $'+ Ti.App.Properties.getString('lspr_face_amount') ,
+	text: 'Premium: $'+ Ti.App.Properties.getString('amount') ,
 	textAlign: 'left',
   font: {
      fontSize: 16,
@@ -102,7 +102,7 @@ function getDate(){
     var day = currentTime.getDate();
     var year = currentTime.getFullYear();
  
-    return day+"/"+month+"/"+year;
+    return month+"/"+day+"/"+year;
 }   
 
 var date_label = Ti.UI.createLabel({
@@ -169,7 +169,7 @@ var prem_per_1k = Ti.UI.createLabel({
 face_amount_results.add(prem_per_1k );
 
 var face_amt_val = prem_1k/1000;
-var face_amount_result = Ti.App.Properties.getString('lspr_face_amount')/face_amt_val;
+var face_amount_result = Ti.App.Properties.getString('amount')/face_amt_val;
 var total_prem = Ti.UI.createLabel({
 	top:70,
 	text: face_amount_result.toFixed(2),

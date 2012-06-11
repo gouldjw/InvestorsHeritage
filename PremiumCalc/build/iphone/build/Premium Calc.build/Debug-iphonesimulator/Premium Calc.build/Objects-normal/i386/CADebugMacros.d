@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/CADebugMacros.cpp \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/CADebugMacros.h
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/CADebugMacros.cpp \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/CADebugMacros.h

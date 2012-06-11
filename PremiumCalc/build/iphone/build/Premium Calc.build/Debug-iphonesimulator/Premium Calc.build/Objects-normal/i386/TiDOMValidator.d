@@ -1,27 +1,27 @@
 dependencies: \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiDOMValidator.m \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiDOMValidator.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiUtils.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiColor.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiProxy.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiBase.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiThreading.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiPublicAPI.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiEvaluator.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/KrollContext.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/headers/TiCore/TiCore.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiDOMValidator.m \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiDOMValidator.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiUtils.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiColor.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiProxy.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiBase.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiThreading.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiPublicAPI.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiEvaluator.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/KrollContext.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/headers/TiCore/TiCore.h \
   headers/TiCore/Ti.h headers/TiCore/TiBase.h \
   headers/TiCore/TiContextRef.h headers/TiCore/TiObjectRef.h \
   headers/TiCore/TiValueRef.h headers/TiCore/WebKitAvailability.h \
   headers/TiCore/TiStringRef.h headers/TiCore/TiStringRefCF.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/headers/TiCore/TiContextRefPrivate.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/KrollCallback.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/KrollObject.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiDimension.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/WebFont.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiFile.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiBuffer.h \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiBlob.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/headers/TiCore/TiContextRefPrivate.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/KrollCallback.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/KrollObject.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiDimension.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/WebFont.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiFile.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiBuffer.h \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiBlob.h \
   /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/usr/include/libxml2/libxml/tree.h \
   /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/usr/include/libxml2/libxml/xmlversion.h \
   /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/usr/include/libxml2/libxml/xmlexports.h \

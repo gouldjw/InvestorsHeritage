@@ -1,1 +1,1 @@
-/Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/Resources/ih/ui/legacy_gold/single_premium/lg_single.js
+/Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/legacy_gold/single_premium/lg_single.js

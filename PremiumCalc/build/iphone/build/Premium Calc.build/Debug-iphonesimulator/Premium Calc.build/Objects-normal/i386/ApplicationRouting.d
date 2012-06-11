@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/ApplicationRouting.m \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/ApplicationRouting.h
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/ApplicationRouting.m \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/ApplicationRouting.h

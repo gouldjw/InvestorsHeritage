@@ -390,7 +390,7 @@ var table_height = tableview.height;
  // fieldNonValidated.push(row.children[2]);
   data.push(row);
 
-  row = createStandardRow('issue_age', 'Issue Age', PICKER_FIELD, "",["0-40","41-50","51-60","61-65","66-70","71-75","76-80","81-85","86-100"]);
+  row = createStandardRow('issue_age', 'Issue Age', PICKER_FIELD, "",["0-40","41-50","51-60","61-65","66-70","71-75","76-80"]);
  // row.children[2].borderColor = 'red';
  // fieldNonValidated.push(row.children[2]);
   data.push(row);

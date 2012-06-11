@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiPublicAPI.m \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiPublicAPI.h
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiPublicAPI.m \
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiPublicAPI.h

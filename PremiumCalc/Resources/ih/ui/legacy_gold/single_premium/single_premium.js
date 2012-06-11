@@ -200,21 +200,13 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 						check_show_calculate();
 	      
 
-	            if (e.source == '[object funeral_amount]') {
+	            if (e.source == '[object amount]') {
 	                // lets blank them out before setting them
-	                Ti.App.Properties.setString('lspr_face_amount', null);
-	                Ti.App.Properties.setString('lspr_funeral_amount', e.value);
+	               
+	                Ti.App.Properties.setString('amount', e.value);
 
 	            }
 	
-	            if (e.source == '[object premium_amount]') {
-	                // lets blank them out before setting them
-	                Ti.App.Properties.setString('lspr_funeral_amount', null);
-	
-	                Ti.App.Properties.setString('lspr_face_amount', e.value);
-
-	            }
-
 	        });
 	        break;
    		    case PICKER_FIELD:
@@ -222,13 +214,13 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 			        field = Titanium.UI.createTextField({
 			            color: '#000',
 			            height: 48,
-			            left: 160,
+			            left: 130,
 			            textAlign: 'right',
 			            font: {
 			                fontSize: 16,
 			                fontWeight: 'bold'
 			            },
-			            width: 130,
+			            width: 160,
 			            value: value,
 			            id: id,
 			            // keyboardType: PICKER_TYPE_PLAIN,
@@ -399,18 +391,18 @@ var table_height = tableview.height;
  // fieldNonValidated.push(row.children[2]);
   data.push(row);
 
-  row = createStandardRow('issue_age', 'Issue Age', PICKER_FIELD, "",["0-40","41-50","51-60","61-65","66-70","71-75","76-80","81-85","86-100"]);
+  row = createStandardRow('issue_age', 'Issue Age', PICKER_FIELD, "",["0-50","51-60","61-65","66-70","71-75","76-80","81-85","86-100"]);
  // row.children[2].borderColor = 'red';
  // fieldNonValidated.push(row.children[2]);
   data.push(row);
 
-	 row = createStandardRow('funeral_amount', 'Funeral Amount', NUMBER_FIELD, "");
+	 row = createStandardRow('type','Type', PICKER_FIELD, "",["Funeral Amount", "Premium Amount"]);
    // row.children[2].borderColor = 'red';
    // fieldNonValidated.push(row.children[2]);
     data.push(row);
 		
 
-	 row = createStandardRow('premium_amount', 'Premium Amount', NUMBER_FIELD, "");
+	 row = createStandardRow('amount', 'Amount', NUMBER_FIELD, "");
    // row.children[2].borderColor = 'red';
    // fieldNonValidated.push(row.children[2]);
     data.push(row);

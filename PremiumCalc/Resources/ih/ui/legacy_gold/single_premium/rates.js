@@ -1,9 +1,10 @@
 //need to query the fi  db for rate per 1k
 //value here
 
-if(Ti.App.Properties.getString('lspr_funeral_amount') != null){
+if(Ti.App.Properties.getString('type') == 'Funeral Amount'){
 		Ti.include('lspr_funeral_amount.js');
-}else{
+}
+if(Ti.App.Properties.getString('type') == 'Premium Amount'){
 		Ti.include('face_amount.js');
 }
 

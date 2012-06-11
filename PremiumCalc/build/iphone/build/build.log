@@ -5,7 +5,7 @@ reporting an issue to help us understand your environment, build settings
 and aid in debugging. Please attach this log to any issue that you report.
 ================================================================================
 
-Starting build at 06/05/12 18:50
+Starting build at 06/08/12 16:12
 
 Build details:
 
@@ -18,7 +18,7 @@ Build details:
 Script arguments:
    /Users/andrewmcelroy/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/iphone/builder.py
    run
-   /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/
+   /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/
    5.0
    iphone
 
@@ -29,7 +29,7 @@ Xcode path is: /Developer
 
 
 githash=999c68a, existing_git_hash=999c68a
-writing contents of /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/project.xcconfig:
+writing contents of /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/project.xcconfig:
 
 TI_VERSION=2.0.1.GA2
 TI_SDK_DIR=/Users/andrewmcelroy/Library/Application Support/Titanium/mobilesdk/osx/$(TI_VERSION)/iphone

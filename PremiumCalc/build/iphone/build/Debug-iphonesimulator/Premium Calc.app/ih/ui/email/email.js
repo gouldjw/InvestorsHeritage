@@ -1,1 +1,1 @@
-/Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/Resources/ih/ui/email/email.js
+/Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/email/email.js

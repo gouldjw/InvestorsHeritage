@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/andrewmcelroy/Desktop/watster/InvestorsHeritage/PremiumCalc/build/iphone/main.m
+  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/main.m
