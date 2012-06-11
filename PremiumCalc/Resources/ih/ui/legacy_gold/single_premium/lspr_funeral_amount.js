@@ -32,13 +32,34 @@ var rows = db.execute('SELECT * FROM legacy_single_premium_rates where signed_un
 	//alert(real_pay[0]);
 while (rows.isValidRow()){
 		 	var prem_1k =rows.fieldByName('rate_per_1000');
+		//alert(prem_1k);
+			var funeral_amount_div_1k = Ti.App.Properties.getString('amount') / 1000;
+			//alert(funeral_amount_div_1k);
+			var total_prem_value = funeral_amount_div_1k * prem_1k;
+			//alert(total_prem_value);
 		 		rows.next();
 			}
 	rows.close();
 	
+	
+	//  var face_amt_val = prem_1k/1000;
+	//  var face_amount_result = Ti.App.Properties.getString('amount')/face_amt_val;
+	//  var total_prem = Ti.UI.createLabel({
+	//  	top:70,
+	//  	text: face_amount_result.toFixed(2),
+	//  	textAlign: 'left',
+	//    font: {
+	//       fontSize: 16,
+	//       fontWeight: 'bold'
+	//    },
+	//    left: 218,
+	//    color: 'black',
+	//  });
+	//  face_amount_results.add(total_prem);
+	//  
+
 	// this nonsensical variable name comes from the documentation.
-	var funeral_amount_div_1k = Ti.App.Properties.getString('amount') / 1000;
-	var total_prem_value = funeral_amount_div_1k *prem_1k;
+
 	
 //alert('funeral amount');
 
@@ -160,7 +181,7 @@ single_premium_due_results.add(issue_age_results);
 
 var prem_per_1k = Ti.UI.createLabel({
 	top:70,
-	text: funeral_amount_div_1k , 
+	text: prem_1k , 
 	textAlign: 'left',
   font: {
      fontSize: 16,
