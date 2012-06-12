@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/AsyncUdpSocket.m \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/AsyncUdpSocket.h
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/AsyncUdpSocket.m \
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/AsyncUdpSocket.h

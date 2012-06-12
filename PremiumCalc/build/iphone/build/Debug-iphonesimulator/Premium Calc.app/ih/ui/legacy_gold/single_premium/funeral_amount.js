@@ -1,1 +1,1 @@
-/Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/legacy_gold/single_premium/funeral_amount.js
+/Users/andrew/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/legacy_gold/single_premium/funeral_amount.js

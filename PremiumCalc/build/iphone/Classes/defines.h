@@ -1,6 +1,6 @@
 // Warning: this is generated file. Do not modify!
 
-#define TI_VERSION 2.0.1.GA2
+#define TI_VERSION 2.0.2.GA
 #define USE_TI_ANALYTICS
 #define USE_TI_NETWORK
 #define USE_TI_PLATFORM

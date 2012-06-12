@@ -71,6 +71,11 @@
     }
 }
 
+-(void)setProxyObserver:(id)arg
+{
+    observer = arg;
+}
+
 -(void)processTempProperties:(NSDictionary*)arg
 {
     //arg will be non nil when called from updateLayout
@@ -887,6 +892,11 @@ LAYOUTPROPERTIES_SETTER(setMinHeight,minimumHeight,TiFixedValueRuleFromObject,[s
 	[TiUtils setView:barButtonView positionRect:barBounds];
 	[barButtonView setAutoresizingMask:UIViewAutoresizingNone];
 	
+    //Ensure all the child views are laid out as well
+    [self windowWillOpen];
+    [self setParentVisible:YES];
+    [self layoutChildren:NO];
+
 	return barButtonView;
 }
 
@@ -2000,6 +2010,10 @@ if(OSAtomicTestAndSetBarrier(flagBit, &dirtyflags))	\
 
 		repositioning = NO;
         
+        if ([observer respondsToSelector:@selector(proxyDidRelayout:)]) {
+            [observer proxyDidRelayout:self];
+        }
+
         if ([self _hasListeners:@"postlayout"]) {
             [self fireEvent:@"postlayout" withObject:nil];
         }

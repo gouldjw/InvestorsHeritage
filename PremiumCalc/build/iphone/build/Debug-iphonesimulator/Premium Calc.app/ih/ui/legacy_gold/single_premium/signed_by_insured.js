@@ -1,1 +1,1 @@
-/Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/legacy_gold/single_premium/signed_by_insured.js
+/Users/andrew/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/legacy_gold/single_premium/signed_by_insured.js

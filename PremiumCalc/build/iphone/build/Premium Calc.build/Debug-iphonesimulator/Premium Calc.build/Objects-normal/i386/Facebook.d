@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/Facebook.m \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/Facebook.h \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBLoginDialog.h \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBDialog.h \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBRequest.h
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/Facebook.m \
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/Facebook.h \
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBLoginDialog.h \
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBDialog.h \
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBRequest.h

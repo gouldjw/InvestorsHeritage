@@ -1,1 +1,1 @@
-/Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/legacy_gold/modal_premium/modal_premium.js
+/Users/andrew/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/legacy_gold/modal_premium/modal_premium.js

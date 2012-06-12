@@ -28,14 +28,14 @@
 				var company_logo = Ti.UI.createView({
 					backgroundImage: 'images/company_logo.png',
 					top:10,
-					width:'640px',
-					height:'142px'
+					width:320,
+					height:71
 				});
 				var app_name = Ti.UI.createView({
 					backgroundImage: 'images/app_name.png',
 					top:110,
-					width:'440px',
-					height:'165px'
+					width: 220,
+					height:82.5,
 				});
 				
 				var final_expense_btn = Ti.UI.createButton({
@@ -88,6 +88,7 @@
 											navBarHidden:false,
 						          tabBarHidden: true,
 										  backgroundImage: 'images/bg.png',
+										width:320,
 											orientationModes: [Ti.UI.PORTRAIT],
 		                  url:"ih/ui/final_expenseii/final_expense.js"
 		              });

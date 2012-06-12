@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/UIImage+Alpha.m \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/UIImage+Alpha.h
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/UIImage+Alpha.m \
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/UIImage+Alpha.h

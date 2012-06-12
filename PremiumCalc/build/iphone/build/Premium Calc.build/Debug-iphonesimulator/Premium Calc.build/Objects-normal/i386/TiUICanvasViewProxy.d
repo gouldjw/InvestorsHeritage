@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiUICanvasViewProxy.m
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiUICanvasViewProxy.m

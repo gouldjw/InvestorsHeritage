@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/SCListener.m \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/SCListener.h
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/SCListener.m \
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/SCListener.h

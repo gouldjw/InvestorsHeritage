@@ -1,1 +1,1 @@
-/Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/Resources/test/tests/ui/test_home_screen.js
+/Users/andrew/repos/InvestorsHeritage/PremiumCalc/Resources/test/tests/ui/test_home_screen.js

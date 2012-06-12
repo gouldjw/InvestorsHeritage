@@ -47,6 +47,9 @@ void ModifyScrollViewForKeyboardHeightAndContentHeightWithResponderRect(UIScroll
  */
 @interface TiUIView : UIView<TiProxyDelegate,LayoutAutosizing> 
 {
+@protected
+    BOOL configurationSet;
+
 @private
 	TiProxy *proxy;
 	TiAnimation *animation;
@@ -125,6 +128,9 @@ void ModifyScrollViewForKeyboardHeightAndContentHeightWithResponderRect(UIScroll
 @property(nonatomic,readonly)	UISwipeGestureRecognizer*		leftSwipeRecognizer;
 @property(nonatomic,readonly)	UISwipeGestureRecognizer*		rightSwipeRecognizer;
 @property(nonatomic,readonly)	UILongPressGestureRecognizer*	longPressRecognizer;
+
+-(void)configureGestureRecognizer:(UIGestureRecognizer*)gestureRecognizer;
+-(UIGestureRecognizer *)gestureRecognizerForEvent:(NSString *)event;
 
 /**
  Returns CA layer for the background of the view.

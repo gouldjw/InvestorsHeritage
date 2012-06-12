@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/KrollMethodDelegate.m \
-  /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/KrollMethodDelegate.h
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/KrollMethodDelegate.m \
+  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/KrollMethodDelegate.h

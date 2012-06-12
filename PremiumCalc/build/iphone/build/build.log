@@ -5,34 +5,34 @@ reporting an issue to help us understand your environment, build settings
 and aid in debugging. Please attach this log to any issue that you report.
 ================================================================================
 
-Starting build at 06/11/12 13:02
+Starting build at 06/12/12 14:46
 
 Build details:
 
-   timestamp=04/12/12 16:33
+   timestamp=05/30/12 10:21
    module_apiversion=2
-   version=2.0.1
-   githash=999c68a
+   version=2.0.2
+   githash=2ff31a3
 
 
 Script arguments:
-   /Users/andrewmcelroy/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/iphone/builder.py
+   /Users/andrew/Library/Application Support/Titanium/mobilesdk/osx/2.0.2.GA/iphone/builder.py
    run
-   /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/
-   5.0
+   /Users/andrew/repos/InvestorsHeritage/PremiumCalc/
+   5.1
    iphone
 
-Building from: /Users/andrewmcelroy/Library/Application Support/Titanium/mobilesdk/osx/2.0.1.GA2/iphone
-Platform: Darwin Kernel Version 11.3.0: Thu Jan 12 18:47:41 PST 2012; root:xnu-1699.24.23~1/RELEASE_X86_64
+Building from: /Users/andrew/Library/Application Support/Titanium/mobilesdk/osx/2.0.2.GA/iphone
+Platform: Darwin Kernel Version 11.4.0: Mon Apr  9 19:32:15 PDT 2012; root:xnu-1699.26.8~1/RELEASE_X86_64
 
-Xcode path is: /Developer
+Xcode path is: /Applications/Xcode.app/Contents/Developer
 
 
-githash=999c68a, existing_git_hash=999c68a
-writing contents of /Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/build/iphone/project.xcconfig:
+githash=2ff31a3, existing_git_hash=2ff31a3
+writing contents of /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/project.xcconfig:
 
-TI_VERSION=2.0.1.GA2
-TI_SDK_DIR=/Users/andrewmcelroy/Library/Application Support/Titanium/mobilesdk/osx/$(TI_VERSION)/iphone
+TI_VERSION=2.0.2.GA
+TI_SDK_DIR=/Users/andrew/Library/Application Support/Titanium/mobilesdk/osx/$(TI_VERSION)/iphone
 TI_APPID=com.investorsheritage.premiumcalc
 OTHER_LDFLAGS[sdk=iphoneos*]=$(inherited) -weak_framework iAd
 OTHER_LDFLAGS[sdk=iphonesimulator*]=$(inherited) -weak_framework iAd

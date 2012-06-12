@@ -1,1 +1,1 @@
-/Users/andrewmcelroy/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/notes/modal_notes.js
+/Users/andrew/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/notes/modal_notes.js
