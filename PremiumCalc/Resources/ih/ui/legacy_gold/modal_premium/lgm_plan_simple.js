@@ -41,12 +41,12 @@ var funeral_amount_div_1k = Ti.App.Properties.getString('lgm_funeral_amount') /1
 var mpgi = Ti.UI.createImageView({
     image: '/images/msi.png',
     width: 240,
-    top: -20
+    top: 2
 });
 
 var name_plate = Ti.UI.createImageView({
     image: '/images/name_plate.png',
-    top: 50,
+    top: 70,
     width: '95%'
 });
 
@@ -55,7 +55,7 @@ Ti.UI.currentWindow.add(mpgi);
 Ti.UI.currentWindow.add(name_plate);
 
 var customer_name = Ti.UI.createLabel({
-	top:32,
+	top:10,
 	text: Ti.App.Properties.getString('lgm_name') || 'No Name',
 	textAlign: 'left',
   font: {
@@ -69,7 +69,7 @@ var customer_name = Ti.UI.createLabel({
 name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
-	top:52,
+	top:30,
 	text: 'Funeral Amt: $'+ Ti.App.Properties.getString('lgm_funeral_amount') ,
 	textAlign: 'left',
   font: {
@@ -81,7 +81,7 @@ var volume = Ti.UI.createLabel({
 });
 
 var issue_age = Ti.UI.createLabel({
-	top:52,
+	top:30,
 	text: 'Age:'+ Ti.App.Properties.getString('issue_age') ,
 	textAlign: 'left',
   font: {
@@ -107,7 +107,7 @@ function getDate(){
 }   
 
 var date_label = Ti.UI.createLabel({
-	top:32,
+	top:10,
 	text: getDate(),
 	textAlign: 'left',
   font: {

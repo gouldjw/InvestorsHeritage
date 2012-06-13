@@ -45,12 +45,12 @@ var funeral_amount_div_1k = Ti.App.Properties.getString('lgm_funeral_amount') /1
 var mpgi = Ti.UI.createImageView({
     image: '/images/mpgi.png',
     width: 240,
-    top: -20
+    top: 2
 });
 
 var name_plate = Ti.UI.createImageView({
     image: '/images/name_plate.png',
-    top: 50,
+    top: 70,
     width: '95%'
 });
 
@@ -59,7 +59,7 @@ Ti.UI.currentWindow.add(mpgi);
 Ti.UI.currentWindow.add(name_plate);
 
 var customer_name = Ti.UI.createLabel({
-	top:32,
+	top:10,
 	text: Ti.App.Properties.getString('lgm_name') || 'No Name',
 	textAlign: 'left',
   font: {
@@ -73,7 +73,7 @@ var customer_name = Ti.UI.createLabel({
 name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
-	top:52,
+	top:30,
 	text: 'Funeral Amt: $'+ Ti.App.Properties.getString('lgm_funeral_amount') ,
 	textAlign: 'left',
   font: {
@@ -85,7 +85,7 @@ var volume = Ti.UI.createLabel({
 });
 
 var issue_age = Ti.UI.createLabel({
-	top:52,
+	top:30,
 	text: 'Issue Age:'+ Ti.App.Properties.getString('issue_age') ,
 	textAlign: 'left',
   font: {
@@ -101,7 +101,7 @@ name_plate.add(issue_age);
 var tableview = Ti.UI.createImageView({
     image: '/images/modal_guarnateemib.png',
     //width: 240,
-   	bottom:-60
+   	bottom:50
 });
 
 Ti.UI.currentWindow.add(tableview);
@@ -118,7 +118,7 @@ function getDate(){
 }   
 
 var date_label = Ti.UI.createLabel({
-	top:32,
+	top:10,
 	text: getDate(),
 	textAlign: 'left',
   font: {
@@ -141,7 +141,7 @@ var seven_year_pay_value  = funeral_amount_div_1k * rate_per_1k_7;
 var ten_year_pay_value    = funeral_amount_div_1k * rate_per_1k_10;
                   
 var one_year_pay_label = Ti.UI.createLabel({
-	top:145,
+	top:40,
 	text: one_year_pay_value.toFixed(2) , 
 	textAlign: 'left',
   font: {
@@ -153,7 +153,7 @@ var one_year_pay_label = Ti.UI.createLabel({
 });
 
 var two_year_pay_label = Ti.UI.createLabel({
-	top:174,
+	top:66,
 	text: two_year_pay_value.toFixed(2) ,
 	textAlign: 'left',
   font: {
@@ -164,7 +164,7 @@ var two_year_pay_label = Ti.UI.createLabel({
   color: 'black',
 });
 var three_year_pay_label = Ti.UI.createLabel({
-	top:203,
+	top:93,
 	text: three_year_pay_value.toFixed(2) ,
 	textAlign: 'left',
   font: {
@@ -175,7 +175,7 @@ var three_year_pay_label = Ti.UI.createLabel({
   color: 'black',
 });
 var four_year_pay_label = Ti.UI.createLabel({
-	top:230,
+	top:120,
 	text: four_year_pay_value.toFixed(2) ,
 	textAlign: 'left',
   font: {
@@ -186,7 +186,7 @@ var four_year_pay_label = Ti.UI.createLabel({
   color: 'black',
 });
 var five_year_pay_label = Ti.UI.createLabel({
-	top:260,
+	top:145,
 	text: five_year_pay_value.toFixed(2) ,
 	textAlign: 'left',
   font: {
@@ -197,7 +197,7 @@ var five_year_pay_label = Ti.UI.createLabel({
   color: 'black',
 });
 var seven_year_pay_label = Ti.UI.createLabel({
-	top:288,
+	top:175,
 	text: seven_year_pay_value.toFixed(2) ,
 	textAlign: 'left',
   font: {
@@ -209,7 +209,7 @@ var seven_year_pay_label = Ti.UI.createLabel({
 });
 
 var ten_year_pay_label = Ti.UI.createLabel({
-	top:317,
+	top:200,
 	text: ten_year_pay_value.toFixed(2) ,
 	textAlign: 'left',
   font: {
@@ -227,6 +227,7 @@ tableview.add(four_year_pay_label);
 tableview.add(five_year_pay_label);
 tableview.add(seven_year_pay_label);
 tableview.add(ten_year_pay_label);
+
 // 
 // var issue_age_label = Ti.UI.createLabel({
 // 	top:52,

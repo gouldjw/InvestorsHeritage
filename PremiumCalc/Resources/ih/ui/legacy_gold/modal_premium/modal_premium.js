@@ -439,10 +439,7 @@ var table_height = tableview.height;
 											        orientationModes: [Ti.UI.PORTRAIT],
 											        url: "rates.js"
 											    });
-											    var holder = Ti.UI.createView({
-											        width: 67,
-											        height: '40px'
-											    });
+										
 
 											  //  var emailButton = Ti.UI.createButton({
 											  //      image: '/images/email_icon.png',
@@ -450,17 +447,11 @@ var table_height = tableview.height;
 											  //      width: '58px',
 											  //      height: '40px'
 											  //  });
-											    var infoButton = Ti.UI.createButton({
-											        image: '/images/info_icon.png',
-											        left: 44,
-											        width: '40px',
-											        height: '40px'
-											    });
+											       		var infoButton = Ti.UI.createButton({
+																			    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT
+														});
 
-											  //  holder.add(emailButton);
-											    holder.add(infoButton);
-
-											    rates.rightNavButton = holder;
+														rates.setRightNavButton(infoButton);
 
 
 
