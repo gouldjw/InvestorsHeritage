@@ -52,7 +52,7 @@ while (rows.isValidRow()){
 var single_premium_due = Ti.UI.createImageView({
     image: '/images/policy_face_amount.png',
     width: 240,
-    top: 1
+    top: 3
 });
 
 
@@ -67,7 +67,7 @@ Ti.UI.currentWindow.add(single_premium_due);
 Ti.UI.currentWindow.add(name_plate);
 
 var customer_name = Ti.UI.createLabel({
-	top:32,
+	top:12,
 	text: Ti.App.Properties.getString('lspr_name') || 'No Name',
 	textAlign: 'left',
   font: {
@@ -81,7 +81,7 @@ var customer_name = Ti.UI.createLabel({
 name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
-	top:52,
+	top:32,
 	text: 'Premium: $'+ Ti.App.Properties.getString('amount') ,
 	textAlign: 'left',
   font: {
@@ -106,7 +106,7 @@ function getDate(){
 }   
 
 var date_label = Ti.UI.createLabel({
-	top:32,
+	top:12,
 	text: getDate(),
 	textAlign: 'left',
   font: {
@@ -120,7 +120,7 @@ var date_label = Ti.UI.createLabel({
 name_plate.add(date_label);
 
 var issue_age_label = Ti.UI.createLabel({
-	top:52,
+	top:32,
 	text: 'Issue Age: '+ Ti.App.Properties.getString('issue_age') ,
 	textAlign: 'left',
   font: {
@@ -135,7 +135,7 @@ name_plate.add(issue_age_label);
 
 face_amount_results =  Ti.UI.createImageView({
     image: '/images/policy_face_results.png',
-    top: 120,
+    top: 150,
     width: '95%'
 });
 Ti.UI.currentWindow.add(face_amount_results);
@@ -143,7 +143,7 @@ Ti.UI.currentWindow.add(face_amount_results);
 
 
 var issue_age_results = Ti.UI.createLabel({
-	top:70,
+	top:40,
 	text: Ti.App.Properties.getString('issue_age'),
 	textAlign: 'left',
   font: {
@@ -156,7 +156,7 @@ var issue_age_results = Ti.UI.createLabel({
 face_amount_results.add(issue_age_results);
 
 var prem_per_1k = Ti.UI.createLabel({
-	top:70,
+	top:40,
 	text: prem_1k , 
 	textAlign: 'left',
   font: {
@@ -171,7 +171,7 @@ face_amount_results.add(prem_per_1k );
 var face_amt_val = prem_1k/1000;
 var face_amount_result = Ti.App.Properties.getString('amount')/face_amt_val;
 var total_prem = Ti.UI.createLabel({
-	top:70,
+	top:40,
 	text: face_amount_result.toFixed(2),
 	textAlign: 'left',
   font: {

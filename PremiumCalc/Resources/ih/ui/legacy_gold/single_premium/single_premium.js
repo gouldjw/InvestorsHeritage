@@ -4,15 +4,14 @@
 //        //   	buttonNames: ["Cancel", "LGSP"],
 //        //   	
 //        //   });
-//        //   
+//        //
 //        //   a.show();
-//        
+//
 
 
 
 
 
-    
 
 var data = [];
 /*
@@ -86,7 +85,7 @@ function createStandardRow(id, name, type_field, value, picker_array) {
     row.add(label_id);
 
     var label = Titanium.UI.createLabel({
-        text: name+':',
+        text: name + ':',
         textAlign: 'left',
         font: {
             fontSize: 16,
@@ -118,51 +117,54 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE,
             keyboardToolbar: [previous, next, spacer, done],
             keyboardToolbarColor: '#999',
-            keyboardToolbarHeight: 40 });
-						
-						   previous.addEventListener('click',
-				        function() {
-				            alert('previous clicked');
-				        });
+            keyboardToolbarHeight: 40
+        });
 
-				        next.addEventListener('click',
-				        function() {
-				            alert('next clicked');
-				        });
-				
-						done.addEventListener('click',function(e) {
-							field.blur();
-						});
-        field.addEventListener('blur',function(e) {
-						check_show_calculate();
+        previous.addEventListener('click',
+        function() {
+            alert('previous clicked');
+        });
+
+        next.addEventListener('click',
+        function() {
+            alert('next clicked');
+        });
+
+        done.addEventListener('click',
+        function(e) {
+            field.blur();
+        });
+        field.addEventListener('blur',
+        function(e) {
+            check_show_calculate();
             if (e.source == '[object name]') {
                 // lets blank them out before setting them
-               // Ti.App.Properties.setString('lspr_name', '');
+                // Ti.App.Properties.setString('lspr_name', '');
                 Ti.App.Properties.setString('lspr_name', e.value);
             }
- 
+
         });
         break;
     case NUMBER_FIELD:
-				var num_done = Titanium.UI.createButton({
-				    title: 'Done',
-				    style: Titanium.UI.iPhone.SystemButtonStyle.DONE
-				});
+        var num_done = Titanium.UI.createButton({
+            title: 'Done',
+            style: Titanium.UI.iPhone.SystemButtonStyle.DONE
+        });
 
-				var num_spacer = Titanium.UI.createButton({
-				    systemButton: Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
-				});
+        var num_spacer = Titanium.UI.createButton({
+            systemButton: Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+        });
 
 
-				var num_previous = Titanium.UI.createButton({
-				    title: 'Previous',
-				    style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
-				});
+        var num_previous = Titanium.UI.createButton({
+            title: 'Previous',
+            style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
+        });
 
-				var num_next = Titanium.UI.createButton({
-				    title: 'Next',
-				    style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
-				});
+        var num_next = Titanium.UI.createButton({
+            title: 'Next',
+            style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
+        });
         field = Titanium.UI.createTextField({
             color: '#000',
             height: 48,
@@ -182,182 +184,182 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             keyboardToolbarColor: '#999',
             keyboardToolbarHeight: 40
         });
-				
-							 num_previous.addEventListener('click',
-				        function() {
-				            alert('previous clicked');
-				        });
 
-				        num_next.addEventListener('click',
-				        function() {
-				            alert('next clicked');
-				        });
-				
-				num_done.addEventListener('click',function(e) {
-					field.blur();
-				});
-    		  field.addEventListener('blur',function(e) {
-						check_show_calculate();
-	      
+        num_previous.addEventListener('click',
+        function() {
+            alert('previous clicked');
+        });
 
-	            if (e.source == '[object amount]') {
-	                // lets blank them out before setting them
-	               
-	                Ti.App.Properties.setString('amount', e.value);
+        num_next.addEventListener('click',
+        function() {
+            alert('next clicked');
+        });
 
-	            }
-	
-	        });
-	        break;
-   		    case PICKER_FIELD:
-			        //	Ti.API.log(picker_array);
-			        field = Titanium.UI.createTextField({
-			            color: '#000',
-			            height: 48,
-			            left: 130,
-			            textAlign: 'right',
-			            font: {
-			                fontSize: 16,
-			                fontWeight: 'bold'
-			            },
-			            width: 160,
-			            value: value,
-			            id: id,
-			            // keyboardType: PICKER_TYPE_PLAIN,
-			            returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
-			            borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
-			        });
+        num_done.addEventListener('click',
+        function(e) {
+            field.blur();
+        });
+        field.addEventListener('blur',
+        function(e) {
+            check_show_calculate();
 
 
-			        var picker_view = Titanium.UI.createView({
-			            height: 251,
-			            bottom: -251
-			        });
+            if (e.source == '[object amount]') {
+                // lets blank them out before setting them
+                Ti.App.Properties.setString('amount', e.value);
+
+            }
+
+        });
+        break;
+    case PICKER_FIELD:
+        //	Ti.API.log(picker_array);
+        field = Titanium.UI.createTextField({
+            color: '#000',
+            height: 48,
+            left: 130,
+            textAlign: 'right',
+            font: {
+                fontSize: 16,
+                fontWeight: 'bold'
+            },
+            width: 160,
+            value: value,
+            id: id,
+            // keyboardType: PICKER_TYPE_PLAIN,
+            returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
+            borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE
+        });
 
 
-			        var picker_done = Titanium.UI.createButton({
-			            title: 'Done',
-			            style: Titanium.UI.iPhone.SystemButtonStyle.DONE
-			        });
-
-			        var picker_spacer = Titanium.UI.createButton({
-			            systemButton: Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
-			        });
+        var picker_view = Titanium.UI.createView({
+            height: 251,
+            bottom: -251
+        });
 
 
-			        var picker_previous = Titanium.UI.createButton({
-			            title: 'Previous',
-			            style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
-			        });
+        var picker_done = Titanium.UI.createButton({
+            title: 'Done',
+            style: Titanium.UI.iPhone.SystemButtonStyle.DONE
+        });
 
-			        var picker_next = Titanium.UI.createButton({
-			            title: 'Next',
-			            style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
-			        });
-
-								 picker_previous.addEventListener('click',
-					        function() {
-					            alert('previous clicked');
-					        });
-
-					        picker_next.addEventListener('click',
-					        function() {
-					            alert('next clicked');
-					        });
+        var picker_spacer = Titanium.UI.createButton({
+            systemButton: Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
+        });
 
 
-			        var toolbar = Titanium.UI.iOS.createToolbar({
-			            top: 0,
-			            items: [picker_previous, picker_next, picker_spacer, picker_done],
-			            barColor: '#999',
+        var picker_previous = Titanium.UI.createButton({
+            title: 'Previous',
+            style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
+        });
 
-			        });
+        var picker_next = Titanium.UI.createButton({
+            title: 'Next',
+            style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
+        });
 
-			        var picker = Titanium.UI.createPicker({
-			            top: 43
-			        });
-			        picker.selectionIndicator = true;
+        picker_previous.addEventListener('click',
+        function() {
+            alert('previous clicked');
+        });
 
-			        var picker_data = [];
-
-
-			        for (i = 0; i < picker_array.length; i++) {
-			            picker_data.push(Titanium.UI.createPickerRow({
-			                title: picker_array[i]
-			            }));
-
-			        }
-
-			        picker.add(picker_data);
-
-			        picker_view.add(toolbar);
-			        picker_view.add(picker);
+        picker_next.addEventListener('click',
+        function() {
+            alert('next clicked');
+        });
 
 
+        var toolbar = Titanium.UI.iOS.createToolbar({
+            top: 0,
+            items: [picker_previous, picker_next, picker_spacer, picker_done],
+            barColor: '#999',
 
-			        var slide_in = Titanium.UI.createAnimation({
-			            bottom: 0
-			        });
-			        var slide_out = Titanium.UI.createAnimation({
-			            bottom: -251
-			        });
+        });
 
-			        //	field.addEventListener('blur',function() {
-			        //		tableview.height = 300;
-			        //		picker_view.animate(slide_out);
-			        //	});
-			        field.addEventListener('focus',
-			        function() {
-			            tableview.height = 430;
+        var picker = Titanium.UI.createPicker({
+            top: 43
+        });
+        picker.selectionIndicator = true;
+
+        var picker_data = [];
 
 
-			            picker_view.animate(slide_in);
-			            field.blur();
-			        });
+        for (i = 0; i < picker_array.length; i++) {
+            picker_data.push(Titanium.UI.createPickerRow({
+                title: picker_array[i]
+            }));
 
-			        picker_done.addEventListener('click',
-			        function(e) {
-			            tableview.height = 320;
+        }
 
-			            field.value = picker.getSelectedRow(0).title;
-			            //	if(calculate != null){
-			            //	calculate.show();
-			            //	}
-			            picker_view.animate(slide_out);
-			            Ti.App.Properties.setString(id, field.value);
+        picker.add(picker_data);
 
-			           // alert(Ti.App.Properties.getString(id));
-			        });
+        picker_view.add(toolbar);
+        picker_view.add(picker);
 
 
-			        tableview.add(picker_view);
 
-			        field.addEventListener('blur',function(e) {
+        var slide_in = Titanium.UI.createAnimation({
+            bottom: 0
+        });
+        var slide_out = Titanium.UI.createAnimation({
+            bottom: -251
+        });
 
-			            check_show_calculate(); 
-			           // alert(Ti.App.Properties.getString(id));
-			
-			});
+        //	field.addEventListener('blur',function() {
+        //		tableview.height = 300;
+        //		picker_view.animate(slide_out);
+        //	});
+        field.addEventListener('focus',
+        function() {
+            tableview.height = 430;
 
 
-     //     if (e.source == '[object issue_age]') {
-     //         // lets blank them out before setting them
-     //         //Ti.App.Properties.setString('feii_sex', '');
-     //         Ti.App.Properties.setString('lspr_age', e.value);
-		 // 				var real_age_tmp = e.value.split('-');
-		 // 				var real_age = real_age_tmp[0];
-		 // 				//var age_range = e.value;
-	   //          // Ti.App.Properties.setString('feii_premium_period', real_pay[0]);
-     //     }
-		 // 		//signed
-		 // 		        if (e.source == '[object signed]') {
-		 //             
-		 // 							//	var signed = e.value;
-		 // 	                Ti.App.Properties.setString('lspr_signed', e.value);
-		 //             }
-     //    
-     //    
+            picker_view.animate(slide_in);
+            field.blur();
+        });
 
+        picker_done.addEventListener('click',
+        function(e) {
+            tableview.height = 320;
+
+            field.value = picker.getSelectedRow(0).title;
+            //	if(calculate != null){
+            //	calculate.show();
+            //	}
+            picker_view.animate(slide_out);
+            Ti.App.Properties.setString(id, field.value);
+
+            // alert(Ti.App.Properties.getString(id));
+        });
+
+
+        tableview.add(picker_view);
+
+        field.addEventListener('blur',
+        function(e) {
+
+            check_show_calculate();
+            // alert(Ti.App.Properties.getString(id));
+        });
+
+
+        //     if (e.source == '[object issue_age]') {
+        //         // lets blank them out before setting them
+        //         //Ti.App.Properties.setString('feii_sex', '');
+        //         Ti.App.Properties.setString('lspr_age', e.value);
+        // 				var real_age_tmp = e.value.split('-');
+        // 				var real_age = real_age_tmp[0];
+        // 				//var age_range = e.value;
+        //          // Ti.App.Properties.setString('feii_premium_period', real_pay[0]);
+        //     }
+        // 		//signed
+        // 		        if (e.source == '[object signed]') {
+        //
+        // 							//	var signed = e.value;
+        // 	                Ti.App.Properties.setString('lspr_signed', e.value);
+        //             }
+        //
+        //
         //});
         break;
 
@@ -383,156 +385,141 @@ tableview = Titanium.UI.createTableView({
 
 var table_height = tableview.height;
 
-                             
-
-  var row = createStandardRow('name', 'Name', TEXT_FIELD, "");
-  //row.header="";
-  //row.children[2].borderColor = 'red';
- // fieldNonValidated.push(row.children[2]);
-  data.push(row);
-
-  row = createStandardRow('issue_age', 'Issue Age', PICKER_FIELD, "",["0-50","51-60","61-65","66-70","71-75","76-80","81-85","86-100"]);
- // row.children[2].borderColor = 'red';
- // fieldNonValidated.push(row.children[2]);
-  data.push(row);
-
-	 row = createStandardRow('type','Type', PICKER_FIELD, "",["Funeral Amount", "Premium Amount"]);
-   // row.children[2].borderColor = 'red';
-   // fieldNonValidated.push(row.children[2]);
-    data.push(row);
-		
-
-	 row = createStandardRow('amount', 'Amount', NUMBER_FIELD, "");
-   // row.children[2].borderColor = 'red';
-   // fieldNonValidated.push(row.children[2]);
-    data.push(row);
-
-	 row = createStandardRow('signed', 'Signed By Insured', PICKER_FIELD, "",["Yes","No"]);
-   // row.children[2].borderColor = 'red';
-   // fieldNonValidated.push(row.children[2]);
-    data.push(row);
-
-  
-  row = Ti.UI.createTableViewRow({height:210});
-
-          
-
-	function check_show_calculate(){
-	//	alert(Ti.App.Properties.getString('feii_name') +"\n\r "+ Ti.App.Properties.getString('feii_issue_age') +"\n\r "+  Ti.App.Properties.getString('feii_sex') +"\n\r "+  Ti.App.Properties.getString('feii_plan') +" \n\r"+  Ti.App.Properties.getString('feii_tobacco_status') +"\n\r "+  Ti.App.Properties.getString('feii_premium_period') +"\n\r "+ Ti.App.Properties.getString('feii_face_amount'));
-		if(Ti.App.Properties.getString('lspr_name') && Ti.App.Properties.getString('signed') != null){
-			Ti.App.Properties.setString('calculate_button_active', "true");
-											var calculate = Ti.UI.createButton({
-											    //title: "Legacy Gold Preneed Rate Calculator",
-											    width: 280,
-											    height: 52,
-											    bottom: 0,
-											    backgroundImage: '/images/calculate.png',
-											    //backgroundLeftCap: 10,
-											});
-
-											//calculate button needs to be in a disabled state until all fields are present
-
-											// calculate button should change state once all fields are present
 
 
-											calculate.addEventListener('click', function(e) {
+var row = createStandardRow('name', 'Name', TEXT_FIELD, "");
+//row.header="";
+//row.children[2].borderColor = 'red';
+// fieldNonValidated.push(row.children[2]);
+data.push(row);
 
-											    //		alert('name: ' + Ti.App.Properties.getString('feii_name') + '\n issue age: ' + Ti.App.Properties.getString('feii_issue_age') + '\n sex: ' + Ti.App.Properties.getString('feii_sex') + '\n plan: ' + Ti.App.Properties.getString('feii_plan'));
-											    var rates = Ti.UI.createWindow({
-											        backButtonTitle: 'Back',
-											        title: 'Rates',
-											        barColor: 'black',
-											        navBarHidden: false,
-											        tabBarHidden: true,
-											        backgroundImage: '/images/bg.png',
-											        orientationModes: [Ti.UI.PORTRAIT],
-											        url: "rates.js"
-											    });
-											    var holder = Ti.UI.createView({
-											        width: 67,
-											        height: '40px'
-											    });
+row = createStandardRow('issue_age', 'Issue Age', PICKER_FIELD, "", ["0-50", "51-60", "61-65", "66-70", "71-75", "76-80", "81-85", "86-100"]);
+// row.children[2].borderColor = 'red';
+// fieldNonValidated.push(row.children[2]);
+data.push(row);
 
-											 //  var emailButton = Ti.UI.createButton({
-											 //      image: '/images/email_icon.png',
-											 //      left: 0,
-											 //      width: '58px',
-											 //      height: '40px'
-											 //  });
-											    var infoButton = Ti.UI.createButton({
-											        image: '/images/info_icon.png',
-											        left: 44,
-											        width: '40px',
-											        height: '40px'
-											    });
+row = createStandardRow('type', 'Type', PICKER_FIELD, "", ["Funeral Amount", "Premium Amount"]);
+// row.children[2].borderColor = 'red';
+// fieldNonValidated.push(row.children[2]);
+data.push(row);
 
-											 //   holder.add(emailButton);
-											    holder.add(infoButton);
 
-											    rates.rightNavButton = holder;
+row = createStandardRow('amount', 'Amount', NUMBER_FIELD, "");
+// row.children[2].borderColor = 'red';
+// fieldNonValidated.push(row.children[2]);
+data.push(row);
+
+row = createStandardRow('signed', 'Signed By Insured', PICKER_FIELD, "", ["Yes", "No"]);
+// row.children[2].borderColor = 'red';
+// fieldNonValidated.push(row.children[2]);
+data.push(row);
+
+
+row = Ti.UI.createTableViewRow({
+    height: 210
+});
 
 
 
-											    infoButton.addEventListener('click',
-											    function(e) {
-											        var infoWindow = Ti.UI.createWindow({
-											            backButtonTitle: 'Back',
-											            title: 'Notes',
-											            barColor: 'black',
-											            navBarHidden: false,
-											            tabBarHidden: true,
+function check_show_calculate() {
+    //	alert(Ti.App.Properties.getString('feii_name') +"\n\r "+ Ti.App.Properties.getString('feii_issue_age') +"\n\r "+  Ti.App.Properties.getString('feii_sex') +"\n\r "+  Ti.App.Properties.getString('feii_plan') +" \n\r"+  Ti.App.Properties.getString('feii_tobacco_status') +"\n\r "+  Ti.App.Properties.getString('feii_premium_period') +"\n\r "+ Ti.App.Properties.getString('feii_face_amount'));
+    if (Ti.App.Properties.getString('lspr_name') && Ti.App.Properties.getString('signed') != null) {
+        Ti.App.Properties.setString('calculate_button_active', "true");
+        var calculate = Ti.UI.createButton({
+            //title: "Legacy Gold Preneed Rate Calculator",
+            width: 280,
+            height: 52,
+            bottom: 0,
+            backgroundImage: '/images/calculate.png',
+            //backgroundLeftCap: 10,
+        });
 
-											            orientationModes: [Ti.UI.PORTRAIT],
-											            url: "single_notes.js"
-											            // url:"ih/ui/email/email.js",
-											            // evalhtml:true
-											        });
+        //calculate button needs to be in a disabled state until all fields are present
+        // calculate button should change state once all fields are present
 
-											        tabGroup.activeTab.open(infoWindow, {
-											            animated: true
-											        });
-											    });
+        calculate.addEventListener('click',
+        function(e) {
 
-											 
+            //		alert('name: ' + Ti.App.Properties.getString('feii_name') + '\n issue age: ' + Ti.App.Properties.getString('feii_issue_age') + '\n sex: ' + Ti.App.Properties.getString('feii_sex') + '\n plan: ' + Ti.App.Properties.getString('feii_plan'));
+            var rates = Ti.UI.createWindow({
+                backButtonTitle: 'Back',
+                title: 'Rates',
+                barColor: 'black',
+                navBarHidden: false,
+                tabBarHidden: true,
+                backgroundImage: '/images/bg.png',
+                orientationModes: [Ti.UI.PORTRAIT],
+                url: "rates.js"
+            });
 
-											    // get tab group object
-											    var tabGroup = Ti.UI.currentWindow.tabGroup;
-											    tabGroup.activeTab.open(rates, {
-											        animated: true
-											    });
-											});
+       
+
+            var infoButton = Ti.UI.createButton({
+                systemButton: Titanium.UI.iPhone.SystemButton.INFO_LIGHT
+            });
+
+            rates.setRightNavButton(infoButton);
 
 
-											//row = Ti.UI.createTableViewRow();
-										//	Ti.UI.currentWindow.remove(no_calculate);
+            infoButton.addEventListener('click',
+            function(e) {
+                var infoWindow = Ti.UI.createWindow({
+                    backButtonTitle: 'Back',
+                    title: 'Notes',
+                    barColor: 'black',
+                    navBarHidden: false,
+                    tabBarHidden: true,
 
-											no_calculate.add(calculate);
+                    orientationModes: [Ti.UI.PORTRAIT],
+                    url: "single_notes.js"
+                    // url:"ih/ui/email/email.js",
+                    // evalhtml:true
+                });
+
+                tabGroup.activeTab.open(infoWindow, {
+                    animated: true
+                });
+            });
 
 
-		}
-	}
 
-								var no_calculate = Ti.UI.createButton({
-								    //title: "Legacy Gold Preneed Rate Calculator",
-								    width: 280,
-								    height: 52,
-								    bottom: 30,
-								    backgroundImage: '/images/no_calculate.png',
-								    //backgroundLeftCap: 10,
-								});
+            // get tab group object
+            var tabGroup = Ti.UI.currentWindow.tabGroup;
+            tabGroup.activeTab.open(rates, {
+                animated: true
+            });
+        });
 
-								Ti.UI.currentWindow.add(no_calculate);
+
+        //row = Ti.UI.createTableViewRow();
+        //	Ti.UI.currentWindow.remove(no_calculate);
+        no_calculate.add(calculate);
+
+
+    }
+}
+
+var no_calculate = Ti.UI.createButton({
+    //title: "Legacy Gold Preneed Rate Calculator",
+    width: 280,
+    height: 52,
+    bottom: 30,
+    backgroundImage: '/images/no_calculate.png',
+    //backgroundLeftCap: 10,
+});
+
+Ti.UI.currentWindow.add(no_calculate);
 //data.push(row);
 tableview.setData(data);
 Ti.UI.currentWindow.add(tableview);
 
 
-done.addEventListener('click', function() {
+done.addEventListener('click',
+function() {
 
     field.blur();
-	//	picker_view.animate(slide_out);
+    //	picker_view.animate(slide_out);
 
-    
 });
 
 
