@@ -7,17 +7,17 @@
         <target device="android">false</target>
         <target device="blackberry">false</target>
     </deployment-targets>
-    <sdk-version>2.0.1.GA2</sdk-version>
+    <sdk-version>2.0.2.GA</sdk-version>
     <id>com.investorsheritage.premiumcalc</id>
     <name>Premium Calc</name>
-    <version>1.0</version>
+    <version>1.0.3</version>
     <publisher>Avatar Software, LLC</publisher>
     <url>http://www.investorsheritage.com</url>
     <description>Premium Calc</description>
     <copyright>2012 by Investors Heritage</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
-    <prerendered-icon>false</prerendered-icon>
+    <prerendered-icon>true</prerendered-icon>
     <statusbar-style>default</statusbar-style>
     <statusbar-hidden>false</statusbar-hidden>
     <fullscreen>false</fullscreen>

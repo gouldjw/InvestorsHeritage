@@ -1,7 +1,0 @@
-dependencies: \
-  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBLoginButton.m \
-  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBLoginButton.h \
-  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/Facebook.h \
-  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBLoginDialog.h \
-  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBDialog.h \
-  /Users/andrew/repos/InvestorsHeritage/PremiumCalc/build/iphone/Classes/FBConnect/FBRequest.h

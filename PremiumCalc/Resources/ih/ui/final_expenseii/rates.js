@@ -33,7 +33,7 @@ var annual_policy_fee = 50.0;
 var feii_modal_prem = Ti.UI.createImageView({
     image: '/images/feii_modal_premiums.png',
     width: 260,
-    top: 1
+    top: 6
 });
 
 
@@ -48,7 +48,7 @@ Ti.UI.currentWindow.add(feii_modal_prem);
 Ti.UI.currentWindow.add(name_plate);
 
 var customer_name = Ti.UI.createLabel({
-    top: 10,
+    top: 5,
     text: Ti.App.Properties.getString('feii_name') || 'No Name',
     textAlign: 'left',
     font: {
@@ -62,7 +62,7 @@ var customer_name = Ti.UI.createLabel({
 name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
-    top: 30,
+    top: 25,
     text: 'Volume: $' + Ti.App.Properties.getString('face_amount'),
     textAlign: 'left',
     font: {
@@ -83,11 +83,11 @@ function getDate() {
     var day = currentTime.getDate();
     var year = currentTime.getFullYear();
 
-    return day + "/" + month + "/" + year;
+    return month + "/" + day + "/" + year;
 }
 
 var date_label = Ti.UI.createLabel({
-    top: 10,
+    top: 5,
     text: getDate(),
     textAlign: 'left',
     font: {
@@ -101,7 +101,7 @@ var date_label = Ti.UI.createLabel({
 name_plate.add(date_label);
 
 var issue_age_label = Ti.UI.createLabel({
-    top: 30,
+    top: 25,
     text: 'Issue Age: ' + Ti.App.Properties.getString('issue_age'),
     textAlign: 'left',
     font: {

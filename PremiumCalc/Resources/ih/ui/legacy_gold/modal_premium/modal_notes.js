@@ -10,7 +10,7 @@ var data = [];
 									});
 			var row = Ti.UI.createTableViewRow({
 				width:340,
-				height:'1300px',
+				height:778,
 				backgroundColor:'transparent',
 				borderColor: 'transparent'
 			});
@@ -19,7 +19,7 @@ var data = [];
 				image:'/images/gold_calc_notes.png',
 				borderColor: 'transparent',
 				width:340,
-				height:'1300px',
+				height:778,
 			
 			});
 			Ti.UI.currentWindow.add(tableview);
@@ -28,6 +28,6 @@ var data = [];
 			data.push(row);
 			 tableview.setData(data);
 	
-
+Ti.UI.currentWindow.backButtonTitle = 'Back';
 
 // this will take one of three arguments for its out put

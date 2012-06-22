@@ -92,7 +92,7 @@ Ti.UI.currentWindow.add(single_premium_due);
 Ti.UI.currentWindow.add(name_plate);
 
 var customer_name = Ti.UI.createLabel({
-	top:12,
+	top:5,
 	text: Ti.App.Properties.getString('lspr_name') || 'No Name',
 	textAlign: 'left',
   font: {
@@ -106,7 +106,7 @@ var customer_name = Ti.UI.createLabel({
 name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
-	top:32,
+	top:25,
 	text: 'Funeral Amt: $'+ Ti.App.Properties.getString('amount') ,
 	textAlign: 'left',
   font: {
@@ -127,11 +127,11 @@ function getDate(){
     var day = currentTime.getDate();
     var year = currentTime.getFullYear();
  
-    return day+"/"+month+"/"+year;
+    return month+"/"+day+"/"+year;
 }   
 
 var date_label = Ti.UI.createLabel({
-	top:12,
+	top:5,
 	text: getDate(),
 	textAlign: 'left',
   font: {
@@ -145,7 +145,7 @@ var date_label = Ti.UI.createLabel({
 name_plate.add(date_label);
 
 var issue_age_label = Ti.UI.createLabel({
-	top:32,
+	top:25,
 	text: 'Issue Age: '+ Ti.App.Properties.getString('issue_age') ,
 	textAlign: 'left',
   font: {
@@ -160,7 +160,7 @@ name_plate.add(issue_age_label);
 
  single_premium_due_results =  Ti.UI.createImageView({
     image: '/images/single_premium_due_values.png',
-    top: 160,
+    top: 140,
     width: '95%'
 });
 Ti.UI.currentWindow.add(single_premium_due_results);
@@ -194,7 +194,7 @@ single_premium_due_results.add(prem_per_1k );
 
 var total_prem = Ti.UI.createLabel({
 	top:40,
-	text: total_prem_value.toFixed(2),
+	text: total_prem_value.toFixed(),
 	textAlign: 'left',
   font: {
      fontSize: 16,

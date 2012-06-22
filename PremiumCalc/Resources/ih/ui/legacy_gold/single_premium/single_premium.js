@@ -103,18 +103,18 @@ function createStandardRow(id, name, type_field, value, picker_array) {
         field = Titanium.UI.createTextField({
             color: '#000',
             height: 40,
-            left: 160,
+            left: 90,
             textAlign: 'right',
             font: {
-                fontSize: 16,
-                fontWeight: 'bold'
+                fontSize: 16
             },
-            width: 130,
+            width: 200,
             value: value,
             id: id,
             keyboardType: Titanium.UI.KEYBOARD_DEFAULT,
             returnKeyType: Titanium.UI.RETURNKEY_DEFAULT,
             borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE,
+            autocapitalization: Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS,
             keyboardToolbar: [previous, next, spacer, done],
             keyboardToolbarColor: '#999',
             keyboardToolbarHeight: 40
@@ -122,12 +122,12 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 
         previous.addEventListener('click',
         function() {
-            alert('previous clicked');
+            field.blur();
         });
 
         next.addEventListener('click',
         function() {
-            alert('next clicked');
+            field.blur();
         });
 
         done.addEventListener('click',
@@ -142,7 +142,13 @@ function createStandardRow(id, name, type_field, value, picker_array) {
                 // Ti.App.Properties.setString('lspr_name', '');
                 Ti.App.Properties.setString('lspr_name', e.value);
             }
-
+            
+			Ti.UI.currentWindow.title = 'LG Single';
+        });
+        
+        field.addEventListener('focus',
+        function(e) {
+        	Ti.UI.currentWindow.title = name;
         });
         break;
     case NUMBER_FIELD:
@@ -168,13 +174,12 @@ function createStandardRow(id, name, type_field, value, picker_array) {
         field = Titanium.UI.createTextField({
             color: '#000',
             height: 48,
-            left: 160,
+            left: 90,
             textAlign: 'right',
             font: {
-                fontSize: 16,
-                fontWeight: 'bold'
+                fontSize: 16
             },
-            width: 130,
+            width: 200,
             value: value,
             id: id,
             keyboardType: Titanium.UI.KEYBOARD_PHONE_PAD,
@@ -187,12 +192,12 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 
         num_previous.addEventListener('click',
         function() {
-            alert('previous clicked');
+            field.blur();
         });
 
         num_next.addEventListener('click',
         function() {
-            alert('next clicked');
+            field.blur();
         });
 
         num_done.addEventListener('click',
@@ -209,7 +214,13 @@ function createStandardRow(id, name, type_field, value, picker_array) {
                 Ti.App.Properties.setString('amount', e.value);
 
             }
-
+            
+			Ti.UI.currentWindow.title = 'LG Single';
+        });
+        
+        field.addEventListener('focus',
+        function(e) {
+        	Ti.UI.currentWindow.title = name;
         });
         break;
     case PICKER_FIELD:
@@ -217,13 +228,12 @@ function createStandardRow(id, name, type_field, value, picker_array) {
         field = Titanium.UI.createTextField({
             color: '#000',
             height: 48,
-            left: 130,
+            left: 90,
             textAlign: 'right',
             font: {
-                fontSize: 16,
-                fontWeight: 'bold'
+                fontSize: 16
             },
-            width: 160,
+            width: 200,
             value: value,
             id: id,
             // keyboardType: PICKER_TYPE_PLAIN,
@@ -260,12 +270,12 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 
         picker_previous.addEventListener('click',
         function() {
-            alert('previous clicked');
+            field.blur();
         });
 
         picker_next.addEventListener('click',
         function() {
-            alert('next clicked');
+            field.blur();
         });
 
 
@@ -330,10 +340,13 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             Ti.App.Properties.setString(id, field.value);
 
             // alert(Ti.App.Properties.getString(id));
+            Ti.UI.currentWindow.title = 'LG Single';
         });
 
 
-        tableview.add(picker_view);
+        //tableview.add(picker_view);
+        Ti.UI.currentWindow.add(picker_view);
+        picker_view.zIndex = 100;
 
         field.addEventListener('blur',
         function(e) {
@@ -361,6 +374,11 @@ function createStandardRow(id, name, type_field, value, picker_array) {
         //
         //
         //});
+        
+        field.addEventListener('focus',
+        function(e) {
+        	Ti.UI.currentWindow.title = name;
+        });
         break;
 
     };
@@ -428,7 +446,7 @@ function check_show_calculate() {
         var calculate = Ti.UI.createButton({
             //title: "Legacy Gold Preneed Rate Calculator",
             width: 280,
-            height: 52,
+            height: 49,
             bottom: 0,
             backgroundImage: '/images/calculate.png',
             //backgroundLeftCap: 10,
@@ -502,7 +520,7 @@ function check_show_calculate() {
 var no_calculate = Ti.UI.createButton({
     //title: "Legacy Gold Preneed Rate Calculator",
     width: 280,
-    height: 52,
+    height: 49,
     bottom: 30,
     backgroundImage: '/images/no_calculate.png',
     //backgroundLeftCap: 10,

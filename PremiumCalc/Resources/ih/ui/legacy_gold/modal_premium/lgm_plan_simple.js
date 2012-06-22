@@ -55,7 +55,7 @@ Ti.UI.currentWindow.add(mpgi);
 Ti.UI.currentWindow.add(name_plate);
 
 var customer_name = Ti.UI.createLabel({
-	top:10,
+	top:5,
 	text: Ti.App.Properties.getString('lgm_name') || 'No Name',
 	textAlign: 'left',
   font: {
@@ -69,7 +69,7 @@ var customer_name = Ti.UI.createLabel({
 name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
-	top:30,
+	top:25,
 	text: 'Funeral Amt: $'+ Ti.App.Properties.getString('lgm_funeral_amount') ,
 	textAlign: 'left',
   font: {
@@ -81,7 +81,7 @@ var volume = Ti.UI.createLabel({
 });
 
 var issue_age = Ti.UI.createLabel({
-	top:30,
+	top:25,
 	text: 'Age:'+ Ti.App.Properties.getString('issue_age') ,
 	textAlign: 'left',
   font: {
@@ -103,11 +103,11 @@ function getDate(){
     var day = currentTime.getDate();
     var year = currentTime.getFullYear();
  
-    return day+"/"+month+"/"+year;
+    return month+"/"+day+"/"+year;
 }   
 
 var date_label = Ti.UI.createLabel({
-	top:10,
+	top:5,
 	text: getDate(),
 	textAlign: 'left',
   font: {
@@ -153,7 +153,7 @@ monthly_pat.add(monthly_pat_goods);
 
 
 
-					var one_year_pay_value    = funeral_amount_div_1k * rate_per_1k_1  ;
+					var one_year_pay_value    = funeral_amount_div_1k * rate_per_1k_1;
 					var two_year_pay_value    = funeral_amount_div_1k * rate_per_1k_2;
 					var three_year_pay_value  = funeral_amount_div_1k * rate_per_1k_3;
 					var four_year_pay_value   = funeral_amount_div_1k * rate_per_1k_4;
@@ -169,7 +169,7 @@ monthly_pat.add(monthly_pat_goods);
 					     fontSize: 16,
 					     fontWeight: 'bold'
 					  },
-					  left: 250,
+					  left: 220,
 					  color: 'black',
 					});
 
@@ -181,7 +181,7 @@ monthly_pat.add(monthly_pat_goods);
 					     fontSize: 16,
 					     fontWeight: 'bold'
 					  },
-					  left: 250,
+					  left: 220,
 					  color: 'black',
 					});
 					var three_year_pay_label = Ti.UI.createLabel({
@@ -192,7 +192,7 @@ monthly_pat.add(monthly_pat_goods);
 					     fontSize: 16,
 					     fontWeight: 'bold'
 					  },
-					  left: 250,
+					  left: 220,
 					  color: 'black',
 					});
 					var four_year_pay_label = Ti.UI.createLabel({
@@ -203,7 +203,7 @@ monthly_pat.add(monthly_pat_goods);
 					     fontSize: 16,
 					     fontWeight: 'bold'
 					  },
-					  left: 250,
+					  left: 220,
 					  color: 'black',
 					});
 					var five_year_pay_label = Ti.UI.createLabel({
@@ -214,7 +214,7 @@ monthly_pat.add(monthly_pat_goods);
 					     fontSize: 16,
 					     fontWeight: 'bold'
 					  },
-					  left: 250,
+					  left: 220,
 					  color: 'black',
 					});
 					var seven_year_pay_label = Ti.UI.createLabel({
@@ -225,7 +225,7 @@ monthly_pat.add(monthly_pat_goods);
 					     fontSize: 16,
 					     fontWeight: 'bold'
 					  },
-					  left: 250,
+					  left: 220,
 					  color: 'black',
 					});
 
@@ -237,7 +237,7 @@ monthly_pat.add(monthly_pat_goods);
 					     fontSize: 16,
 					     fontWeight: 'bold'
 					  },
-					  left: 250,
+					  left: 220,
 					  color: 'black',
 					});
 
@@ -260,80 +260,80 @@ monthly_direct.add(ten_year_pay_label);
 
 var total_prem0a = Ti.UI.createLabel({
 	top:45,
-	text: '$'+ pat1.toFixed(2), 
+	text: '$ '+ pat1.toFixed(2), 
 	textAlign: 'left',
   font: {
      fontSize: 16,
      fontWeight: 'bold'
   },
-  left: 218,
+  left: 220,
   color: 'black',
 });
 var total_prem1a = Ti.UI.createLabel({
 	top:75,
-	text: '$'+ pat2.toFixed(2),
+	text: '$ '+ pat2.toFixed(2),
 	textAlign: 'left',
   font: {
      fontSize: 16,
      fontWeight: 'bold'
   },
-  left: 218,
+  left: 220,
   color: 'black',
 });
 var total_prem2a = Ti.UI.createLabel({
 	top:105,
-	text: '$'+ pat3.toFixed(2),
+	text: '$ '+ pat3.toFixed(2),
 	textAlign: 'left',
   font: {
      fontSize: 16,
      fontWeight: 'bold'
   },
-  left: 218,
+  left: 220,
   color: 'black',
 });
 var total_prem3a = Ti.UI.createLabel({
 	top:135,
-	text: '$'+ pat4.toFixed(2),
+	text: '$ '+ pat4.toFixed(2),
 	textAlign: 'left',
   font: {
      fontSize: 16,
      fontWeight: 'bold'
   },
-  left: 218,
+  left: 220,
   color: 'black',
 });
 var total_prem4a = Ti.UI.createLabel({
 	top:160,
-	text: '$'+ pat5.toFixed(2),
+	text: '$ '+ pat5.toFixed(2),
 	textAlign: 'left',
   font: {
      fontSize: 16,
      fontWeight: 'bold'
   },
-  left: 218,
+  left: 220,
   color: 'black',
 });
 var total_prem5a = Ti.UI.createLabel({
 	top:189,
-	text: '$'+ pat7.toFixed(2),
+	text: '$ '+ pat7.toFixed(2),
 	textAlign: 'left',
   font: {
      fontSize: 16,
      fontWeight: 'bold'
   },
-  left: 218,
+  left: 220,
   color: 'black',
 });
 
 var total_prem7a = Ti.UI.createLabel({
 	bottom:10,
-	text: '$'+ pat10.toFixed(2),
+	text: '$ '+ pat10.toFixed(2),
 	textAlign: 'left',
   font: {
      fontSize: 16,
      fontWeight: 'bold'
   },
-  left: 218,
+  left: 220,
   color: 'black',
 });
 

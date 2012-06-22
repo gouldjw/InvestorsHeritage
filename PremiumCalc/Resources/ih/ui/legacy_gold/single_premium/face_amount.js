@@ -67,7 +67,7 @@ Ti.UI.currentWindow.add(single_premium_due);
 Ti.UI.currentWindow.add(name_plate);
 
 var customer_name = Ti.UI.createLabel({
-	top:12,
+	top:5,
 	text: Ti.App.Properties.getString('lspr_name') || 'No Name',
 	textAlign: 'left',
   font: {
@@ -81,7 +81,7 @@ var customer_name = Ti.UI.createLabel({
 name_plate.add(customer_name);
 
 var volume = Ti.UI.createLabel({
-	top:32,
+	top:25,
 	text: 'Premium: $'+ Ti.App.Properties.getString('amount') ,
 	textAlign: 'left',
   font: {
@@ -106,7 +106,7 @@ function getDate(){
 }   
 
 var date_label = Ti.UI.createLabel({
-	top:12,
+	top:5,
 	text: getDate(),
 	textAlign: 'left',
   font: {
@@ -120,7 +120,7 @@ var date_label = Ti.UI.createLabel({
 name_plate.add(date_label);
 
 var issue_age_label = Ti.UI.createLabel({
-	top:32,
+	top:25,
 	text: 'Issue Age: '+ Ti.App.Properties.getString('issue_age') ,
 	textAlign: 'left',
   font: {
@@ -135,7 +135,7 @@ name_plate.add(issue_age_label);
 
 face_amount_results =  Ti.UI.createImageView({
     image: '/images/policy_face_results.png',
-    top: 150,
+    top: 140,
     width: '95%'
 });
 Ti.UI.currentWindow.add(face_amount_results);
@@ -172,7 +172,7 @@ var face_amt_val = prem_1k/1000;
 var face_amount_result = Ti.App.Properties.getString('amount')/face_amt_val;
 var total_prem = Ti.UI.createLabel({
 	top:40,
-	text: face_amount_result.toFixed(2),
+	text: face_amount_result.toFixed(),
 	textAlign: 'left',
   font: {
      fontSize: 16,

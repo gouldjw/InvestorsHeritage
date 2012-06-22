@@ -42,8 +42,8 @@
 					title:'', 
 				//	title: 'Final Expense II\n Premium Calculator',
 					bottom:117,
-					width:280,
-					height:62,
+					width:278,
+					height:64,
 					backgroundImage: 'images/final_expense_ii_btn.png',
 					//backgroundLeftCap: 10
 					});
@@ -52,7 +52,7 @@
 		
 				var legacy_gold_btn = Ti.UI.createButton({ 
 					//title: "Legacy Gold Preneed Rate Calculator",
-					width:280,
+					width:278,
 					height:62,
 					backgroundImage: 'images/legacy_gold_preneed_btn.png',
 					//backgroundLeftCap: 10,
@@ -182,10 +182,12 @@
 											             url:"ih/ui/legacy_gold/modal_premium/modal_premium.js"
 											         });
 																var infoButton = Ti.UI.createButton({
-																    systemButton:Titanium.UI.iPhone.SystemButton.INFO_LIGHT
+																    systemButton: Titanium.UI.iPhone.SystemButton.INFO_LIGHT
 																});
 
 																legacy_gold_preneed_modal_premium_window.setRightNavButton(infoButton);
+																//infoButton.setStyle(Titanium.UI.iPhone.SystemButtonStyle.BORDERED);
+																
 																				infoButton.addEventListener('click',function(e) {
 																						var infoWindow = Ti.UI.createWindow({
 																			  								backButtonTitle: 'back',

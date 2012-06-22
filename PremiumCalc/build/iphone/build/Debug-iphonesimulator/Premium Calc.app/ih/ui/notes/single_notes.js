@@ -1,1 +1,0 @@
-/Users/andrew/repos/InvestorsHeritage/PremiumCalc/Resources/ih/ui/notes/single_notes.js
