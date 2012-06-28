@@ -30,6 +30,12 @@ dependencies: \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/LayoutConstraint.h \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiUIiPhoneProxy.h \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiUIiOSProxy.h \
+  /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiUIiOSToolbarProxy.h \
+  /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiViewProxy.h \
+  /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiUIView.h \
+  /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiGradient.h \
+  /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiRect.h \
+  /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiToolbar.h \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiApp.h \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiHost.h \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/Bridge.h \
@@ -39,10 +45,6 @@ dependencies: \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiRootViewController.h \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiRootController.h \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiWindowProxy.h \
-  /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiViewProxy.h \
-  /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiUIView.h \
-  /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiGradient.h \
-  /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiRect.h \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiTab.h \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiTabGroup.h \
   /Users/johngould/Documents/Titanium\ Studio\ Workspace/InvestorsHeritage/PremiumCalc/build/iphone/Classes/TiUIWindow.h \

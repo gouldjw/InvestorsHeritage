@@ -36,6 +36,14 @@ function getField(id) {
     }
 }
 
+function selectField(id) {
+    for (i = 0; i < data.length; i++) {
+        if (data[i].children[0].text == id) {
+            data[i].children[2].focus();
+        }
+    }
+}
+
 
 
 var done = Titanium.UI.createButton({
@@ -67,7 +75,7 @@ var next = Titanium.UI.createButton({
 * type_filed : if the element in the second column it's a label or a textfield
 * value: for the element in the second column
 */
-function createStandardRow(id, name, type_field, value, picker_array) {
+function createStandardRow(id, name, type_field, value, picker_array, previousFld, nextFld) {
     type_field = type_field || TEXT_FIELD;
     // by default
     var row = Ti.UI.createTableViewRow({
@@ -117,23 +125,26 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             autocapitalization: Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS,
             keyboardToolbar: [previous, next, spacer, done],
             keyboardToolbarColor: '#999',
-            keyboardToolbarHeight: 40
+            keyboardToolbarHeight: 44
         });
 
         previous.addEventListener('click',
         function() {
-            field.blur();
+        	if (previousFld == '') {field.blur();}
+            else {selectField(previousFld);}
         });
 
         next.addEventListener('click',
         function() {
-            field.blur();
+            if (nextFld == '') {field.blur();}
+            else {selectField(nextFld);}
         });
 
         done.addEventListener('click',
-        function(e) {
+        function() {
             field.blur();
         });
+        
         field.addEventListener('blur',
         function(e) {
             check_show_calculate();
@@ -171,6 +182,19 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             title: 'Next',
             style: Titanium.UI.iPhone.SystemButtonStyle.BORDERED
         });
+        
+        num_previous.addEventListener('click',
+        function() {
+        	if (previousFld == '') {field.blur();}
+        	else {selectField(previousFld);}
+        });
+
+        num_next.addEventListener('click',
+        function() {
+            if (nextFld == '') {field.blur();}
+            else {selectField(nextFld);}
+        });
+        
         field = Titanium.UI.createTextField({
             color: '#000',
             height: 48,
@@ -187,7 +211,7 @@ function createStandardRow(id, name, type_field, value, picker_array) {
             borderStyle: Titanium.UI.INPUT_BORDERSTYLE_NONE,
             keyboardToolbar: [num_previous, num_next, num_spacer, num_done],
             keyboardToolbarColor: '#999',
-            keyboardToolbarHeight: 40
+            keyboardToolbarHeight: 44
         });
 
         num_previous.addEventListener('click',
@@ -270,12 +294,24 @@ function createStandardRow(id, name, type_field, value, picker_array) {
 
         picker_previous.addEventListener('click',
         function() {
-            field.blur();
+        	tableview.height = 320;
+            field.value = picker.getSelectedRow(0).title;
+            picker_view.animate(slide_out);
+            Ti.App.Properties.setString(id, field.value);
+            Ti.UI.currentWindow.title = 'Final Expense II';
+            selectField(previousFld);
+            check_show_calculate();
         });
 
         picker_next.addEventListener('click',
         function() {
-            field.blur();
+        	tableview.height = 320;
+            field.value = picker.getSelectedRow(0).title;
+            picker_view.animate(slide_out);
+            Ti.App.Properties.setString(id, field.value);
+            Ti.UI.currentWindow.title = 'Final Expense II';
+            selectField(nextFld);
+            check_show_calculate();
         });
 
 
@@ -405,29 +441,29 @@ var table_height = tableview.height;
 
 
 
-var row = createStandardRow('name', 'Name', TEXT_FIELD, "");
+var row = createStandardRow('name', 'Name', TEXT_FIELD, "", '', '', 'issue_age');
 //row.header="";
 //row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
 
-row = createStandardRow('issue_age', 'Issue Age', PICKER_FIELD, "", ["0-50", "51-60", "61-65", "66-70", "71-75", "76-80", "81-85", "86-100"]);
+row = createStandardRow('issue_age', 'Issue Age', PICKER_FIELD, "", ["0-50", "51-60", "61-65", "66-70", "71-75", "76-80", "81-85", "86-100"], 'name', 'type');
 // row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
 
-row = createStandardRow('type', 'Type', PICKER_FIELD, "", ["Funeral Amount", "Premium Amount"]);
+row = createStandardRow('type', 'Type', PICKER_FIELD, "", ["Funeral Amount", "Premium Amount"], 'issue_age', 'amount');
 // row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
 
 
-row = createStandardRow('amount', 'Amount', NUMBER_FIELD, "");
+row = createStandardRow('amount', 'Amount', NUMBER_FIELD, "", '', 'type', 'signed');
 // row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
 
-row = createStandardRow('signed', 'Signed By Insured', PICKER_FIELD, "", ["Yes", "No"]);
+row = createStandardRow('signed', 'Signed By Insured', PICKER_FIELD, "", ["Yes", "No"], 'amount', '');
 // row.children[2].borderColor = 'red';
 // fieldNonValidated.push(row.children[2]);
 data.push(row);
@@ -441,7 +477,10 @@ row = Ti.UI.createTableViewRow({
 
 function check_show_calculate() {
     //	alert(Ti.App.Properties.getString('feii_name') +"\n\r "+ Ti.App.Properties.getString('feii_issue_age') +"\n\r "+  Ti.App.Properties.getString('feii_sex') +"\n\r "+  Ti.App.Properties.getString('feii_plan') +" \n\r"+  Ti.App.Properties.getString('feii_tobacco_status') +"\n\r "+  Ti.App.Properties.getString('feii_premium_period') +"\n\r "+ Ti.App.Properties.getString('feii_face_amount'));
-    if (Ti.App.Properties.getString('lspr_name') && Ti.App.Properties.getString('signed') != null) {
+    try { no_calculate.remove(no_calculate.children[0]); }
+	catch(e) {}
+    
+    if (getField('name').value != '' && getField('issue_age').value != '' && getField('type').value != '' && getField('amount').value != '' && getField('signed').value != '') {
         Ti.App.Properties.setString('calculate_button_active', "true");
         var calculate = Ti.UI.createButton({
             //title: "Legacy Gold Preneed Rate Calculator",

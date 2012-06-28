@@ -4,14 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Default.png</key>
-		<data>
-		NxWrT9RwyaC1goNOJdLIqndKf1s=
-		</data>
-		<key>Default@2x.png</key>
-		<data>
-		PVsrSAni+uEPoxb0p05OfljONOY=
-		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
@@ -24,9 +16,17 @@
 		<data>
 		VqYyzyMX+yipQN08a+Gk7ofInzc=
 		</data>
+		<key>default.png</key>
+		<data>
+		ReeLqdoH6KJQ4D0G5q3GKg5JHgw=
+		</data>
+		<key>default@2x.png</key>
+		<data>
+		qP25tFhuMHJKCMUmUtXSZ4WP1O0=
+		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		Qllk/C0G4SFTfFyqXhT+uoYLffA=
+		BpfXGNsgWcXVktadNLaayD3RbFM=
 		</data>
 		<key>ih.sqlite</key>
 		<data>
